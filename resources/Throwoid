@@ -1,0 +1,43 @@
+die
+sub
+halt execution, or be caught by CATCH
+
+warn
+sub
+show error message, or be caught by CONTROL
+
+fail
+sub
+return from Routine with Failure, or be caught by CATCH
+
+return
+sub method
+return from Routine with given value, or be caught by CONTROL
+
+next
+sub
+proceed with next iteration, or be caught by CONTROL
+
+redo
+sub
+restart current iteration, or be caught by CONTROL
+
+last
+sub
+stop iterating, or be caught by CONTROL
+
+proceed
+sub
+continue with next when/default, or be caught by CONTROL
+
+succeed
+sub
+continue after last when/default, or be caught by CONTROL
+
+done
+sub
+call "done" callback on taps, or be caught by CONTROL
+
+emit
+sub method
+emit given value to active supply, or be caught by CONTROL

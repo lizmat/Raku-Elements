@@ -1,0 +1,18 @@
+{
+  "auth": "zef:lizmat",
+  "authors": [
+    "Elizabeth Mattijsen"
+  ],
+  "depends": [
+  ],
+  "description": "The Elements of the Raku Programming Language",
+  "license": "Artistic-2.0",
+  "name": "Raku::Elements",
+  "provides": {
+    "Raku::Elements": "lib/Raku/Elements.rakumod"
+  },
+  "raku": "6.d",
+  "tags": [ "RAKU", "ELEMENTS"
+  ],
+  "version": "0.0.1"
+}

@@ -1,0 +1,19 @@
+..
+infix
+range inclusive
+
+^..
+infix
+range excluding start
+
+..^
+infix
+range excluding end
+
+^..^
+infix
+range exclusive
+
+minmax
+infix
+range including min and max value

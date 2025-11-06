@@ -1,0 +1,14 @@
+cmp
+infix
+equivalence order comparison
+
+<=>
+infix
+numerical order comparison
+
+leg
+infix
+string order comparison
+
+
+Return an `Order` enum

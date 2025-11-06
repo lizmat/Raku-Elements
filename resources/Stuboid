@@ -1,0 +1,11 @@
+???
+term macro
+warn about stub code executed
+
+...
+term macro
+fail with stub code executed error
+
+!!!
+term macro
+die with stub code executed error

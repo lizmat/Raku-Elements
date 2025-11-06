@@ -1,0 +1,7 @@
+does
+infix
+mutating role mixin
+
+but
+infix
+cloning role mixin

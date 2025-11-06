@@ -1,0 +1,25 @@
+>>op<< | »op« 
+infix syntax
+produce operator results for equal lists
+
+>>op>> | »op»
+infix syntax
+produce operator results, left side leading
+
+<<op<< | «op«
+infix syntax
+produce operator results, right side leading
+
+<<op>> | «op»
+infix syntax
+produce operator results, longest side leading
+
+Zop
+infix syntax
+produce operator result, shortest side leading
+Default for `op` is `,`
+
+Xop
+infix syntax
+produce operator result for combinations
+Default for `op` is `,`

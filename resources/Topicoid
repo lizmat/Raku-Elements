@@ -1,0 +1,15 @@
+given
+syntax
+topicalize argument for scope
+
+when
+syntax
+if smartmatched topicalize argument for scope
+
+andthen
+infix thunky
+topicalize left for right thunk
+
+orelse
+infix thunky
+low precedence if defined OR, topicalizing left for right thunk

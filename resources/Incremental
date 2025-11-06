@@ -1,0 +1,35 @@
+++
+prefix
+pre-increment by 1
+
+⚛++
+prefix
+atomic pre-increment by 1
+
+--
+prefix
+pre-decrement by 1
+
+⚛--
+prefix
+atomic pre-decrement by 1
+
+++
+postfix
+post-increment by 1
+
+⚛++
+postfix
+atomic post-increment by 1
+
+--
+postfix
+post-decrement by 1
+
+⚛--
+postfix
+atomic post-decrement by 1
+
+
+The atomic versions of -- and ++ were implemented for 6.d.  They can only
+be applied to atomic integers.

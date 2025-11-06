@@ -1,0 +1,23 @@
+get
+sub method
+Read a line from $*STDIN / $*ARGFILES
+
+getc
+sub method
+Read a character from $*STDIN / $*ARGFILES
+
+read
+method
+Read bytes from IO::Handle
+
+write
+method
+Write bytes to IO::Handle
+
+slurp
+sub method
+Read entire contents of IO::Path / IO::Handle
+
+spurt
+sub method
+Replace content of IO::Path / IO::Handle with argument

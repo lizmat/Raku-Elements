@@ -1,0 +1,8 @@
+i
+postfix
+the imaginary unit
+
+ⁿ
+postfix
+integer literal exponentiation
+So `$a²` is the same as `$a ** 2`, etc.  Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.

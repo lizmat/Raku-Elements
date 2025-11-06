@@ -1,0 +1,47 @@
++
+infix
+numeric add
+
+- | −
+infix
+numeric subtract
+
+~
+infix
+string concatenation
+
++&
+infix
+integer AND
+
++|
+infix
+integer OR
+
++^
+infix
+integer XOR
+
+~&
+infix
+string AND
+
+~|
+infix
+string OR
+
+~^
+infix
+string XOR
+
+?&
+infix
+boolean AND
+
+?|
+infix
+boolean OR
+
+?^
+infix
+boolean XOR

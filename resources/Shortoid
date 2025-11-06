@@ -1,0 +1,31 @@
+&&
+infix macro
+high precedence logical AND
+
+and
+infix macro
+low precedence logical AND
+
+||
+infix macro
+high precedence logical OR
+
+or
+infix macro
+low precedence logical OR
+
+^^
+infix macro
+high precedence logical XOR
+
+xor
+infix macro
+low precedence logical XOR
+
+//
+infix macro
+high precedence is defined OR
+
+notandthen
+infix macro
+Empty if first defined, else last

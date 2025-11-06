@@ -1,0 +1,23 @@
+∅
+term
+empty Set
+
+(|) | ∪
+infix
+quanthash union
+
+(+) | ⊎
+infix
+quanthash addition
+
+(.) | ⊍
+infix
+quanthash multiplication
+
+(-) | ∖
+infix
+quanthash difference
+
+(^) | ⊖
+infix
+quanthash symmetric difference

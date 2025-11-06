@@ -1,0 +1,76 @@
+=begin pod
+
+=head1 NAME
+
+Raku::Elements - The Elements of the Raku Programming Language
+
+=head1 SYNOPSIS
+
+=begin code :lang<raku>
+
+use Raku::Elements;
+
+=end code
+
+=head1 DESCRIPTION
+
+The C<Raku::Elements> distribution attempts to provide a programmatical
+interface to an alternate description of the Raku Programming Language,
+inspired by the "Periodic Table of the Operators" by I<Mark Lentczner>.
+
+It basically provides an (incomplete) overview of the features of the
+Raku Programming Language, sorted into groups in a way similar to the
+"Periodic Table of Elements".
+
+=head1 GROUPS
+
+=head1 CLASSES
+
+=head2 Raku::Elements
+
+=head2 Raku::Element
+
+=head3 name
+
+The name of the element.  This may be non-alphabetic, specifically in
+the case of operators such as C<+>.
+
+=head3 alternates
+
+Alternate names of the element, for instance an Unicode version versus
+an ASCII version of an operator, such as C<∈> as al alternate name for
+C<(elem)>.  Usually empty.
+
+=head3 tagline
+
+The tagline of the element: a one-line description.
+
+=head3 description
+
+A more general description of the element.  Optional.
+
+=head3 tags
+
+A list of tags that apply to this element, e.g. C<infix> for an infix
+operator.  Has at least one element.
+
+=head1 AUTHOR
+
+Elizabeth Mattijsen <liz@raku.rocks>
+
+Source can be located at: https://github.com/lizmat/Raku-Elements .
+Comments and Pull Requests are welcome.
+
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2025 Elizabeth Mattijsen
+
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
+=end pod
+
+# vim: expandtab shiftwidth=4

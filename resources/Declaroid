@@ -1,0 +1,11 @@
+my
+syntax
+define something in MY:: scope
+
+our
+syntax
+define something in OUR:: scope
+
+anon
+syntax
+define something without storing it in a scope

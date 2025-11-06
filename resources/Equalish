@@ -1,0 +1,55 @@
+~~
+infix
+smart match
+
+eqv
+infix
+canonical equivalence
+
+eq
+infix
+string equality
+
+==
+infix
+numeric equality
+
+=~= | ≅
+infix
+numeric almost equal
+
+===
+infix
+value identity
+
+=:=
+infix
+value identity without decontainerization
+
+(elem) | ∈
+infix
+is element in
+
+(cont) | ∋
+infix
+contains element
+
+(<) | ⊂
+infix
+is strict quanthash subset
+
+(<=) | ⊆
+infix
+is quanthash subset
+
+(==) | ≡
+infix
+quanthash equality
+
+(>=) | ⊇
+infix
+is quanthash superset
+
+(>) | ⊃
+infix
+is strict quanthash superset

@@ -1,0 +1,15 @@
+print
+sub method
+stringify argument(s), write to $*STDOUT
+
+say
+sub method
+create gist of argument(s), add newline, write to $*STDOUT
+
+put
+sub method
+stringify argument(s), add newline, write to $*STDOUT
+
+note
+sub method
+create gist of argument(s), add newline, write to $*STDERR

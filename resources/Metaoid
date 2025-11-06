@@ -1,0 +1,11 @@
+op=
+infix syntax
+store result of operator on left/right on left side
+
+Rop
+infix syntax
+produce result of operator with arguments reversed
+
+!op
+index syntax
+negate result of iffy operator on arguments

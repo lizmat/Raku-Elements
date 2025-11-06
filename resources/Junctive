@@ -1,0 +1,27 @@
+&
+infix
+junctive all
+
+|
+infix
+junctive any
+
+^
+infix
+junctive one
+
+all
+sub method
+junctive all
+
+any
+sub method
+junctive any
+
+one
+sub method
+junctive one
+
+none
+sub method
+junctive none

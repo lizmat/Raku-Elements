@@ -1,0 +1,37 @@
+.method
+postfix
+method call
+
+. method
+infix
+dotty infix method call
+
+.^method
+postfix
+meta-method call
+
+.?method
+postfix
+call method if any
+
+.*method
+postfix
+call all methods if any
+
+.+method
+postfix
+call all methods
+
+!method
+postfix
+private method call
+
+.=method
+postfix
+incovant mutating method call
+
+
+Dotted postfix operators must be followed by a method name or a subroutine
+name prefixed with `&` (possibly fully qualified), a postfix operator, a
+prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]`
+`{ }` `< >` `« »`.

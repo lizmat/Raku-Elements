@@ -1,0 +1,35 @@
+?? !!
+syntax
+ternary logic
+
+ff
+infix macro
+flip-flop inclusive
+
+^ff
+infix macro
+flip-flop excluding start
+
+ff^
+infix macro
+flip-flop excluding end
+
+^ff^
+infix macro
+flip-flop exclusive
+
+fff
+infix macro
+sed-like flip-flop inclusive
+
+^fff
+infix macro
+sed-like flip-flop excluding start
+
+fff^
+infix macro
+sed-like flip-flop excluding end
+
+^fff^
+infix macro
+sed-like flip-flop exclusive

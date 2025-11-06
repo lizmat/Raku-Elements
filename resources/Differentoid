@@ -1,0 +1,75 @@
+before
+infix
+generic less
+
+<
+infix
+numerically less
+
+lt
+infix
+alphabetically less
+
+<= | ≤
+infix
+numerically less or equal
+
+le
+infix
+alphabetically less or equal
+
+!= | ≠
+infix
+numeric inequality
+
+ne
+infix
+string inequality
+
+>=
+infix
+numerically more or equal
+
+ge
+infix
+alphabetically more or equal
+
+>
+infix
+numerically more
+
+gt
+infix
+alphabetically more
+
+after
+infix
+generic more
+
+!(elem) | ∉
+infix
+is not element in
+
+!(cont) | ∌
+infix
+does not contain element
+
+!(<) | ⊄
+infix
+is not a strict quanthash subset
+
+!(<=) | ⊈
+infix
+is not a quanthash subset
+
+!(==) | ≢
+infix
+quanthash inequality
+
+!(>=) | ⊉
+infix
+is not a quanthash superset
+
+!(>) | ⊅
+infix
+is not a strict quanthash superset

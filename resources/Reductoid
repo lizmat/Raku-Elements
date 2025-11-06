@@ -1,0 +1,19 @@
+minmax
+infix sub method
+reduce values to Range of min and max value
+
+min
+infix sub method
+reduce values to smallest value
+
+max
+infix sub method
+reduce values to largest value
+
+[op]
+prefix syntax
+reduce using given infix operator
+
+[\op]
+prefix syntax
+produce steps of reduction using given infix operator

@@ -1,0 +1,15 @@
+...
+infix
+smart sequence inclusive
+
+^...
+infix
+smart sequence excluding start
+
+...^
+infix
+smart sequence excluding end
+
+^...^
+infix
+smart sequence exclusive

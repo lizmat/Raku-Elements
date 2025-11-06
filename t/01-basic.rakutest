@@ -1,0 +1,8 @@
+use Test;
+use Raku::Elements;
+
+plan 1;
+
+pass "Module loaded ok";
+
+# vim: expandtab shiftwidth=4

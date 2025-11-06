@@ -1,0 +1,11 @@
+now
+term
+Instant of current time
+
+time
+term
+POSIX time in seconds
+
+nano
+term
+POSIX time in nano seconds

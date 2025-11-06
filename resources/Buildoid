@@ -1,0 +1,59 @@
+=>
+infix
+Pair constructor, named argument specification
+
+,
+infix
+List constructor
+
+[ ]
+circumfix
+Array constructor
+
+{ }
+circumfix
+Hash constructor
+
+:{ }
+circumfix
+Object Hash constructor
+
+' '
+syntax
+literal string constructor
+
+" "
+syntax
+literal string constructor with interpolation
+
+< >
+syntax
+literal word list constructor
+
+<< >> | « »
+syntax
+literal word list constructor with interpolation
+
+$( )
+syntax
+turn argument(s) into an item
+
+item
+sub method
+turn argument(s) into an item
+
+@( )
+syntax
+turn argument(s) into a list
+
+list
+sub method
+turn argument(s) into a list
+
+%( )
+syntax
+turn argument(s) into a hash
+
+hash
+sub method
+turn argument(s) into a hash

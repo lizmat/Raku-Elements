@@ -1,0 +1,43 @@
+div
+infix
+integer divide
+
+mod
+infix
+integer modulus
+
+gcd
+infix
+greatest common divisor
+
+lcm
+infix
+lowest common multiple
+
+* | ×
+infix
+multiply
+
+/ | ÷
+infix
+divide
+
+**
+infix
+exponentiation
+
+%
+infix
+modulus
+
+%%
+infix
+is divisible
+
++<
+infix
+integer shift left
+
++>
+infix
+integer shift right

@@ -1,0 +1,7 @@
+=
+infix macro
+bind right value in left container
+
+:=
+infix macro
+bind right value to left lexpad entry
