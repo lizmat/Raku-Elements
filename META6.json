@@ -3,6 +3,8 @@
   "authors": [
     "Elizabeth Mattijsen"
   ],
+  "build-depends": [
+  ],
   "depends": [
   ],
   "description": "The Elements of the Raku Programming Language",
@@ -12,7 +14,14 @@
     "Raku::Elements": "lib/Raku/Elements.rakumod"
   },
   "raku": "6.d",
-  "tags": [ "RAKU", "ELEMENTS"
+  "resources": [
+  ],
+  "source-url": "",
+  "tags": [
+    "RAKU",
+    "ELEMENTS"
+  ],
+  "test-depends": [
   ],
   "version": "0.0.1"
 }
