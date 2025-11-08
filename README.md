@@ -24,10 +24,8 @@ Please note that this is still very much a work in progress: a lot of explanator
 ELEMENTS
 ========
 
-[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Complementary`](#Complementary) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Junctive`](#Junctive) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Multiplicoid`](#Multiplicoid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Rolific`](#Rolific) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termic`](#Termic) [`Throwoid`](#Throwoid) [`Timeoid`](#Timeoid) [`Topicoid`](#Topicoid)
-
-Addenoid [↑](#ELEMENTS)
------------------------
+Addenoid
+--------
 
 The Addenoid group contains all infix operators that could be considered doing addition or substraction functions.
 
@@ -81,8 +79,8 @@ The Addenoid group contains all infix operators that could be considered doing a
 
   * tags: infix
 
-Bindoid [↑](#ELEMENTS)
-----------------------
+Bindoid
+-------
 
 ### `=` bind right value in left container
 
@@ -92,8 +90,8 @@ Bindoid [↑](#ELEMENTS)
 
   * tags: infix macro
 
-Buildoid [↑](#ELEMENTS)
------------------------
+Buildoid
+--------
 
 ### `=>` Pair constructor, named argument specification
 
@@ -157,8 +155,8 @@ Buildoid [↑](#ELEMENTS)
 
   * tags: sub method
 
-Complementary [↑](#ELEMENTS)
-----------------------------
+Complementary
+-------------
 
 ### `+` numerify
 
@@ -214,8 +212,8 @@ The meaning of prefix `|` was expanded in 6.c to be beyond the use within signat
 
   * tags: prefix
 
-Declaroid [↑](#ELEMENTS)
-------------------------
+Declaroid
+---------
 
 ### `my` define something in MY:: scope
 
@@ -229,8 +227,8 @@ Declaroid [↑](#ELEMENTS)
 
   * tags: syntax
 
-Differentoid [↑](#ELEMENTS)
----------------------------
+Differentoid
+------------
 
 ### `before` generic less
 
@@ -326,8 +324,8 @@ Differentoid [↑](#ELEMENTS)
 
   * tags: infix
 
-Equalish [↑](#ELEMENTS)
------------------------
+Equalish
+--------
 
 ### `~~` smart match
 
@@ -401,8 +399,8 @@ Equalish [↑](#ELEMENTS)
 
   * tags: infix
 
-Expansive [↑](#ELEMENTS)
-------------------------
+Expansive
+---------
 
 ### `i` the imaginary unit
 
@@ -414,8 +412,8 @@ Expansive [↑](#ELEMENTS)
 
 So `$a²` is the same as `$a ** 2`, etc. Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.
 
-Feedoid [↑](#ELEMENTS)
-----------------------
+Feedoid
+-------
 
 ### `==>` feed left to right
 
@@ -425,8 +423,8 @@ Feedoid [↑](#ELEMENTS)
 
   * tags: infix
 
-Flippant [↑](#ELEMENTS)
------------------------
+Flippant
+--------
 
 ### `?? !!` ternary logic
 
@@ -464,8 +462,8 @@ Flippant [↑](#ELEMENTS)
 
   * tags: infix macro
 
-Hyperoid [↑](#ELEMENTS)
------------------------
+Hyperoid
+--------
 
 ### `>>op<<` produce operator results for equal lists
 
@@ -499,8 +497,8 @@ Hyperoid [↑](#ELEMENTS)
 
   * tags: infix syntax
 
-IOoid [↑](#ELEMENTS)
---------------------
+IOoid
+-----
 
 ### `get` Read a line from `$*STDIN` / `$*ARGFILES`
 
@@ -526,8 +524,8 @@ IOoid [↑](#ELEMENTS)
 
   * tags: sub method
 
-Incremental [↑](#ELEMENTS)
---------------------------
+Incremental
+-----------
 
 The atomic versions of -- and ++ were implemented for 6.d. They can only be applied to atomic integers.
 
@@ -563,8 +561,8 @@ The atomic versions of -- and ++ were implemented for 6.d. They can only be appl
 
   * tags: postfix
 
-Junctive [↑](#ELEMENTS)
------------------------
+Junctive
+--------
 
 ### `&` junctive all
 
@@ -594,8 +592,8 @@ Junctive [↑](#ELEMENTS)
 
   * tags: sub method
 
-Mathematicals [↑](#ELEMENTS)
-----------------------------
+Mathematicals
+-------------
 
 ### `pi` The number π (3.1415...)
 
@@ -625,8 +623,8 @@ Mathematicals [↑](#ELEMENTS)
 
   * tags: term
 
-Metaoid [↑](#ELEMENTS)
-----------------------
+Metaoid
+-------
 
 ### `op=` store result of operator on left/right on left side
 
@@ -640,8 +638,8 @@ Metaoid [↑](#ELEMENTS)
 
   * tags: index syntax
 
-Methodic [↑](#ELEMENTS)
------------------------
+Methodic
+--------
 
 Dotted postfix operators must be followed by a method name or a subroutine name prefixed with `&` (possibly fully qualified), a postfix operator, a prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]` `{ }` `< >` `« »`.
 
@@ -677,8 +675,8 @@ Dotted postfix operators must be followed by a method name or a subroutine name 
 
   * tags: postfix
 
-Multiplicoid [↑](#ELEMENTS)
----------------------------
+Multiplicoid
+------------
 
 ### `div` integer divide
 
@@ -728,8 +726,8 @@ Multiplicoid [↑](#ELEMENTS)
 
   * tags: infix
 
-Orderoid [↑](#ELEMENTS)
------------------------
+Orderoid
+--------
 
 Return an `Order` enum
 
@@ -745,8 +743,8 @@ Return an `Order` enum
 
   * tags: infix
 
-Quantoid [↑](#ELEMENTS)
------------------------
+Quantoid
+--------
 
 ### `∅` empty Set
 
@@ -782,8 +780,8 @@ Quantoid [↑](#ELEMENTS)
 
   * tags: infix
 
-Rangoid [↑](#ELEMENTS)
-----------------------
+Rangoid
+-------
 
 ### `..` range inclusive
 
@@ -805,8 +803,8 @@ Rangoid [↑](#ELEMENTS)
 
   * tags: infix
 
-Reductoid [↑](#ELEMENTS)
-------------------------
+Reductoid
+---------
 
 ### `minmax` reduce values to Range of min and max value
 
@@ -828,8 +826,8 @@ Reductoid [↑](#ELEMENTS)
 
   * tags: prefix syntax
 
-Replicant [↑](#ELEMENTS)
-------------------------
+Replicant
+---------
 
 ### `x` string repetition
 
@@ -839,8 +837,8 @@ Replicant [↑](#ELEMENTS)
 
   * tags: infix
 
-Rolific [↑](#ELEMENTS)
-----------------------
+Rolific
+-------
 
 ### `does` mutating role mixin
 
@@ -850,8 +848,8 @@ Rolific [↑](#ELEMENTS)
 
   * tags: infix
 
-Sequoid [↑](#ELEMENTS)
-----------------------
+Sequoid
+-------
 
 ### `...` smart sequence inclusive
 
@@ -869,8 +867,8 @@ Sequoid [↑](#ELEMENTS)
 
   * tags: infix
 
-Shortoid [↑](#ELEMENTS)
------------------------
+Shortoid
+--------
 
 ### `&&` high precedence logical AND
 
@@ -904,8 +902,8 @@ Shortoid [↑](#ELEMENTS)
 
   * tags: infix macro
 
-Stuboid [↑](#ELEMENTS)
-----------------------
+Stuboid
+-------
 
 ### `???` warn about stub code executed
 
@@ -919,8 +917,8 @@ Stuboid [↑](#ELEMENTS)
 
   * tags: term macro
 
-Talkoid [↑](#ELEMENTS)
-----------------------
+Talkoid
+-------
 
 ### `print` stringify argument(s), write to `$*STDOUT`
 
@@ -938,8 +936,8 @@ Talkoid [↑](#ELEMENTS)
 
   * tags: sub method
 
-Termic [↑](#ELEMENTS)
----------------------
+Termic
+------
 
 ### `self` invocant in method
 
@@ -949,8 +947,8 @@ Termic [↑](#ELEMENTS)
 
   * tags: term
 
-Throwoid [↑](#ELEMENTS)
------------------------
+Throwoid
+--------
 
 ### `die` halt execution, or be caught by CATCH
 
@@ -996,8 +994,8 @@ Throwoid [↑](#ELEMENTS)
 
   * tags: sub method
 
-Timeoid [↑](#ELEMENTS)
-----------------------
+Timeoid
+-------
 
 ### `now` Instant of current time
 
@@ -1011,8 +1009,8 @@ Timeoid [↑](#ELEMENTS)
 
   * tags: term
 
-Topicoid [↑](#ELEMENTS)
------------------------
+Topicoid
+--------
 
 ### `given` topicalize argument for scope
 
