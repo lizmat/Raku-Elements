@@ -19,11 +19,13 @@ The `Raku::Elements` distribution attempts to provide a programmatical interface
 
 It basically provides an (incomplete) overview of the features of the Raku Programming Language, sorted into groups in a way similar to the "Periodic Table of Elements".
 
-GROUPS
-======
+ELEMENTS
+========
 
 Addenoid
 --------
+
+The Addenoid group contains all infix operators that could be considered doing addition or substraction functions.
 
 ### `+` numeric add
 
@@ -198,9 +200,11 @@ Complementary
 
   * tags: prefix
 
-### `|` flatten args, slip iterable
+### [`|` flatten args, slip iterable](https://docs.raku.org/syntax/%7C)
 
   * tags: prefix
+
+The meaning of prefix `|` was expanded in 6.c to be beyond the use within signatures, to mean converting any iterable to a `Slip` (a special type of `list` that will always be iterated).
 
 ### `⚛` atomic integer access
 
@@ -400,7 +404,7 @@ Expansive
 
   * tags: postfix
 
-### `ⁿ` integer literal exponentiation
+### [`ⁿ` integer literal exponentiation](https://docs.raku.org/routine/%2A%2A)
 
   * tags: postfix
 
@@ -461,13 +465,13 @@ Hyperoid
 
 ### `>>op<<` produce operator results for equal lists
 
-  * alternates: ``op« »
+  * alternates: `»op« `
 
   * tags: infix syntax
 
 ### `>>op>>` produce operator results, left side leading
 
-  * alternates: ``op»»
+  * alternates: `»op»`
 
   * tags: infix syntax
 
@@ -483,26 +487,22 @@ Hyperoid
 
   * tags: infix syntax
 
-### `Zop` produce operator result, shortest side leading
+### [`Zop` produce operator result, shortest side leading](Default for `op` is `,`)
 
   * tags: infix syntax
 
-Default for `op` is `,`
-
-### `Xop` produce operator result for combinations
+### [`Xop` produce operator result for combinations](Default for `op` is `,`)
 
   * tags: infix syntax
-
-Default for `op` is `,`
 
 IOoid
 -----
 
-### `get` Read a line from $*STDIN / $*ARGFILES
+### `get` Read a line from `$*STDIN` / `$*ARGFILES`
 
   * tags: sub method
 
-### `getc` Read a character from $*STDIN / $*ARGFILES
+### `getc` Read a character from `$*STDIN` / `$*ARGFILES`
 
   * tags: sub method
 
@@ -524,6 +524,8 @@ IOoid
 
 Incremental
 -----------
+
+The atomic versions of -- and ++ were implemented for 6.d. They can only be applied to atomic integers.
 
 ### `++` pre-increment by 1
 
@@ -637,6 +639,8 @@ Metaoid
 Methodic
 --------
 
+Dotted postfix operators must be followed by a method name or a subroutine name prefixed with `&` (possibly fully qualified), a postfix operator, a prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]` `{ }` `< >` `« »`.
+
 ### `.method` method call
 
   * tags: postfix
@@ -722,6 +726,8 @@ Multiplicoid
 
 Orderoid
 --------
+
+Return an `Order` enum
 
 ### `cmp` equivalence order comparison
 
@@ -912,19 +918,19 @@ Stuboid
 Talkoid
 -------
 
-### `print` stringify argument(s), write to $*STDOUT
+### `print` stringify argument(s), write to `$*STDOUT`
 
   * tags: sub method
 
-### `say` create gist of argument(s), add newline, write to $*STDOUT
+### `say` create gist of argument(s), add newline, write to `$*STDOUT`
 
   * tags: sub method
 
-### `put` stringify argument(s), add newline, write to $*STDOUT
+### `put` stringify argument(s), add newline, write to `$*STDOUT`
 
   * tags: sub method
 
-### `note` create gist of argument(s), add newline, write to $*STDERR
+### `note` create gist of argument(s), add newline, write to `$*STDERR`
 
   * tags: sub method
 
