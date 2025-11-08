@@ -5,4 +5,5 @@ the imaginary unit
 ⁿ
 postfix
 integer literal exponentiation
+https://docs.raku.org/routine/%2A%2A
 So `$a²` is the same as `$a ** 2`, etc.  Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.

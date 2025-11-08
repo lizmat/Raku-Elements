@@ -1,4 +1,6 @@
 Revision history for Raku::Elements
 
 {{$NEXT}}
-    - Initial version
+
+0.0.1  2025-11-08T20:57:45+01:00
+    - Initial version, with much to be done still

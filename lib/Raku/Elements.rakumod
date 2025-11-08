@@ -1,25 +1,56 @@
+my constant groups-prefix = 'groups/';
+my constant @groups = $?DISTRIBUTION.meta<resources>.map: {
+    .substr(7) if .starts-with(groups-prefix);
+}
+
+#- Element ---------------------------------------------------------------------
 class Raku::Element:ver<0.0.1>:auth<zef:lizmat> {
     has str $.name;
-    has str @.alternates;
+    has     @.alternates;
     has     @.tags;
     has str $.tagline;
+    has str $.url;
     has str $.description;
 
-    method TWEAK(--> Nil) { @!tags := @!tags.List }
-
-    method rakudoc(Raku::Element:D: --> Str:D) {
-        my str @parts = "=head2 $!name - $!tagline\n";
-        @parts.push: "=item tags - @!tags[]\n";
-        @parts.push: "\n$!description\n" if $!description;
-        @parts.push: "\n";
-        @parts.join
+    method TWEAK(--> Nil) {
+        @!alternates := @!alternates.List;
+        @!tags       := @!tags.List;
     }
 }
 
+#- Group -----------------------------------------------------------------------
+class Raku::Group:ver<0.0.1>:auth<zef:lizmat> {
+    has str $.name;
+    has str $.description;
+    has     @.elements;
+
+    method TWEAK(--> Nil) {
+        @!elements := @!elements.List;
+    }
+}
+
+#- Elements --------------------------------------------------------------------
 class Raku::Elements:ver<0.0.1>:auth<zef:lizmat> {
-    method elements-from-io($io) {
-        my @lines = $io.lines;
-        gather {
+    has %.elements;
+    has %.groups;
+    has %.tags;
+
+    method TWEAK(--> Nil) {
+        $_ = .List for %!elements.values;
+        %!elements := %!elements.Map;
+        %!groups   := %!groups.Map;
+        %!tags     := %!tags.Map;
+    }
+
+    method new() {
+        my %elements;
+        my %groups;
+        my %tags;
+
+        for @groups {
+            my @elements;
+
+            my @lines = %?RESOURCES{groups-prefix ~ $_}.lines;
             while @lines {
                 my $names := @lines.shift;
                 last unless $names;
@@ -33,12 +64,21 @@ class Raku::Elements:ver<0.0.1>:auth<zef:lizmat> {
                     @parts.push: $line;
                 }
 
-                take Raku::Element.new(
-                  :$name, :@alternates, :@tags, :$tagline,
+                my str $url = @parts.shift if @parts;
+                my $element := Raku::Element.new(
+                  :$name, :@alternates, :@tags, :$tagline, :$url,
                   :description(@parts.join("\n"))
-                )
+                );
+                @elements.push: $element;
+                %elements{$_}.push($element) for $name, |@alternates;
             }
+
+            %groups{$_} := Raku::Group.new(
+              :name($_), :description(@lines.join("\n")), :@elements
+            );
         }
+
+        self.bless(:%elements, :%groups, :%tags)
     }
 }
 

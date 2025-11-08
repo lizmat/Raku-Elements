@@ -41,12 +41,11 @@ is defined
 |
 prefix
 flatten args, slip iterable
+https://docs.raku.org/syntax/%7C
+The meaning of prefix `|` was expanded in 6.c to be beyond the use within
+signatures, to mean converting any iterable to a `Slip` (a special type of
+`list` that will always be iterated).
 
 ⚛
 prefix
 atomic integer access
-
-
-The meaning of prefix `|` was expanded in 6.c to be beyond the use within
-signatures, to mean converting any iterable to a `Slip` (a special type of
-`list` that will always be iterated).
