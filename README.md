@@ -19,6 +19,8 @@ The `Raku::Elements` distribution attempts to provide a programmatical interface
 
 It basically provides an (incomplete) overview of the features of the Raku Programming Language, sorted into groups in a way similar to the "Periodic Table of Elements".
 
+Please note that this is still very much a work in progress: a lot of explanatory texts still need to be added. Pull requests are **very** welcome!
+
 ELEMENTS
 ========
 
@@ -1032,6 +1034,33 @@ CLASSES
 Raku::Elements
 --------------
 
+The programmatical interface to the elements of the Raku Programming Language.
+
+### elements
+
+A `Map` with the elements of the Raku Programming Language. The key represents either the name of an `Raku::Element`, or one of its alternates. The value is a `List` of one or more `Raku::Element` objects that share the same name (but may have different tags).
+
+### groups
+
+A `Map` with `Raku::Group` object, keyed to their name.
+
+Raku::Group
+-----------
+
+The information about an element group.
+
+### name
+
+The name of the element group.
+
+### description
+
+The description of the element group (if any)
+
+### elements
+
+A list of `Raku::Element` objects belonging to this group.
+
 Raku::Element
 -------------
 
@@ -1043,17 +1072,21 @@ The name of the element. This may be non-alphabetic, specifically in the case of
 
 Alternate names of the element, for instance an Unicode version versus an ASCII version of an operator, such as `∈` as al alternate name for `(elem)`. Usually empty.
 
+### tags
+
+A list of tags that apply to this element, e.g. `infix` for an infix operator. Has at least one element.
+
 ### tagline
 
 The tagline of the element: a one-line description.
 
+### url
+
+A URL for more information about this element.
+
 ### description
 
 A more general description of the element. Optional.
-
-### tags
-
-A list of tags that apply to this element, e.g. `infix` for an infix operator. Has at least one element.
 
 AUTHOR
 ======
@@ -1063,6 +1096,30 @@ Elizabeth Mattijsen <liz@raku.rocks>
 Source can be located at: https://github.com/lizmat/Raku-Elements . Comments and Pull Requests are welcome.
 
 If you like this module, or what I’m doing more generally, committing to a [small sponsorship](https://github.com/sponsors/lizmat/) would mean a great deal to me!
+
+RESOURCE FILES
+==============
+
+This distribution keeps all of the text files as resources, to be read when they are needed (as opposed to keeping them all in the binary).
+
+The `resources` directory contains a `groups` directory that contains all of the information for each group in a separat file.
+
+Group file format
+-----------------
+
+The format of the group file is very simple line based.
+
+All entries are separated by an empty line. The first line contains the names of the element separated by the string `| ` (space, pipe, space). There must be at least one name. The first name becomes the `name` of the element, the others become `aliases`.
+
+The second line contains theo tags as space separated words. There must be at least a single tag.
+
+The third line contains the tagline of the element.
+
+The fourth line (if not empty) contains the URL for more information,
+
+Any other lines until an empty line, contains the description of the element.
+
+If the first line is empty, then the rest of the file contains the description of the group (so you can recognize the description as the text after the first 2 empty lines). If there are no 2 empty lines, then there is no description for the group.
 
 COPYRIGHT AND LICENSE
 =====================
