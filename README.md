@@ -29,7 +29,7 @@ ELEMENTS
 Addenoid
 --------
 
-contains all infix operators that could be considered doing addition or substraction functions.
+The Addenoid group contains all infix operators that could be considered doing addition or substraction functions.
 
 ### `+` numeric add
 
@@ -84,7 +84,7 @@ contains all infix operators that could be considered doing addition or substrac
 Bindoid
 -------
 
-contains all macro-ish infix operators that perform raw binding, possibly into a container (which would make it an assignment).
+The Bindoid group contains all macro-ish infix operators that perform raw binding, possibly into a container (which would make it an assignment).
 
 ### `=` bind right value in left container
 
@@ -97,7 +97,7 @@ contains all macro-ish infix operators that perform raw binding, possibly into a
 Buildoid
 --------
 
-contains all elements that convert a given set of arguments into one of a Scalar, Pair, Positional or Associative object.
+The Buildoid group contains all elements that convert a given set of arguments into one of a Scalar, Pair, Positional or Associative object.
 
 ### `=>` Pair constructor, named argument specification
 
@@ -164,10 +164,12 @@ contains all elements that convert a given set of arguments into one of a Scalar
 Complementary
 -------------
 
+The Complementary group 
+
 Declaroid
 ---------
 
-contains the syntax for indicating the scope of an element to be defined.
+The Declaroid group contains the syntax for indicating the scope of an element to be defined.
 
 ### `my` define something in MY:: scope
 
@@ -184,7 +186,7 @@ contains the syntax for indicating the scope of an element to be defined.
 Differentoid
 ------------
 
-contains the infix operators that return True if the compared elements are different in a way, and False if they are considered equal in that way.
+The Differentoid group contains the infix operators that return True if the compared elements are different in a way, and False if they are considered equal in that way.
 
 ### `before` generic less
 
@@ -283,7 +285,7 @@ contains the infix operators that return True if the compared elements are diffe
 Equalish
 --------
 
-contains the infix operators that return True if the compared elements are considered equal in a way, and False if they are considered different in that way.
+The Equalish group contains the infix operators that return True if the compared elements are considered equal in a way, and False if they are considered different in that way.
 
 ### `~~` smart match
 
@@ -360,39 +362,41 @@ contains the infix operators that return True if the compared elements are consi
 Expansive
 ---------
 
-contains the postfix operators that expand on numeric values.
+The Expansive group contains the postfix operators that expand on numeric values.
 
 ### [`i` numeric multiplication with the imaginary unit (√-1)](https://docs.raku.org/type/Complex#postfix_i)
 
   * tags: postfix
 
-The Expansive group `4i` is the same as `0+4i`. Needs grouping for variables `($a)i` because otherwise the `i` will be considered part of the variable name.
+`4i` is the same as `0+4i`. Needs grouping for variables `($a)i` because otherwise the `i` will be considered part of the variable name.
 
 ### [`ⁿ` numeric literal integer exponentiation](https://docs.raku.org/routine/%2A%2A)
 
   * tags: postfix
 
-The Expansive group So `$a²` is the same as `$a ** 2`, etc. Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.
+So `$a²` is the same as `$a ** 2`, etc. Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.
 
 Feedoid
 -------
 
-contains the operators that provide an alternate way for creating a sequence of operations, where the result of one such operation become the argument(s) for the next operation.
+The Feedoid group contains the operators that provide an alternate way for creating a sequence of operations, where the result of one such operation become the argument(s) for the next operation.
 
 ### [`==>` feed left to right](https://docs.raku.org/language/operators#infix_==%3E)
 
   * tags: infix
 
-The Feedoid group `(1,2,3,4) ==> sum() ==> say()` as opposed to `say sum (1,2,3,4)` or `(1,2,3,4).sum.say`.
+`(1,2,3,4) ==> sum() ==> say()` as opposed to `say sum (1,2,3,4)` or `(1,2,3,4).sum.say`.
 
 ### [`<==` feed right to left](https://docs.raku.org/language/operators#infix_%3C==)
 
   * tags: infix
 
-The Feedoid group `say() <== sum() <== (1,2,3,4)` as opposed to `say sum (1,2,3,4)` or `(1,2,3,4).sum.say`.
+`say() <== sum() <== (1,2,3,4)` as opposed to `say sum (1,2,3,4)` or `(1,2,3,4).sum.say`.
 
 Flippant
 --------
+
+The Flippant group 
 
 ### `?? !!` ternary logic
 
@@ -433,6 +437,8 @@ Flippant
 Hyperoid
 --------
 
+The Hyperoid group 
+
 ### `>>op<<` produce operator results for equal lists
 
   * alternates: `»op« `
@@ -468,6 +474,8 @@ Hyperoid
 IOoid
 -----
 
+The IOoid group 
+
 ### `get` Read a line from `$*STDIN` / `$*ARGFILES`
 
   * tags: sub method
@@ -495,7 +503,7 @@ IOoid
 Incremental
 -----------
 
-The atomic versions of -- and ++ were implemented for 6.d. They can only be applied to atomic integers.
+The Incremental group The atomic versions of -- and ++ were implemented for 6.d. They can only be applied to atomic integers.
 
 ### `++` pre-increment by 1
 
@@ -532,6 +540,8 @@ The atomic versions of -- and ++ were implemented for 6.d. They can only be appl
 Junctive
 --------
 
+The Junctive group 
+
 ### `&` junctive all
 
   * tags: infix
@@ -562,6 +572,8 @@ Junctive
 
 Mathematicals
 -------------
+
+The Mathematicals group 
 
 ### `pi` The number π (3.1415...)
 
@@ -594,6 +606,8 @@ Mathematicals
 Metaoid
 -------
 
+The Metaoid group 
+
 ### `op=` store result of operator on left/right on left side
 
   * tags: infix syntax
@@ -609,7 +623,7 @@ Metaoid
 Methodic
 --------
 
-Dotted postfix operators must be followed by a method name or a subroutine name prefixed with `&` (possibly fully qualified), a postfix operator, a prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]` `{ }` `< >` `« »`.
+The Methodic group Dotted postfix operators must be followed by a method name or a subroutine name prefixed with `&` (possibly fully qualified), a postfix operator, a prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]` `{ }` `< >` `« »`.
 
 ### `.method` method call
 
@@ -645,6 +659,8 @@ Dotted postfix operators must be followed by a method name or a subroutine name 
 
 Multiplicoid
 ------------
+
+The Multiplicoid group 
 
 ### `div` integer divide
 
@@ -697,7 +713,7 @@ Multiplicoid
 Orderoid
 --------
 
-Return an `Order` enum
+The Orderoid group Return an `Order` enum
 
 ### `cmp` equivalence order comparison
 
@@ -713,6 +729,8 @@ Return an `Order` enum
 
 Quantoid
 --------
+
+The Quantoid group 
 
 ### `∅` empty Set
 
@@ -751,6 +769,8 @@ Quantoid
 Rangoid
 -------
 
+The Rangoid group 
+
 ### `..` range inclusive
 
   * tags: infix
@@ -773,6 +793,8 @@ Rangoid
 
 Reductoid
 ---------
+
+The Reductoid group 
 
 ### `minmax` reduce values to Range of min and max value
 
@@ -797,6 +819,8 @@ Reductoid
 Replicant
 ---------
 
+The Replicant group 
+
 ### `x` string repetition
 
   * tags: infix
@@ -808,6 +832,8 @@ Replicant
 Rolific
 -------
 
+The Rolific group 
+
 ### `does` mutating role mixin
 
   * tags: infix
@@ -818,6 +844,8 @@ Rolific
 
 Sequoid
 -------
+
+The Sequoid group 
 
 ### `...` smart sequence inclusive
 
@@ -837,6 +865,8 @@ Sequoid
 
 Shortoid
 --------
+
+The Shortoid group 
 
 ### `&&` high precedence logical AND
 
@@ -873,6 +903,8 @@ Shortoid
 Stuboid
 -------
 
+The Stuboid group 
+
 ### `???` warn about stub code executed
 
   * tags: term macro
@@ -887,6 +919,8 @@ Stuboid
 
 Talkoid
 -------
+
+The Talkoid group 
 
 ### `print` stringify argument(s), write to `$*STDOUT`
 
@@ -907,6 +941,8 @@ Talkoid
 Termic
 ------
 
+The Termic group 
+
 ### `self` invocant in method
 
   * tags: term
@@ -917,6 +953,8 @@ Termic
 
 Throwoid
 --------
+
+The Throwoid group 
 
 ### `die` halt execution, or be caught by CATCH
 
@@ -965,6 +1003,8 @@ Throwoid
 Timeoid
 -------
 
+The Timeoid group 
+
 ### `now` Instant of current time
 
   * tags: term
@@ -979,6 +1019,8 @@ Timeoid
 
 Topicoid
 --------
+
+The Topicoid group 
 
 ### `given` topicalize argument for scope
 
