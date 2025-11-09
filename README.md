@@ -29,7 +29,7 @@ ELEMENTS
 Addenoid
 --------
 
-The Addenoid group contains all infix operators that could be considered doing addition or substraction functions.
+contains all infix operators that could be considered doing addition or substraction functions.
 
 ### `+` numeric add
 
@@ -84,6 +84,8 @@ The Addenoid group contains all infix operators that could be considered doing a
 Bindoid
 -------
 
+contains all macro-ish infix operators that perform raw binding, possibly into a container (which would make it an assignment).
+
 ### `=` bind right value in left container
 
   * tags: infix macro
@@ -94,6 +96,8 @@ Bindoid
 
 Buildoid
 --------
+
+contains all elements that convert a given set of arguments into one of a Scalar, Pair, Positional or Associative object.
 
 ### `=>` Pair constructor, named argument specification
 
@@ -160,62 +164,10 @@ Buildoid
 Complementary
 -------------
 
-### `+` numerify
-
-  * tags: prefix
-
-### `+^` numeric complement
-
-  * tags: prefix
-
-### `-` numeric negation
-
-  * alternates: `−`
-
-  * tags: prefix
-
-### `^` numeric from zero upto
-
-  * tags: prefix
-
-### `~` stringify
-
-  * tags: prefix
-
-### `?` boolify
-
-  * tags: prefix
-
-### `so` low precedence boolify
-
-  * tags: prefix
-
-### `!` boolean negation
-
-  * alternates: `?^`
-
-  * tags: prefix
-
-### `not` low precedence boolean negation
-
-  * tags: prefix
-
-### `//` is defined
-
-  * tags: prefix
-
-### [`|` flatten args, slip iterable](https://docs.raku.org/syntax/%7C)
-
-  * tags: prefix
-
-The meaning of prefix `|` was expanded in 6.c to be beyond the use within signatures, to mean converting any iterable to a `Slip` (a special type of `list` that will always be iterated).
-
-### `⚛` atomic integer access
-
-  * tags: prefix
-
 Declaroid
 ---------
+
+contains the syntax for indicating the scope of an element to be defined.
 
 ### `my` define something in MY:: scope
 
@@ -231,6 +183,8 @@ Declaroid
 
 Differentoid
 ------------
+
+contains the infix operators that return True if the compared elements are different in a way, and False if they are considered equal in that way.
 
 ### `before` generic less
 
@@ -329,6 +283,8 @@ Differentoid
 Equalish
 --------
 
+contains the infix operators that return True if the compared elements are considered equal in a way, and False if they are considered different in that way.
+
 ### `~~` smart match
 
   * tags: infix
@@ -404,26 +360,36 @@ Equalish
 Expansive
 ---------
 
-### `i` the imaginary unit
+contains the postfix operators that expand on numeric values.
+
+### [`i` numeric multiplication with the imaginary unit (√-1)](https://docs.raku.org/type/Complex#postfix_i)
 
   * tags: postfix
 
-### [`ⁿ` integer literal exponentiation](https://docs.raku.org/routine/%2A%2A)
+The Expansive group `4i` is the same as `0+4i`. Needs grouping for variables `($a)i` because otherwise the `i` will be considered part of the variable name.
+
+### [`ⁿ` numeric literal integer exponentiation](https://docs.raku.org/routine/%2A%2A)
 
   * tags: postfix
 
-So `$a²` is the same as `$a ** 2`, etc. Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.
+The Expansive group So `$a²` is the same as `$a ** 2`, etc. Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.
 
 Feedoid
 -------
 
-### `==>` feed left to right
+contains the operators that provide an alternate way for creating a sequence of operations, where the result of one such operation become the argument(s) for the next operation.
+
+### [`==>` feed left to right](https://docs.raku.org/language/operators#infix_==%3E)
 
   * tags: infix
 
-### `<==` feed right to left
+The Feedoid group `(1,2,3,4) ==> sum() ==> say()` as opposed to `say sum (1,2,3,4)` or `(1,2,3,4).sum.say`.
+
+### [`<==` feed right to left](https://docs.raku.org/language/operators#infix_%3C==)
 
   * tags: infix
+
+The Feedoid group `say() <== sum() <== (1,2,3,4)` as opposed to `say sum (1,2,3,4)` or `(1,2,3,4).sum.say`.
 
 Flippant
 --------
@@ -1119,9 +1085,9 @@ The third line contains the tagline of the element.
 
 The fourth line (if not empty) contains the URL for more information,
 
-Any other lines until an empty line, contains the description of the element.
+Any other lines until an empty line, contains the description of the element. It may contain RakuDoc markup codes.
 
-If the first line is empty, then the rest of the file contains the description of the group (so you can recognize the description as the text after the first 2 empty lines). If there are no 2 empty lines, then there is no description for the group.
+If the first line is empty, then the rest of the file contains the description of the group (so you can recognize the description as the text after the first 2 empty lines). It may contain RakuDoc markup codes. If there are no 2 empty lines, then there is **no** description (yet) for the group.
 
 COPYRIGHT AND LICENSE
 =====================
