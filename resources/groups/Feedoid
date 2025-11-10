@@ -1,7 +1,18 @@
 ==>
 infix
 feed left to right
+https://docs.raku.org/language/operators#infix_==%3E
+C«(1,2,3,4) ==> sum() ==> say()» as opposed to C<say sum (1,2,3,4)>
+or C<(1,2,3,4).sum.say>.
 
 <==
 infix
 feed right to left
+https://docs.raku.org/language/operators#infix_%3C==
+C«say() <== sum() <== (1,2,3,4)» as opposed to C<say sum (1,2,3,4)>
+or C<(1,2,3,4).sum.say>.
+
+
+contains the operators that provide an alternate syntax for creating
+a sequence of operations, where the result of one such operation
+become the argument(s) for the next operation.

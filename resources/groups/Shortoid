@@ -29,3 +29,8 @@ high precedence is defined OR
 notandthen
 infix macro
 Empty if first defined, else last
+
+
+contains the infixish macros that exhibit short-cicuiting behaviour,
+where the right hand side will B<not> be evaluated if a certain condition
+on the left hand side was met.

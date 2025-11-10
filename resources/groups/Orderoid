@@ -11,4 +11,4 @@ infix
 string order comparison
 
 
-Return an `Order` enum
+contains the infix operators that return an C<Order> value.

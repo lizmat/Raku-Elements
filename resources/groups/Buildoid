@@ -57,3 +57,7 @@ turn argument(s) into a hash
 hash
 sub method
 turn argument(s) into a hash
+
+
+contains all elements that convert a given set of arguments into one of
+a Scalar, Pair, Positional or Associative object.

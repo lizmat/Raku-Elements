@@ -31,6 +31,8 @@ postfix
 incovant mutating method call
 
 
+contains the ways a method can be called on an object.
+
 Dotted postfix operators must be followed by a method name or a subroutine
 name prefixed with `&` (possibly fully qualified), a postfix operator, a
 prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]`

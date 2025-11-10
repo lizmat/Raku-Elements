@@ -12,8 +12,11 @@ Euler's number (2.7182...)
 
 i
 term
-The imaginary unit (sqrt(-1))
+The imaginary unit (√-1)
 
 Inf | ∞
 term
 Infinity
+
+
+contains the mathematical terms that are provided by the core.

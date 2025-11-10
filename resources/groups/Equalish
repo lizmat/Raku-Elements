@@ -53,3 +53,8 @@ is quanthash superset
 (>) | ⊃
 infix
 is strict quanthash superset
+
+
+contains the infix operators that return True if the compared elements
+are considered equal in a way, and False if they are considered different
+in that way.

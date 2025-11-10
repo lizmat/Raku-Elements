@@ -1,23 +1,26 @@
 get
 sub method
-Read a line from $*STDIN / $*ARGFILES
+Read a line from C<$*STDIN> / C<$*ARGFILES>
 
 getc
 sub method
-Read a character from $*STDIN / $*ARGFILES
+Read a character from C<$*STDIN> / C<$*ARGFILES>
 
 read
 method
-Read bytes from IO::Handle
+Read bytes from an C<IO::Handle>
 
 write
 method
-Write bytes to IO::Handle
+Write bytes to an C<IO::Handle>
 
 slurp
 sub method
-Read entire contents of IO::Path / IO::Handle
+Read entire contents of C<IO::Path> / C<IO::Handle>
 
 spurt
 sub method
-Replace content of IO::Path / IO::Handle with argument
+Replace content of C<IO::Path> / C<IO::Handle> with argument
+
+
+contains the functions that are available for input / output of data.

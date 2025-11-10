@@ -31,5 +31,8 @@ postfix
 atomic post-decrement by 1
 
 
-The atomic versions of -- and ++ were implemented for 6.d.  They can only
-be applied to atomic integers.
+contains the infix operators for incrementing / decrementing (usually)
+numeric values.
+
+The atomic versions of C<--> and C<++> were implemented for 6.d.  They
+can only be applied to atomic integers.

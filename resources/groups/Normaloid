@@ -49,3 +49,10 @@ signatures, to mean converting any iterable to a `Slip` (a special type of
 ⚛
 prefix
 atomic integer access
+https://docs.raku.org/routine/⚛
+Ensures the latest update of a value in the target is produced in
+multi-threaded situations.
+
+
+contains the operators that somehow normalize the given arguments into
+something else, either in time or in value.

@@ -23,3 +23,7 @@ Xop
 infix syntax
 produce operator result for combinations
 Default for `op` is `,`
+
+
+contains the operators that take the name of an infix operator and
+repeatedly perform that operator on the provided argument list(s).

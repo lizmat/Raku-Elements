@@ -3,5 +3,8 @@ infix
 string repetition
 
 xx
-infix
+infix thunky
 item repetition
+
+
+contains the infix operators that reproduce the left value repeatedly.

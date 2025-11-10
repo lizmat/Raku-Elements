@@ -9,3 +9,6 @@ define something in OUR:: scope
 anon
 syntax
 define something without storing it in a scope
+
+
+contains the syntax for indicating the scope of an element to be defined.

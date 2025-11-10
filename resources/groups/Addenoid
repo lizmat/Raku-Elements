@@ -47,5 +47,5 @@ infix
 boolean XOR
 
 
-The Addenoid group contains all infix operators that could be considered
-doing addition or substraction functions.
+contains all infix operators that could be considered doing addition
+or substraction functions.

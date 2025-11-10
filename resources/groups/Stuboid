@@ -9,3 +9,8 @@ fail with stub code executed error
 !!!
 term macro
 die with stub code executed error
+
+
+contains the functionality that can be used to indicate that code
+will need to be added at a later time (e.g. in the development cycle
+of the code), or at compilation time by mixing in a role.

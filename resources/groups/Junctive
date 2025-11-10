@@ -25,3 +25,7 @@ junctive one
 none
 sub method
 junctive none
+
+
+contains the infix operators and the functions that produce C<Junction>
+objects.

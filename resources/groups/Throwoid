@@ -1,43 +1,51 @@
 die
 sub
-halt execution, or be caught by CATCH
+halt execution, or be caught by C<CATCH>
 
 warn
 sub
-show error message, or be caught by CONTROL
+show error message, or be caught by C<CONTROL>
 
 fail
 sub
-return from Routine with Failure, or be caught by CATCH
+return from Routine with Failure, or be caught by C<CATCH>
 
 return
 sub method
-return from Routine with given value, or be caught by CONTROL
+return from Routine with given value, or be caught by C<CONTROL>
 
 next
 sub
-proceed with next iteration, or be caught by CONTROL
+proceed with next iteration, or be caught by C<CONTROL>
 
 redo
 sub
-restart current iteration, or be caught by CONTROL
+restart current iteration, or be caught by C<CONTROL>
 
 last
 sub
-stop iterating, or be caught by CONTROL
+stop iterating, or be caught by C<CONTROL>
 
 proceed
 sub
-continue with next when/default, or be caught by CONTROL
+continue with next when/default, or be caught by C<CONTROL>
 
 succeed
 sub
-continue after last when/default, or be caught by CONTROL
+continue after last when/default, or be caught by C<CONTROL>
 
 done
 sub
-call "done" callback on taps, or be caught by CONTROL
+call "done" callback on taps, or be caught by C<CONTROL>
 
 emit
 sub method
-emit given value to active supply, or be caught by CONTROL
+emit given value to active supply, or be caught by C<CONTROL>
+
+take
+sub method
+produce a value in a C<gather> sequence, or be caught by C<CONTROL>
+
+
+contains the functions that somehow interrupt the normal flow of execution
+either very noticeably, or very much under the hood.

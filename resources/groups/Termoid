@@ -1,0 +1,23 @@
+self
+term
+invocant in method
+
+rand
+term
+pseudo-random Num in range 
+
+now
+term
+C<Instant> of current time
+
+time
+term
+POSIX time in seconds
+
+nano
+term
+POSIX time in nano seconds
+
+
+contains the functions that act as a term, but do B<not> produce a
+constant value.

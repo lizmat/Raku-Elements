@@ -5,3 +5,7 @@ bind right value in left container
 :=
 infix macro
 bind right value to left lexpad entry
+
+
+contains all macro-ish infix operators that perform raw binding,
+possibly into a container (which would make it an assignment).

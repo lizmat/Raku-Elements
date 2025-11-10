@@ -13,3 +13,7 @@ stringify argument(s), add newline, write to $*STDOUT
 note
 sub method
 create gist of argument(s), add newline, write to $*STDERR
+
+
+contains the functions that are generally used to display messages
+to a user.

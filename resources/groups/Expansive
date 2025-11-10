@@ -1,9 +1,17 @@
 i
 postfix
-the imaginary unit
+numeric multiplication with the imaginary unit (√-1)
+https://docs.raku.org/type/Complex#postfix_i
+C<4i> is the same as C<0+4i>.  Needs grouping for variables C<($a)i>
+because otherwise the C<i> will be considered part of the variable
+name.
 
 ⁿ
 postfix
-integer literal exponentiation
+numeric literal integer exponentiation
 https://docs.raku.org/routine/%2A%2A
-So `$a²` is the same as `$a ** 2`, etc.  Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.
+So C<$a²> is the same as C<$a ** 2>, etc.  Any of C<⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯> may
+be used.
+
+
+contains the postfix operators that expand on numeric values.

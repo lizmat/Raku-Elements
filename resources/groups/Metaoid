@@ -1,11 +1,15 @@
 op=
 infix syntax
-store result of operator on left/right on left side
+store result of infix operator on left side
 
 Rop
 infix syntax
-produce result of operator with arguments reversed
+produce result of infix operator with arguments reversed
 
 !op
 index syntax
-negate result of iffy operator on arguments
+negate result of iffy infix operator on arguments
+
+
+contains the meta operators that take an infix operator and do something
+special with its result or its arguments.

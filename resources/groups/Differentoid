@@ -73,3 +73,8 @@ is not a quanthash superset
 !(>) | ⊅
 infix
 is not a strict quanthash superset
+
+
+contains the infix operators that return True if the compared elements
+are different in a way, and False if they are considered equal in that
+way.

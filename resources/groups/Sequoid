@@ -13,3 +13,7 @@ smart sequence excluding end
 ^...^
 infix
 smart sequence exclusive
+
+
+contains the infix operators that create a smart sequence (one that
+inspect the arguments and interpretes special, almost magic, meaning).

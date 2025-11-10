@@ -41,3 +41,7 @@ integer shift left
 +>
 infix
 integer shift right
+
+
+contains all infix operators that are related to multiplication in some
+way.

@@ -33,3 +33,7 @@ sed-like flip-flop excluding end
 ^fff^
 infix macro
 sed-like flip-flop exclusive
+
+
+contains the operators that produce one or the other value, depending
+on some condition.

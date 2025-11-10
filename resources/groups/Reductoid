@@ -1,7 +1,3 @@
-minmax
-infix sub method
-reduce values to Range of min and max value
-
 min
 infix sub method
 reduce values to smallest value
@@ -17,3 +13,7 @@ reduce using given infix operator
 [\op]
 prefix syntax
 produce steps of reduction using given infix operator
+
+
+contains the functions that reduce a given set of arguments into
+a single value (or produces the steps to produce that value).

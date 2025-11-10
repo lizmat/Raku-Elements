@@ -17,3 +17,6 @@ range exclusive
 minmax
 infix
 range including min and max value
+
+
+contains the infix operators that produce a C<Range>.

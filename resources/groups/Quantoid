@@ -21,3 +21,7 @@ quanthash difference
 (^) | ⊖
 infix
 quanthash symmetric difference
+
+
+contains the functions that return a C<QuantHash> (a C<Set>, C<SetHash>,
+C<Bag>, C<BagHash>, C<Mix> or C<MixHash> given any set or arguments.
