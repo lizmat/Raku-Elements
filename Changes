@@ -2,5 +2,9 @@ Revision history for Raku::Elements
 
 {{$NEXT}}
 
+0.0.2  2025-11-10T15:52:35+01:00
+    - Some more fleshing out
+    - Each group now has a description
+
 0.0.1  2025-11-08T20:57:45+01:00
     - Initial version, with much to be done still

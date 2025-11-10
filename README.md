@@ -10,6 +10,8 @@ SYNOPSIS
 
 ```raku
 use Raku::Elements;
+
+my $elements = Raku::Elements.new;
 ```
 
 DESCRIPTION

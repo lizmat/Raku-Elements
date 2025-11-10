@@ -10,6 +10,8 @@ Raku::Elements - The Elements of the Raku Programming Language
 
 use Raku::Elements;
 
+my $elements = Raku::Elements.new;
+
 =end code
 
 =head1 DESCRIPTION
@@ -28,13 +30,12 @@ welcome!
 
 =head1 ELEMENTS
 
-=comment Generated on 2025-11-08T20:54:56+01:00 by make-rakudoc.raku
+=comment Generated on 2025-11-10T15:17:25+01:00 by make-rakudoc.raku
 =comment PLEASE DON'T CHANGE ANYTHING BELOW THIS LINE
 
 L<C<Addenoid>|#Addenoid>
 L<C<Bindoid>|#Bindoid>
 L<C<Buildoid>|#Buildoid>
-L<C<Complementary>|#Complementary>
 L<C<Declaroid>|#Declaroid>
 L<C<Differentoid>|#Differentoid>
 L<C<Equalish>|#Equalish>
@@ -49,6 +50,7 @@ L<C<Mathematicals>|#Mathematicals>
 L<C<Metaoid>|#Metaoid>
 L<C<Methodic>|#Methodic>
 L<C<Multiplicoid>|#Multiplicoid>
+L<C<Normaloid>|#Normaloid>
 L<C<Orderoid>|#Orderoid>
 L<C<Quantoid>|#Quantoid>
 L<C<Rangoid>|#Rangoid>
@@ -66,483 +68,467 @@ L<C<Topicoid>|#Topicoid>
 
 =head2 Addenoid
 
-The Addenoid group contains all infix operators that could be considered
-doing addition or substraction functions.
+The Addenoid group contains all infix operators that could be considered doing addition
+or substraction functions.
 
 =head3 C«+» numeric add
-=item tags: infix
+=item infix
 
 =head3 C«-» numeric subtract
 =item alternates: C«−»
-=item tags: infix
+=item infix
 
 =head3 C«~» string concatenation
-=item tags: infix
+=item infix
 
 =head3 C«+&» integer AND
-=item tags: infix
+=item infix
 
 =head3 C«+|» integer OR
-=item tags: infix
+=item infix
 
 =head3 C«+^» integer XOR
-=item tags: infix
+=item infix
 
 =head3 C«~&» string AND
-=item tags: infix
+=item infix
 
 =head3 C«~|» string OR
-=item tags: infix
+=item infix
 
 =head3 C«~^» string XOR
-=item tags: infix
+=item infix
 
 =head3 C«?&» boolean AND
-=item tags: infix
+=item infix
 
 =head3 C«?|» boolean OR
-=item tags: infix
+=item infix
 
 =head3 C«?^» boolean XOR
-=item tags: infix
+=item infix
 
 =head2 Bindoid
 
-
+The Bindoid group contains all macro-ish infix operators that perform raw binding,
+possibly into a container (which would make it an assignment).
 
 =head3 C«=» bind right value in left container
-=item tags: infix macro
+=item infix macro
 
 =head3 C«:=» bind right value to left lexpad entry
-=item tags: infix macro
+=item infix macro
 
 =head2 Buildoid
 
-
+The Buildoid group contains all elements that convert a given set of arguments into one of
+a Scalar, Pair, Positional or Associative object.
 
 =head3 C«=>» Pair constructor, named argument specification
-=item tags: infix
+=item infix
 
 =head3 C«,» List constructor
-=item tags: infix
+=item infix
 
 =head3 C«[ ]» Array constructor
-=item tags: circumfix
+=item circumfix
 
 =head3 C«{ }» Hash constructor
-=item tags: circumfix
+=item circumfix
 
 =head3 C«:{ }» Object Hash constructor
-=item tags: circumfix
+=item circumfix
 
 =head3 C«' '» literal string constructor
-=item tags: syntax
+=item syntax
 
 =head3 C«" "» literal string constructor with interpolation
-=item tags: syntax
+=item syntax
 
 =head3 C«< >» literal word list constructor
-=item tags: syntax
+=item syntax
 
 =head3 C«<< >>» literal word list constructor with interpolation
 =item alternates: C<« »>
-=item tags: syntax
+=item syntax
 
 =head3 C«$( )» turn argument(s) into an item
-=item tags: syntax
+=item syntax
 
 =head3 C«item» turn argument(s) into an item
-=item tags: sub method
+=item sub method
 
 =head3 C«@( )» turn argument(s) into a list
-=item tags: syntax
+=item syntax
 
 =head3 C«list» turn argument(s) into a list
-=item tags: sub method
+=item sub method
 
 =head3 C«%( )» turn argument(s) into a hash
-=item tags: syntax
+=item syntax
 
 =head3 C«hash» turn argument(s) into a hash
-=item tags: sub method
-
-=head2 Complementary
-
-
-
-=head3 C«+» numerify
-=item tags: prefix
-
-=head3 C«+^» numeric complement
-=item tags: prefix
-
-=head3 C«-» numeric negation
-=item alternates: C«−»
-=item tags: prefix
-
-=head3 C«^» numeric from zero upto
-=item tags: prefix
-
-=head3 C«~» stringify
-=item tags: prefix
-
-=head3 C«?» boolify
-=item tags: prefix
-
-=head3 C«so» low precedence boolify
-=item tags: prefix
-
-=head3 C«!» boolean negation
-=item alternates: C«?^»
-=item tags: prefix
-
-=head3 C«not» low precedence boolean negation
-=item tags: prefix
-
-=head3 C«//» is defined
-=item tags: prefix
-
-=head3 L<C«|» flatten args, slip iterable|https://docs.raku.org/syntax/%7C>
-=item tags: prefix
-
-The meaning of prefix `|` was expanded in 6.c to be beyond the use within
-signatures, to mean converting any iterable to a `Slip` (a special type of
-`list` that will always be iterated).
-
-
-=head3 C«⚛» atomic integer access
-=item tags: prefix
+=item sub method
 
 =head2 Declaroid
 
-
+The Declaroid group contains the syntax for indicating the scope of an element to be defined.
 
 =head3 C«my» define something in MY:: scope
-=item tags: syntax
+=item syntax
 
 =head3 C«our» define something in OUR:: scope
-=item tags: syntax
+=item syntax
 
 =head3 C«anon» define something without storing it in a scope
-=item tags: syntax
+=item syntax
 
 =head2 Differentoid
 
-
+The Differentoid group contains the infix operators that return True if the compared elements
+are different in a way, and False if they are considered equal in that
+way.
 
 =head3 C«before» generic less
-=item tags: infix
+=item infix
 
 =head3 C«<» numerically less
-=item tags: infix
+=item infix
 
 =head3 C«lt» alphabetically less
-=item tags: infix
+=item infix
 
 =head3 C«<=» numerically less or equal
 =item alternates: C«≤»
-=item tags: infix
+=item infix
 
 =head3 C«le» alphabetically less or equal
-=item tags: infix
+=item infix
 
 =head3 C«!=» numeric inequality
 =item alternates: C«≠»
-=item tags: infix
+=item infix
 
 =head3 C«ne» string inequality
-=item tags: infix
+=item infix
 
 =head3 C«>=» numerically more or equal
-=item tags: infix
+=item infix
 
 =head3 C«ge» alphabetically more or equal
-=item tags: infix
+=item infix
 
 =head3 C«>» numerically more
-=item tags: infix
+=item infix
 
 =head3 C«gt» alphabetically more
-=item tags: infix
+=item infix
 
 =head3 C«after» generic more
-=item tags: infix
+=item infix
 
 =head3 C«!(elem)» is not element in
 =item alternates: C«∉»
-=item tags: infix
+=item infix
 
 =head3 C«!(cont)» does not contain element
 =item alternates: C«∌»
-=item tags: infix
+=item infix
 
 =head3 C«!(<)» is not a strict quanthash subset
 =item alternates: C«⊄»
-=item tags: infix
+=item infix
 
 =head3 C«!(<=)» is not a quanthash subset
 =item alternates: C«⊈»
-=item tags: infix
+=item infix
 
 =head3 C«!(==)» quanthash inequality
 =item alternates: C«≢»
-=item tags: infix
+=item infix
 
 =head3 C«!(>=)» is not a quanthash superset
 =item alternates: C«⊉»
-=item tags: infix
+=item infix
 
 =head3 C«!(>)» is not a strict quanthash superset
 =item alternates: C«⊅»
-=item tags: infix
+=item infix
 
 =head2 Equalish
 
-
+The Equalish group contains the infix operators that return True if the compared elements
+are considered equal in a way, and False if they are considered different
+in that way.
 
 =head3 C«~~» smart match
-=item tags: infix
+=item infix
 
 =head3 C«eqv» canonical equivalence
-=item tags: infix
+=item infix
 
 =head3 C«eq» string equality
-=item tags: infix
+=item infix
 
 =head3 C«==» numeric equality
-=item tags: infix
+=item infix
 
 =head3 C«=~=» numeric almost equal
 =item alternates: C«≅»
-=item tags: infix
+=item infix
 
 =head3 C«===» value identity
-=item tags: infix
+=item infix
 
 =head3 C«=:=» value identity without decontainerization
-=item tags: infix
+=item infix
 
 =head3 C«(elem)» is element in
 =item alternates: C«∈»
-=item tags: infix
+=item infix
 
 =head3 C«(cont)» contains element
 =item alternates: C«∋»
-=item tags: infix
+=item infix
 
 =head3 C«(<)» is strict quanthash subset
 =item alternates: C«⊂»
-=item tags: infix
+=item infix
 
 =head3 C«(<=)» is quanthash subset
 =item alternates: C«⊆»
-=item tags: infix
+=item infix
 
 =head3 C«(==)» quanthash equality
 =item alternates: C«≡»
-=item tags: infix
+=item infix
 
 =head3 C«(>=)» is quanthash superset
 =item alternates: C«⊇»
-=item tags: infix
+=item infix
 
 =head3 C«(>)» is strict quanthash superset
 =item alternates: C«⊃»
-=item tags: infix
+=item infix
 
 =head2 Expansive
 
+The Expansive group contains the postfix operators that expand on numeric values.
+
+=head3 L<C«i» numeric multiplication with the imaginary unit (√-1)|https://docs.raku.org/type/Complex#postfix_i>
+=item postfix
+
+C<4i> is the same as C<0+4i>.  Needs grouping for variables C<($a)i>
+because otherwise the C<i> will be considered part of the variable
+name.
 
 
-=head3 C«i» the imaginary unit
-=item tags: postfix
+=head3 L<C«ⁿ» numeric literal integer exponentiation|https://docs.raku.org/routine/%2A%2A>
+=item postfix
 
-=head3 L<C«ⁿ» integer literal exponentiation|https://docs.raku.org/routine/%2A%2A>
-=item tags: postfix
-
-So `$a²` is the same as `$a ** 2`, etc.  Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.
+So C<$a²> is the same as C<$a ** 2>, etc.  Any of C<⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯> may
+be used.
 
 
 =head2 Feedoid
 
+The Feedoid group contains the operators that provide an alternate syntax for creating
+a sequence of operations, where the result of one such operation
+become the argument(s) for the next operation.
+
+=head3 L<C«==>» feed left to right|https://docs.raku.org/language/operators#infix_==%3E>
+=item infix
+
+C«(1,2,3,4) ==> sum() ==> say()» as opposed to C<say sum (1,2,3,4)>
+or C<(1,2,3,4).sum.say>.
 
 
-=head3 C«==>» feed left to right
-=item tags: infix
+=head3 L<C«<==» feed right to left|https://docs.raku.org/language/operators#infix_%3C==>
+=item infix
 
-=head3 C«<==» feed right to left
-=item tags: infix
+C«say() <== sum() <== (1,2,3,4)» as opposed to C<say sum (1,2,3,4)>
+or C<(1,2,3,4).sum.say>.
+
 
 =head2 Flippant
 
-
+The Flippant group contains the operators that produce one or the other value, depending
+on some condition.
 
 =head3 C«?? !!» ternary logic
-=item tags: syntax
+=item syntax
 
 =head3 C«ff» flip-flop inclusive
-=item tags: infix macro
+=item infix macro
 
 =head3 C«^ff» flip-flop excluding start
-=item tags: infix macro
+=item infix macro
 
 =head3 C«ff^» flip-flop excluding end
-=item tags: infix macro
+=item infix macro
 
 =head3 C«^ff^» flip-flop exclusive
-=item tags: infix macro
+=item infix macro
 
 =head3 C«fff» sed-like flip-flop inclusive
-=item tags: infix macro
+=item infix macro
 
 =head3 C«^fff» sed-like flip-flop excluding start
-=item tags: infix macro
+=item infix macro
 
 =head3 C«fff^» sed-like flip-flop excluding end
-=item tags: infix macro
+=item infix macro
 
 =head3 C«^fff^» sed-like flip-flop exclusive
-=item tags: infix macro
+=item infix macro
 
 =head2 Hyperoid
 
-
+The Hyperoid group contains the operators that take the name of an infix operator and
+repeatedly perform that operator on the provided argument list(s).
 
 =head3 C«>>op<<» produce operator results for equal lists
 =item alternates: C<»op« >
-=item tags: infix syntax
+=item infix syntax
 
 =head3 C«>>op>>» produce operator results, left side leading
 =item alternates: C<»op»>
-=item tags: infix syntax
+=item infix syntax
 
 =head3 C«<<op<<» produce operator results, right side leading
 =item alternates: C<«op«>
-=item tags: infix syntax
+=item infix syntax
 
 =head3 C«<<op>>» produce operator results, longest side leading
 =item alternates: C<«op»>
-=item tags: infix syntax
+=item infix syntax
 
 =head3 L<C«Zop» produce operator result, shortest side leading|Default for `op` is `,`>
-=item tags: infix syntax
+=item infix syntax
 
 =head3 L<C«Xop» produce operator result for combinations|Default for `op` is `,`>
-=item tags: infix syntax
+=item infix syntax
 
 =head2 IOoid
 
+The IOoid group contains the functions that are available for input / output of data.
 
+=head3 C«get» Read a line from C<C<$*STDIN>> / C<C<$*ARGFILES>>
+=item sub method
 
-=head3 C«get» Read a line from C<$*STDIN> / C<$*ARGFILES>
-=item tags: sub method
+=head3 C«getc» Read a character from C<C<$*STDIN>> / C<C<$*ARGFILES>>
+=item sub method
 
-=head3 C«getc» Read a character from C<$*STDIN> / C<$*ARGFILES>
-=item tags: sub method
+=head3 C«read» Read bytes from an C<IO::Handle>
+=item method
 
-=head3 C«read» Read bytes from IO::Handle
-=item tags: method
+=head3 C«write» Write bytes to an C<IO::Handle>
+=item method
 
-=head3 C«write» Write bytes to IO::Handle
-=item tags: method
+=head3 C«slurp» Read entire contents of C<IO::Path> / C<IO::Handle>
+=item sub method
 
-=head3 C«slurp» Read entire contents of IO::Path / IO::Handle
-=item tags: sub method
-
-=head3 C«spurt» Replace content of IO::Path / IO::Handle with argument
-=item tags: sub method
+=head3 C«spurt» Replace content of C<IO::Path> / C<IO::Handle> with argument
+=item sub method
 
 =head2 Incremental
 
-The atomic versions of -- and ++ were implemented for 6.d.  They can only
-be applied to atomic integers.
+The Incremental group contains the infix operators for incrementing / decrementing (usually)
+numeric values.
+
+The atomic versions of C<--> and C<++> were implemented for 6.d.  They
+can only be applied to atomic integers.
 
 =head3 C«++» pre-increment by 1
-=item tags: prefix
+=item prefix
 
 =head3 C«⚛++» atomic pre-increment by 1
-=item tags: prefix
+=item prefix
 
 =head3 C«--» pre-decrement by 1
-=item tags: prefix
+=item prefix
 
 =head3 C«⚛--» atomic pre-decrement by 1
-=item tags: prefix
+=item prefix
 
 =head3 C«++» post-increment by 1
-=item tags: postfix
+=item postfix
 
 =head3 C«⚛++» atomic post-increment by 1
-=item tags: postfix
+=item postfix
 
 =head3 C«--» post-decrement by 1
-=item tags: postfix
+=item postfix
 
 =head3 C«⚛--» atomic post-decrement by 1
-=item tags: postfix
+=item postfix
 
 =head2 Junctive
 
-
+The Junctive group contains the infix operators and the functions that produce C<Junction>
+objects.
 
 =head3 C«&» junctive all
-=item tags: infix
+=item infix
 
 =head3 C«|» junctive any
-=item tags: infix
+=item infix
 
 =head3 C«^» junctive one
-=item tags: infix
+=item infix
 
 =head3 C«all» junctive all
-=item tags: sub method
+=item sub method
 
 =head3 C«any» junctive any
-=item tags: sub method
+=item sub method
 
 =head3 C«one» junctive one
-=item tags: sub method
+=item sub method
 
 =head3 C«none» junctive none
-=item tags: sub method
+=item sub method
 
 =head2 Mathematicals
 
-
+The Mathematicals group contains the mathematical terms that are provided by the core.
 
 =head3 C«pi» The number π (3.1415...)
 =item alternates: C«π»
-=item tags: term
+=item term
 
 =head3 C«tau» The number τ (6.2831...)
 =item alternates: C«τ»
-=item tags: term
+=item term
 
 =head3 C«e» Euler's number (2.7182...)
 =item alternates: C«𝑒»
-=item tags: term
+=item term
 
-=head3 C«i» The imaginary unit (sqrt(-1))
-=item tags: term
+=head3 C«i» The imaginary unit (√-1)
+=item term
 
 =head3 C«Inf» Infinity
 =item alternates: C«∞»
-=item tags: term
+=item term
 
 =head2 Metaoid
 
+The Metaoid group contains the meta operators that take an infix operator and do something
+special with its result or its arguments.
 
+=head3 C«op=» store result of infix operator on left side
+=item infix syntax
 
-=head3 C«op=» store result of operator on left/right on left side
-=item tags: infix syntax
+=head3 C«Rop» produce result of infix operator with arguments reversed
+=item infix syntax
 
-=head3 C«Rop» produce result of operator with arguments reversed
-=item tags: infix syntax
-
-=head3 C«!op» negate result of iffy operator on arguments
-=item tags: index syntax
+=head3 C«!op» negate result of iffy infix operator on arguments
+=item index syntax
 
 =head2 Methodic
+
+The Methodic group contains the ways a method can be called on an object.
 
 Dotted postfix operators must be followed by a method name or a subroutine
 name prefixed with `&` (possibly fully qualified), a postfix operator, a
@@ -550,314 +536,355 @@ prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]`
 `{ }` `< >` `« »`.
 
 =head3 C«.method» method call
-=item tags: postfix
+=item postfix
 
 =head3 C«. method» dotty infix method call
-=item tags: infix
+=item infix
 
 =head3 C«.^method» meta-method call
-=item tags: postfix
+=item postfix
 
 =head3 C«.?method» call method if any
-=item tags: postfix
+=item postfix
 
 =head3 C«.*method» call all methods if any
-=item tags: postfix
+=item postfix
 
 =head3 C«.+method» call all methods
-=item tags: postfix
+=item postfix
 
 =head3 C«!method» private method call
-=item tags: postfix
+=item postfix
 
 =head3 C«.=method» incovant mutating method call
-=item tags: postfix
+=item postfix
 
 =head2 Multiplicoid
 
-
+The Multiplicoid group contains all infix operators that are related to multiplication in some
+way.
 
 =head3 C«div» integer divide
-=item tags: infix
+=item infix
 
 =head3 C«mod» integer modulus
-=item tags: infix
+=item infix
 
 =head3 C«gcd» greatest common divisor
-=item tags: infix
+=item infix
 
 =head3 C«lcm» lowest common multiple
-=item tags: infix
+=item infix
 
 =head3 C«*» multiply
 =item alternates: C«×»
-=item tags: infix
+=item infix
 
 =head3 C«/» divide
 =item alternates: C«÷»
-=item tags: infix
+=item infix
 
 =head3 C«**» exponentiation
-=item tags: infix
+=item infix
 
 =head3 C«%» modulus
-=item tags: infix
+=item infix
 
 =head3 C«%%» is divisible
-=item tags: infix
+=item infix
 
 =head3 C«+<» integer shift left
-=item tags: infix
+=item infix
 
 =head3 C«+>» integer shift right
-=item tags: infix
+=item infix
+
+=head2 Normaloid
+
+The Normaloid group contains the operators that somehow normalize the given arguments into
+something else, either in time or in value.
+
+=head3 C«+» numerify
+=item prefix
+
+=head3 C«+^» numeric complement
+=item prefix
+
+=head3 C«-» numeric negation
+=item alternates: C«−»
+=item prefix
+
+=head3 C«^» numeric from zero upto
+=item prefix
+
+=head3 C«~» stringify
+=item prefix
+
+=head3 C«?» boolify
+=item prefix
+
+=head3 C«so» low precedence boolify
+=item prefix
+
+=head3 C«!» boolean negation
+=item alternates: C«?^»
+=item prefix
+
+=head3 C«not» low precedence boolean negation
+=item prefix
+
+=head3 C«//» is defined
+=item prefix
+
+=head3 L<C«|» flatten args, slip iterable|https://docs.raku.org/syntax/%7C>
+=item prefix
+
+The meaning of prefix `|` was expanded in 6.c to be beyond the use within
+signatures, to mean converting any iterable to a `Slip` (a special type of
+`list` that will always be iterated).
+
+
+=head3 L<C«⚛» atomic integer access|https://docs.raku.org/routine/⚛>
+=item prefix
+
+Ensures the latest update of a value in the target is produced in
+multi-threaded situations.
+
 
 =head2 Orderoid
 
-Return an `Order` enum
+The Orderoid group contains the infix operators that return an C<Order> value.
 
 =head3 C«cmp» equivalence order comparison
-=item tags: infix
+=item infix
 
 =head3 C«<=>» numerical order comparison
-=item tags: infix
+=item infix
 
 =head3 C«leg» string order comparison
-=item tags: infix
+=item infix
 
 =head2 Quantoid
 
-
+The Quantoid group contains the functions that return a C<QuantHash> (a C<Set>, C<SetHash>,
+C<Bag>, C<BagHash>, C<Mix> or C<MixHash> given any set or arguments.
 
 =head3 C«∅» empty Set
-=item tags: term
+=item term
 
 =head3 C«(|)» quanthash union
 =item alternates: C«∪»
-=item tags: infix
+=item infix
 
 =head3 C«(+)» quanthash addition
 =item alternates: C«⊎»
-=item tags: infix
+=item infix
 
 =head3 C«(.)» quanthash multiplication
 =item alternates: C«⊍»
-=item tags: infix
+=item infix
 
 =head3 C«(-)» quanthash difference
 =item alternates: C«∖»
-=item tags: infix
+=item infix
 
 =head3 C«(^)» quanthash symmetric difference
 =item alternates: C«⊖»
-=item tags: infix
+=item infix
 
 =head2 Rangoid
 
-
+The Rangoid group contains the infix operators that produce a C<Range>.
 
 =head3 C«..» range inclusive
-=item tags: infix
+=item infix
 
 =head3 C«^..» range excluding start
-=item tags: infix
+=item infix
 
 =head3 C«..^» range excluding end
-=item tags: infix
+=item infix
 
 =head3 C«^..^» range exclusive
-=item tags: infix
+=item infix
 
 =head3 C«minmax» range including min and max value
-=item tags: infix
+=item infix
 
 =head2 Reductoid
 
-
-
-=head3 C«minmax» reduce values to Range of min and max value
-=item tags: infix sub method
+The Reductoid group contains the functions that reduce a given set of arguments into
+a single value (or produces the steps to produce that value).
 
 =head3 C«min» reduce values to smallest value
-=item tags: infix sub method
+=item infix sub method
 
 =head3 C«max» reduce values to largest value
-=item tags: infix sub method
+=item infix sub method
 
 =head3 C«[op]» reduce using given infix operator
-=item tags: prefix syntax
+=item prefix syntax
 
 =head3 C«[\op]» produce steps of reduction using given infix operator
-=item tags: prefix syntax
+=item prefix syntax
 
 =head2 Replicant
 
-
+The Replicant group contains the infix operators that reproduce the left value repeatedly.
 
 =head3 C«x» string repetition
-=item tags: infix
+=item infix
 
 =head3 C«xx» item repetition
-=item tags: infix
+=item infix thunky
 
 =head2 Rolific
 
-
-
-=head3 C«does» mutating role mixin
-=item tags: infix
-
-=head3 C«but» cloning role mixin
-=item tags: infix
+The Rolific group 
 
 =head2 Sequoid
 
-
+The Sequoid group contains the infix operators that create a smart sequence (one that
+inspect the arguments and interpretes special, almost magic, meaning).
 
 =head3 C«...» smart sequence inclusive
-=item tags: infix
+=item infix
 
 =head3 C«^...» smart sequence excluding start
-=item tags: infix
+=item infix
 
 =head3 C«...^» smart sequence excluding end
-=item tags: infix
+=item infix
 
 =head3 C«^...^» smart sequence exclusive
-=item tags: infix
+=item infix
 
 =head2 Shortoid
 
-
+The Shortoid group contains the infixish macros that exhibit short-cicuiting behaviour,
+where the right hand side will B<not> be evaluated if a certain condition
+on the left hand side was met.
 
 =head3 C«&&» high precedence logical AND
-=item tags: infix macro
+=item infix macro
 
 =head3 C«and» low precedence logical AND
-=item tags: infix macro
+=item infix macro
 
 =head3 C«||» high precedence logical OR
-=item tags: infix macro
+=item infix macro
 
 =head3 C«or» low precedence logical OR
-=item tags: infix macro
+=item infix macro
 
 =head3 C«^^» high precedence logical XOR
-=item tags: infix macro
+=item infix macro
 
 =head3 C«xor» low precedence logical XOR
-=item tags: infix macro
+=item infix macro
 
 =head3 C«//» high precedence is defined OR
-=item tags: infix macro
+=item infix macro
 
 =head3 C«notandthen» Empty if first defined, else last
-=item tags: infix macro
+=item infix macro
 
 =head2 Stuboid
 
-
+The Stuboid group contains the functionality that can be used to indicate that code
+will need to be added at a later time (e.g. in the development cycle
+of the code), or at compilation time by mixing in a role.
 
 =head3 C«???» warn about stub code executed
-=item tags: term macro
+=item term macro
 
 =head3 C«...» fail with stub code executed error
-=item tags: term macro
+=item term macro
 
 =head3 C«!!!» die with stub code executed error
-=item tags: term macro
+=item term macro
 
 =head2 Talkoid
 
-
+The Talkoid group contains the functions that are generally used to display messages
+to a user.
 
 =head3 C«print» stringify argument(s), write to C<$*STDOUT>
-=item tags: sub method
+=item sub method
 
 =head3 C«say» create gist of argument(s), add newline, write to C<$*STDOUT>
-=item tags: sub method
+=item sub method
 
 =head3 C«put» stringify argument(s), add newline, write to C<$*STDOUT>
-=item tags: sub method
+=item sub method
 
 =head3 C«note» create gist of argument(s), add newline, write to C<$*STDERR>
-=item tags: sub method
+=item sub method
 
 =head2 Termic
 
-
-
-=head3 C«self» invocant in method
-=item tags: term
-
-=head3 C«rand» pseudo-random Num in range 
-=item tags: term
+The Termic group 
 
 =head2 Throwoid
 
+The Throwoid group contains the functions that somehow interrupt the normal flow of execution
+either very noticeably, or very much under the hood.
 
+=head3 C«die» halt execution, or be caught by C<CATCH>
+=item sub
 
-=head3 C«die» halt execution, or be caught by CATCH
-=item tags: sub
+=head3 C«warn» show error message, or be caught by C<CONTROL>
+=item sub
 
-=head3 C«warn» show error message, or be caught by CONTROL
-=item tags: sub
+=head3 C«fail» return from Routine with Failure, or be caught by C<CATCH>
+=item sub
 
-=head3 C«fail» return from Routine with Failure, or be caught by CATCH
-=item tags: sub
+=head3 C«return» return from Routine with given value, or be caught by C<CONTROL>
+=item sub method
 
-=head3 C«return» return from Routine with given value, or be caught by CONTROL
-=item tags: sub method
+=head3 C«next» proceed with next iteration, or be caught by C<CONTROL>
+=item sub
 
-=head3 C«next» proceed with next iteration, or be caught by CONTROL
-=item tags: sub
+=head3 C«redo» restart current iteration, or be caught by C<CONTROL>
+=item sub
 
-=head3 C«redo» restart current iteration, or be caught by CONTROL
-=item tags: sub
+=head3 C«last» stop iterating, or be caught by C<CONTROL>
+=item sub
 
-=head3 C«last» stop iterating, or be caught by CONTROL
-=item tags: sub
+=head3 C«proceed» continue with next when/default, or be caught by C<CONTROL>
+=item sub
 
-=head3 C«proceed» continue with next when/default, or be caught by CONTROL
-=item tags: sub
+=head3 C«succeed» continue after last when/default, or be caught by C<CONTROL>
+=item sub
 
-=head3 C«succeed» continue after last when/default, or be caught by CONTROL
-=item tags: sub
+=head3 C«done» call "done" callback on taps, or be caught by C<CONTROL>
+=item sub
 
-=head3 C«done» call "done" callback on taps, or be caught by CONTROL
-=item tags: sub
+=head3 C«emit» emit given value to active supply, or be caught by C<CONTROL>
+=item sub method
 
-=head3 C«emit» emit given value to active supply, or be caught by CONTROL
-=item tags: sub method
+=head3 C«take» produce a value in a C<gather> sequence, or be caught by C<CONTROL>
+=item sub method
 
 =head2 Timeoid
 
-
-
-=head3 C«now» Instant of current time
-=item tags: term
-
-=head3 C«time» POSIX time in seconds
-=item tags: term
-
-=head3 C«nano» POSIX time in nano seconds
-=item tags: term
+The Timeoid group 
 
 =head2 Topicoid
 
-
+The Topicoid group contains the functions that topicalize (set C<$_>) in some situations.
 
 =head3 C«given» topicalize argument for scope
-=item tags: syntax
+=item syntax
 
 =head3 C«when» if smartmatched topicalize argument for scope
-=item tags: syntax
+=item syntax
 
 =head3 C«andthen» topicalize left for right thunk
-=item tags: infix thunky
+=item infix thunky
 
 =head3 C«orelse» low precedence if defined OR, topicalizing left for right thunk
-=item tags: infix thunky
+=item infix thunky
 
 =comment PLEASE DON'T CHANGE ANYTHING ABOVE THIS LINE
 
@@ -961,12 +988,13 @@ The third line contains the tagline of the element.
 The fourth line (if not empty) contains the URL for more information,
 
 Any other lines until an empty line, contains the description of the
-element.
+element.  It may contain RakuDoc markup codes.
 
 If the first line is empty, then the rest of the file contains the
 description of the group (so you can recognize the description as the
-text after the first 2 empty lines).  If there are no 2 empty lines,
-then there is no description for the group.
+text after the first 2 empty lines).  It may contain RakuDoc markup
+codes.  If there are no 2 empty lines, then there is B<no> description
+(yet) for the group.
 
 =head1 COPYRIGHT AND LICENSE
 

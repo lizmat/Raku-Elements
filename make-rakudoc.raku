@@ -56,8 +56,9 @@ while @lines {
     }
 
     for @groups -> $group {
-        say "\n=head2 $group.name()";
-        say "\n$_" with $group.description;
+        my $group-name = $group.name;
+        say "\n=head2 $group-name";
+        say "\nThe $group-name group $_" with $group.description;
 
         for $group.elements {
             my $head = "&backtick(.name) &sanitize(.tagline)";
@@ -66,7 +67,7 @@ while @lines {
             if .alternates -> @alternates {
                 say "=item alternates: @alternates.map(&backtick)";
             }
-            say "=item tags: $_.tags()";
+            say "=item $_.tags()";
             say "\n$_.description()\n" if .description;
         }
     }
@@ -79,5 +80,7 @@ while @lines {
 
 # close the file properly
 $*OUT.close;
+
+run <mi6 build>;
 
 # vim: expandtab shiftwidth=4

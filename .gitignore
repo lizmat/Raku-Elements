@@ -1,3 +1,4 @@
 .precomp/
 /Raku-Elements-*
 *.rakucov
+/releases
