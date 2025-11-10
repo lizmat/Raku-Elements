@@ -24,7 +24,7 @@ Please note that this is still very much a work in progress: a lot of explanator
 ELEMENTS
 ========
 
-[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Complementary`](#Complementary) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Junctive`](#Junctive) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Multiplicoid`](#Multiplicoid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Rolific`](#Rolific) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termic`](#Termic) [`Throwoid`](#Throwoid) [`Timeoid`](#Timeoid) [`Topicoid`](#Topicoid)
+[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Junctive`](#Junctive) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Multiplicoid`](#Multiplicoid) [`Normaloid`](#Normaloid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Rolific`](#Rolific) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termic`](#Termic) [`Throwoid`](#Throwoid) [`Timeoid`](#Timeoid) [`Topicoid`](#Topicoid)
 
 Addenoid
 --------
@@ -33,53 +33,53 @@ The Addenoid group contains all infix operators that could be considered doing a
 
 ### `+` numeric add
 
-  * tags: infix
+  * infix
 
 ### `-` numeric subtract
 
   * alternates: `−`
 
-  * tags: infix
+  * infix
 
 ### `~` string concatenation
 
-  * tags: infix
+  * infix
 
 ### `+&` integer AND
 
-  * tags: infix
+  * infix
 
 ### `+|` integer OR
 
-  * tags: infix
+  * infix
 
 ### `+^` integer XOR
 
-  * tags: infix
+  * infix
 
 ### `~&` string AND
 
-  * tags: infix
+  * infix
 
 ### `~|` string OR
 
-  * tags: infix
+  * infix
 
 ### `~^` string XOR
 
-  * tags: infix
+  * infix
 
 ### `?&` boolean AND
 
-  * tags: infix
+  * infix
 
 ### `?|` boolean OR
 
-  * tags: infix
+  * infix
 
 ### `?^` boolean XOR
 
-  * tags: infix
+  * infix
 
 Bindoid
 -------
@@ -88,11 +88,11 @@ The Bindoid group contains all macro-ish infix operators that perform raw bindin
 
 ### `=` bind right value in left container
 
-  * tags: infix macro
+  * infix macro
 
 ### `:=` bind right value to left lexpad entry
 
-  * tags: infix macro
+  * infix macro
 
 Buildoid
 --------
@@ -101,70 +101,65 @@ The Buildoid group contains all elements that convert a given set of arguments i
 
 ### `=>` Pair constructor, named argument specification
 
-  * tags: infix
+  * infix
 
 ### `,` List constructor
 
-  * tags: infix
+  * infix
 
 ### `[ ]` Array constructor
 
-  * tags: circumfix
+  * circumfix
 
 ### `{ }` Hash constructor
 
-  * tags: circumfix
+  * circumfix
 
 ### `:{ }` Object Hash constructor
 
-  * tags: circumfix
+  * circumfix
 
 ### `' '` literal string constructor
 
-  * tags: syntax
+  * syntax
 
 ### `" "` literal string constructor with interpolation
 
-  * tags: syntax
+  * syntax
 
 ### `< >` literal word list constructor
 
-  * tags: syntax
+  * syntax
 
 ### `<< >>` literal word list constructor with interpolation
 
   * alternates: `« »`
 
-  * tags: syntax
+  * syntax
 
 ### `$( )` turn argument(s) into an item
 
-  * tags: syntax
+  * syntax
 
 ### `item` turn argument(s) into an item
 
-  * tags: sub method
+  * sub method
 
 ### `@( )` turn argument(s) into a list
 
-  * tags: syntax
+  * syntax
 
 ### `list` turn argument(s) into a list
 
-  * tags: sub method
+  * sub method
 
 ### `%( )` turn argument(s) into a hash
 
-  * tags: syntax
+  * syntax
 
 ### `hash` turn argument(s) into a hash
 
-  * tags: sub method
-
-Complementary
--------------
-
-The Complementary group 
+  * sub method
 
 Declaroid
 ---------
@@ -173,15 +168,15 @@ The Declaroid group contains the syntax for indicating the scope of an element t
 
 ### `my` define something in MY:: scope
 
-  * tags: syntax
+  * syntax
 
 ### `our` define something in OUR:: scope
 
-  * tags: syntax
+  * syntax
 
 ### `anon` define something without storing it in a scope
 
-  * tags: syntax
+  * syntax
 
 Differentoid
 ------------
@@ -190,97 +185,97 @@ The Differentoid group contains the infix operators that return True if the comp
 
 ### `before` generic less
 
-  * tags: infix
+  * infix
 
 ### `<` numerically less
 
-  * tags: infix
+  * infix
 
 ### `lt` alphabetically less
 
-  * tags: infix
+  * infix
 
 ### `<=` numerically less or equal
 
   * alternates: `≤`
 
-  * tags: infix
+  * infix
 
 ### `le` alphabetically less or equal
 
-  * tags: infix
+  * infix
 
 ### `!=` numeric inequality
 
   * alternates: `≠`
 
-  * tags: infix
+  * infix
 
 ### `ne` string inequality
 
-  * tags: infix
+  * infix
 
 ### `>=` numerically more or equal
 
-  * tags: infix
+  * infix
 
 ### `ge` alphabetically more or equal
 
-  * tags: infix
+  * infix
 
 ### `>` numerically more
 
-  * tags: infix
+  * infix
 
 ### `gt` alphabetically more
 
-  * tags: infix
+  * infix
 
 ### `after` generic more
 
-  * tags: infix
+  * infix
 
 ### `!(elem)` is not element in
 
   * alternates: `∉`
 
-  * tags: infix
+  * infix
 
 ### `!(cont)` does not contain element
 
   * alternates: `∌`
 
-  * tags: infix
+  * infix
 
 ### `!(<)` is not a strict quanthash subset
 
   * alternates: `⊄`
 
-  * tags: infix
+  * infix
 
 ### `!(<=)` is not a quanthash subset
 
   * alternates: `⊈`
 
-  * tags: infix
+  * infix
 
 ### `!(==)` quanthash inequality
 
   * alternates: `≢`
 
-  * tags: infix
+  * infix
 
 ### `!(>=)` is not a quanthash superset
 
   * alternates: `⊉`
 
-  * tags: infix
+  * infix
 
 ### `!(>)` is not a strict quanthash superset
 
   * alternates: `⊅`
 
-  * tags: infix
+  * infix
 
 Equalish
 --------
@@ -289,75 +284,75 @@ The Equalish group contains the infix operators that return True if the compared
 
 ### `~~` smart match
 
-  * tags: infix
+  * infix
 
 ### `eqv` canonical equivalence
 
-  * tags: infix
+  * infix
 
 ### `eq` string equality
 
-  * tags: infix
+  * infix
 
 ### `==` numeric equality
 
-  * tags: infix
+  * infix
 
 ### `=~=` numeric almost equal
 
   * alternates: `≅`
 
-  * tags: infix
+  * infix
 
 ### `===` value identity
 
-  * tags: infix
+  * infix
 
 ### `=:=` value identity without decontainerization
 
-  * tags: infix
+  * infix
 
 ### `(elem)` is element in
 
   * alternates: `∈`
 
-  * tags: infix
+  * infix
 
 ### `(cont)` contains element
 
   * alternates: `∋`
 
-  * tags: infix
+  * infix
 
 ### `(<)` is strict quanthash subset
 
   * alternates: `⊂`
 
-  * tags: infix
+  * infix
 
 ### `(<=)` is quanthash subset
 
   * alternates: `⊆`
 
-  * tags: infix
+  * infix
 
 ### `(==)` quanthash equality
 
   * alternates: `≡`
 
-  * tags: infix
+  * infix
 
 ### `(>=)` is quanthash superset
 
   * alternates: `⊇`
 
-  * tags: infix
+  * infix
 
 ### `(>)` is strict quanthash superset
 
   * alternates: `⊃`
 
-  * tags: infix
+  * infix
 
 Expansive
 ---------
@@ -366,677 +361,714 @@ The Expansive group contains the postfix operators that expand on numeric values
 
 ### [`i` numeric multiplication with the imaginary unit (√-1)](https://docs.raku.org/type/Complex#postfix_i)
 
-  * tags: postfix
+  * postfix
 
 `4i` is the same as `0+4i`. Needs grouping for variables `($a)i` because otherwise the `i` will be considered part of the variable name.
 
 ### [`ⁿ` numeric literal integer exponentiation](https://docs.raku.org/routine/%2A%2A)
 
-  * tags: postfix
+  * postfix
 
 So `$a²` is the same as `$a ** 2`, etc. Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.
 
 Feedoid
 -------
 
-The Feedoid group contains the operators that provide an alternate way for creating a sequence of operations, where the result of one such operation become the argument(s) for the next operation.
+The Feedoid group contains the operators that provide an alternate syntax for creating a sequence of operations, where the result of one such operation become the argument(s) for the next operation.
 
 ### [`==>` feed left to right](https://docs.raku.org/language/operators#infix_==%3E)
 
-  * tags: infix
+  * infix
 
 `(1,2,3,4) ==> sum() ==> say()` as opposed to `say sum (1,2,3,4)` or `(1,2,3,4).sum.say`.
 
 ### [`<==` feed right to left](https://docs.raku.org/language/operators#infix_%3C==)
 
-  * tags: infix
+  * infix
 
 `say() <== sum() <== (1,2,3,4)` as opposed to `say sum (1,2,3,4)` or `(1,2,3,4).sum.say`.
 
 Flippant
 --------
 
-The Flippant group 
+The Flippant group contains the operators that produce one or the other value, depending on some condition.
 
 ### `?? !!` ternary logic
 
-  * tags: syntax
+  * syntax
 
 ### `ff` flip-flop inclusive
 
-  * tags: infix macro
+  * infix macro
 
 ### `^ff` flip-flop excluding start
 
-  * tags: infix macro
+  * infix macro
 
 ### `ff^` flip-flop excluding end
 
-  * tags: infix macro
+  * infix macro
 
 ### `^ff^` flip-flop exclusive
 
-  * tags: infix macro
+  * infix macro
 
 ### `fff` sed-like flip-flop inclusive
 
-  * tags: infix macro
+  * infix macro
 
 ### `^fff` sed-like flip-flop excluding start
 
-  * tags: infix macro
+  * infix macro
 
 ### `fff^` sed-like flip-flop excluding end
 
-  * tags: infix macro
+  * infix macro
 
 ### `^fff^` sed-like flip-flop exclusive
 
-  * tags: infix macro
+  * infix macro
 
 Hyperoid
 --------
 
-The Hyperoid group 
+The Hyperoid group contains the operators that take the name of an infix operator and repeatedly perform that operator on the provided argument list(s).
 
 ### `>>op<<` produce operator results for equal lists
 
   * alternates: `»op« `
 
-  * tags: infix syntax
+  * infix syntax
 
 ### `>>op>>` produce operator results, left side leading
 
   * alternates: `»op»`
 
-  * tags: infix syntax
+  * infix syntax
 
 ### `<<op<<` produce operator results, right side leading
 
   * alternates: `«op«`
 
-  * tags: infix syntax
+  * infix syntax
 
 ### `<<op>>` produce operator results, longest side leading
 
   * alternates: `«op»`
 
-  * tags: infix syntax
+  * infix syntax
 
 ### [`Zop` produce operator result, shortest side leading](Default for `op` is `,`)
 
-  * tags: infix syntax
+  * infix syntax
 
 ### [`Xop` produce operator result for combinations](Default for `op` is `,`)
 
-  * tags: infix syntax
+  * infix syntax
 
 IOoid
 -----
 
-The IOoid group 
+The IOoid group contains the functions that are available for input / output of data.
 
-### `get` Read a line from `$*STDIN` / `$*ARGFILES`
+### `get` Read a line from `C<$*STDIN>` / `C<$*ARGFILES>`
 
-  * tags: sub method
+  * sub method
 
-### `getc` Read a character from `$*STDIN` / `$*ARGFILES`
+### `getc` Read a character from `C<$*STDIN>` / `C<$*ARGFILES>`
 
-  * tags: sub method
+  * sub method
 
-### `read` Read bytes from IO::Handle
+### `read` Read bytes from an `IO::Handle`
 
-  * tags: method
+  * method
 
-### `write` Write bytes to IO::Handle
+### `write` Write bytes to an `IO::Handle`
 
-  * tags: method
+  * method
 
-### `slurp` Read entire contents of IO::Path / IO::Handle
+### `slurp` Read entire contents of `IO::Path` / `IO::Handle`
 
-  * tags: sub method
+  * sub method
 
-### `spurt` Replace content of IO::Path / IO::Handle with argument
+### `spurt` Replace content of `IO::Path` / `IO::Handle` with argument
 
-  * tags: sub method
+  * sub method
 
 Incremental
 -----------
 
-The Incremental group The atomic versions of -- and ++ were implemented for 6.d. They can only be applied to atomic integers.
+The Incremental group contains the infix operators for incrementing / decrementing (usually) numeric values.
+
+The atomic versions of `--` and `++` were implemented for 6.d. They can only be applied to atomic integers.
 
 ### `++` pre-increment by 1
 
-  * tags: prefix
+  * prefix
 
 ### `⚛++` atomic pre-increment by 1
 
-  * tags: prefix
+  * prefix
 
 ### `--` pre-decrement by 1
 
-  * tags: prefix
+  * prefix
 
 ### `⚛--` atomic pre-decrement by 1
 
-  * tags: prefix
+  * prefix
 
 ### `++` post-increment by 1
 
-  * tags: postfix
+  * postfix
 
 ### `⚛++` atomic post-increment by 1
 
-  * tags: postfix
+  * postfix
 
 ### `--` post-decrement by 1
 
-  * tags: postfix
+  * postfix
 
 ### `⚛--` atomic post-decrement by 1
 
-  * tags: postfix
+  * postfix
 
 Junctive
 --------
 
-The Junctive group 
+The Junctive group contains the infix operators and the functions that produce `Junction` objects.
 
 ### `&` junctive all
 
-  * tags: infix
+  * infix
 
 ### `|` junctive any
 
-  * tags: infix
+  * infix
 
 ### `^` junctive one
 
-  * tags: infix
+  * infix
 
 ### `all` junctive all
 
-  * tags: sub method
+  * sub method
 
 ### `any` junctive any
 
-  * tags: sub method
+  * sub method
 
 ### `one` junctive one
 
-  * tags: sub method
+  * sub method
 
 ### `none` junctive none
 
-  * tags: sub method
+  * sub method
 
 Mathematicals
 -------------
 
-The Mathematicals group 
+The Mathematicals group contains the mathematical terms that are provided by the core.
 
 ### `pi` The number π (3.1415...)
 
   * alternates: `π`
 
-  * tags: term
+  * term
 
 ### `tau` The number τ (6.2831...)
 
   * alternates: `τ`
 
-  * tags: term
+  * term
 
 ### `e` Euler's number (2.7182...)
 
   * alternates: `𝑒`
 
-  * tags: term
+  * term
 
-### `i` The imaginary unit (sqrt(-1))
+### `i` The imaginary unit (√-1)
 
-  * tags: term
+  * term
 
 ### `Inf` Infinity
 
   * alternates: `∞`
 
-  * tags: term
+  * term
 
 Metaoid
 -------
 
-The Metaoid group 
+The Metaoid group contains the meta operators that take an infix operator and do something special with its result or its arguments.
 
-### `op=` store result of operator on left/right on left side
+### `op=` store result of infix operator on left side
 
-  * tags: infix syntax
+  * infix syntax
 
-### `Rop` produce result of operator with arguments reversed
+### `Rop` produce result of infix operator with arguments reversed
 
-  * tags: infix syntax
+  * infix syntax
 
-### `!op` negate result of iffy operator on arguments
+### `!op` negate result of iffy infix operator on arguments
 
-  * tags: index syntax
+  * index syntax
 
 Methodic
 --------
 
-The Methodic group Dotted postfix operators must be followed by a method name or a subroutine name prefixed with `&` (possibly fully qualified), a postfix operator, a prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]` `{ }` `< >` `« »`.
+The Methodic group contains the ways a method can be called on an object.
+
+Dotted postfix operators must be followed by a method name or a subroutine name prefixed with `&` (possibly fully qualified), a postfix operator, a prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]` `{ }` `< >` `« »`.
 
 ### `.method` method call
 
-  * tags: postfix
+  * postfix
 
 ### `. method` dotty infix method call
 
-  * tags: infix
+  * infix
 
 ### `.^method` meta-method call
 
-  * tags: postfix
+  * postfix
 
 ### `.?method` call method if any
 
-  * tags: postfix
+  * postfix
 
 ### `.*method` call all methods if any
 
-  * tags: postfix
+  * postfix
 
 ### `.+method` call all methods
 
-  * tags: postfix
+  * postfix
 
 ### `!method` private method call
 
-  * tags: postfix
+  * postfix
 
 ### `.=method` incovant mutating method call
 
-  * tags: postfix
+  * postfix
 
 Multiplicoid
 ------------
 
-The Multiplicoid group 
+The Multiplicoid group contains all infix operators that are related to multiplication in some way.
 
 ### `div` integer divide
 
-  * tags: infix
+  * infix
 
 ### `mod` integer modulus
 
-  * tags: infix
+  * infix
 
 ### `gcd` greatest common divisor
 
-  * tags: infix
+  * infix
 
 ### `lcm` lowest common multiple
 
-  * tags: infix
+  * infix
 
 ### `*` multiply
 
   * alternates: `×`
 
-  * tags: infix
+  * infix
 
 ### `/` divide
 
   * alternates: `÷`
 
-  * tags: infix
+  * infix
 
 ### `**` exponentiation
 
-  * tags: infix
+  * infix
 
 ### `%` modulus
 
-  * tags: infix
+  * infix
 
 ### `%%` is divisible
 
-  * tags: infix
+  * infix
 
 ### `+<` integer shift left
 
-  * tags: infix
+  * infix
 
 ### `+>` integer shift right
 
-  * tags: infix
+  * infix
+
+Normaloid
+---------
+
+The Normaloid group contains the operators that somehow normalize the given arguments into something else, either in time or in value.
+
+### `+` numerify
+
+  * prefix
+
+### `+^` numeric complement
+
+  * prefix
+
+### `-` numeric negation
+
+  * alternates: `−`
+
+  * prefix
+
+### `^` numeric from zero upto
+
+  * prefix
+
+### `~` stringify
+
+  * prefix
+
+### `?` boolify
+
+  * prefix
+
+### `so` low precedence boolify
+
+  * prefix
+
+### `!` boolean negation
+
+  * alternates: `?^`
+
+  * prefix
+
+### `not` low precedence boolean negation
+
+  * prefix
+
+### `//` is defined
+
+  * prefix
+
+### [`|` flatten args, slip iterable](https://docs.raku.org/syntax/%7C)
+
+  * prefix
+
+The meaning of prefix `|` was expanded in 6.c to be beyond the use within signatures, to mean converting any iterable to a `Slip` (a special type of `list` that will always be iterated).
+
+### [`⚛` atomic integer access](https://docs.raku.org/routine/⚛)
+
+  * prefix
+
+Ensures the latest update of a value in the target is produced in multi-threaded situations.
 
 Orderoid
 --------
 
-The Orderoid group Return an `Order` enum
+The Orderoid group contains the infix operators that return an `Order` value.
 
 ### `cmp` equivalence order comparison
 
-  * tags: infix
+  * infix
 
 ### `<=>` numerical order comparison
 
-  * tags: infix
+  * infix
 
 ### `leg` string order comparison
 
-  * tags: infix
+  * infix
 
 Quantoid
 --------
 
-The Quantoid group 
+The Quantoid group contains the functions that return a `QuantHash` (a `Set`, `SetHash`, `Bag`, `BagHash`, `Mix` or `MixHash` given any set or arguments.
 
 ### `∅` empty Set
 
-  * tags: term
+  * term
 
 ### `(|)` quanthash union
 
   * alternates: `∪`
 
-  * tags: infix
+  * infix
 
 ### `(+)` quanthash addition
 
   * alternates: `⊎`
 
-  * tags: infix
+  * infix
 
 ### `(.)` quanthash multiplication
 
   * alternates: `⊍`
 
-  * tags: infix
+  * infix
 
 ### `(-)` quanthash difference
 
   * alternates: `∖`
 
-  * tags: infix
+  * infix
 
 ### `(^)` quanthash symmetric difference
 
   * alternates: `⊖`
 
-  * tags: infix
+  * infix
 
 Rangoid
 -------
 
-The Rangoid group 
+The Rangoid group contains the infix operators that produce a `Range`.
 
 ### `..` range inclusive
 
-  * tags: infix
+  * infix
 
 ### `^..` range excluding start
 
-  * tags: infix
+  * infix
 
 ### `..^` range excluding end
 
-  * tags: infix
+  * infix
 
 ### `^..^` range exclusive
 
-  * tags: infix
+  * infix
 
 ### `minmax` range including min and max value
 
-  * tags: infix
+  * infix
 
 Reductoid
 ---------
 
-The Reductoid group 
-
-### `minmax` reduce values to Range of min and max value
-
-  * tags: infix sub method
+The Reductoid group contains the functions that reduce a given set of arguments into a single value (or produces the steps to produce that value).
 
 ### `min` reduce values to smallest value
 
-  * tags: infix sub method
+  * infix sub method
 
 ### `max` reduce values to largest value
 
-  * tags: infix sub method
+  * infix sub method
 
 ### `[op]` reduce using given infix operator
 
-  * tags: prefix syntax
+  * prefix syntax
 
 ### `[\op]` produce steps of reduction using given infix operator
 
-  * tags: prefix syntax
+  * prefix syntax
 
 Replicant
 ---------
 
-The Replicant group 
+The Replicant group contains the infix operators that reproduce the left value repeatedly.
 
 ### `x` string repetition
 
-  * tags: infix
+  * infix
 
 ### `xx` item repetition
 
-  * tags: infix
+  * infix thunky
 
 Rolific
 -------
 
 The Rolific group 
 
-### `does` mutating role mixin
-
-  * tags: infix
-
-### `but` cloning role mixin
-
-  * tags: infix
-
 Sequoid
 -------
 
-The Sequoid group 
+The Sequoid group contains the infix operators that create a smart sequence (one that inspect the arguments and interpretes special, almost magic, meaning).
 
 ### `...` smart sequence inclusive
 
-  * tags: infix
+  * infix
 
 ### `^...` smart sequence excluding start
 
-  * tags: infix
+  * infix
 
 ### `...^` smart sequence excluding end
 
-  * tags: infix
+  * infix
 
 ### `^...^` smart sequence exclusive
 
-  * tags: infix
+  * infix
 
 Shortoid
 --------
 
-The Shortoid group 
+The Shortoid group contains the infixish macros that exhibit short-cicuiting behaviour, where the right hand side will **not** be evaluated if a certain condition on the left hand side was met.
 
 ### `&&` high precedence logical AND
 
-  * tags: infix macro
+  * infix macro
 
 ### `and` low precedence logical AND
 
-  * tags: infix macro
+  * infix macro
 
 ### `||` high precedence logical OR
 
-  * tags: infix macro
+  * infix macro
 
 ### `or` low precedence logical OR
 
-  * tags: infix macro
+  * infix macro
 
 ### `^^` high precedence logical XOR
 
-  * tags: infix macro
+  * infix macro
 
 ### `xor` low precedence logical XOR
 
-  * tags: infix macro
+  * infix macro
 
 ### `//` high precedence is defined OR
 
-  * tags: infix macro
+  * infix macro
 
 ### `notandthen` Empty if first defined, else last
 
-  * tags: infix macro
+  * infix macro
 
 Stuboid
 -------
 
-The Stuboid group 
+The Stuboid group contains the functionality that can be used to indicate that code will need to be added at a later time (e.g. in the development cycle of the code), or at compilation time by mixing in a role.
 
 ### `???` warn about stub code executed
 
-  * tags: term macro
+  * term macro
 
 ### `...` fail with stub code executed error
 
-  * tags: term macro
+  * term macro
 
 ### `!!!` die with stub code executed error
 
-  * tags: term macro
+  * term macro
 
 Talkoid
 -------
 
-The Talkoid group 
+The Talkoid group contains the functions that are generally used to display messages to a user.
 
 ### `print` stringify argument(s), write to `$*STDOUT`
 
-  * tags: sub method
+  * sub method
 
 ### `say` create gist of argument(s), add newline, write to `$*STDOUT`
 
-  * tags: sub method
+  * sub method
 
 ### `put` stringify argument(s), add newline, write to `$*STDOUT`
 
-  * tags: sub method
+  * sub method
 
 ### `note` create gist of argument(s), add newline, write to `$*STDERR`
 
-  * tags: sub method
+  * sub method
 
 Termic
 ------
 
 The Termic group 
 
-### `self` invocant in method
-
-  * tags: term
-
-### `rand` pseudo-random Num in range 
-
-  * tags: term
-
 Throwoid
 --------
 
-The Throwoid group 
+The Throwoid group contains the functions that somehow interrupt the normal flow of execution either very noticeably, or very much under the hood.
 
-### `die` halt execution, or be caught by CATCH
+### `die` halt execution, or be caught by `CATCH`
 
-  * tags: sub
+  * sub
 
-### `warn` show error message, or be caught by CONTROL
+### `warn` show error message, or be caught by `CONTROL`
 
-  * tags: sub
+  * sub
 
-### `fail` return from Routine with Failure, or be caught by CATCH
+### `fail` return from Routine with Failure, or be caught by `CATCH`
 
-  * tags: sub
+  * sub
 
-### `return` return from Routine with given value, or be caught by CONTROL
+### `return` return from Routine with given value, or be caught by `CONTROL`
 
-  * tags: sub method
+  * sub method
 
-### `next` proceed with next iteration, or be caught by CONTROL
+### `next` proceed with next iteration, or be caught by `CONTROL`
 
-  * tags: sub
+  * sub
 
-### `redo` restart current iteration, or be caught by CONTROL
+### `redo` restart current iteration, or be caught by `CONTROL`
 
-  * tags: sub
+  * sub
 
-### `last` stop iterating, or be caught by CONTROL
+### `last` stop iterating, or be caught by `CONTROL`
 
-  * tags: sub
+  * sub
 
-### `proceed` continue with next when/default, or be caught by CONTROL
+### `proceed` continue with next when/default, or be caught by `CONTROL`
 
-  * tags: sub
+  * sub
 
-### `succeed` continue after last when/default, or be caught by CONTROL
+### `succeed` continue after last when/default, or be caught by `CONTROL`
 
-  * tags: sub
+  * sub
 
-### `done` call "done" callback on taps, or be caught by CONTROL
+### `done` call "done" callback on taps, or be caught by `CONTROL`
 
-  * tags: sub
+  * sub
 
-### `emit` emit given value to active supply, or be caught by CONTROL
+### `emit` emit given value to active supply, or be caught by `CONTROL`
 
-  * tags: sub method
+  * sub method
+
+### `take` produce a value in a `gather` sequence, or be caught by `CONTROL`
+
+  * sub method
 
 Timeoid
 -------
 
 The Timeoid group 
 
-### `now` Instant of current time
-
-  * tags: term
-
-### `time` POSIX time in seconds
-
-  * tags: term
-
-### `nano` POSIX time in nano seconds
-
-  * tags: term
-
 Topicoid
 --------
 
-The Topicoid group 
+The Topicoid group contains the functions that topicalize (set `$_`) in some situations.
 
 ### `given` topicalize argument for scope
 
-  * tags: syntax
+  * syntax
 
 ### `when` if smartmatched topicalize argument for scope
 
-  * tags: syntax
+  * syntax
 
 ### `andthen` topicalize left for right thunk
 
-  * tags: infix thunky
+  * infix thunky
 
 ### `orelse` low precedence if defined OR, topicalizing left for right thunk
 
-  * tags: infix thunky
+  * infix thunky
 
 CLASSES
 =======
