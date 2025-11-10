@@ -7,7 +7,7 @@ infix syntax
 produce result of infix operator with arguments reversed
 
 !op
-index syntax
+infix syntax
 negate result of iffy infix operator on arguments
 
 

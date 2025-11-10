@@ -1,0 +1,2 @@
+A C<Callable> with a name that takes an invocant as its first argument,
+and which is typically part of a C<class>, C<role> or C<grammar>.

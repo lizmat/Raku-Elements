@@ -1,0 +1,2 @@
+Having special syntax handling causing it to not immediately be executed
+(like a C<Callable>) but without having an independent scope.

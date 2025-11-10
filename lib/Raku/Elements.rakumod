@@ -1,10 +1,17 @@
+my constant resources = $?DISTRIBUTION.meta<resources>;
+
 my constant groups-prefix = 'groups/';
-my constant @groups = $?DISTRIBUTION.meta<resources>.map: {
+my constant @groups = resources.map: {
     .substr(7) if .starts-with(groups-prefix);
 }
 
+my constant tags-prefix = 'tags/';
+my constant @tags = resources.map: {
+    .substr(5) if .starts-with(tags-prefix);
+}
+
 #- Element ---------------------------------------------------------------------
-class Raku::Element:ver<0.0.2>:auth<zef:lizmat> {
+class Raku::Element:ver<0.0.3>:auth<zef:lizmat> {
     has str $.name;
     has     @.alternates;
     has     @.tags;
@@ -19,7 +26,18 @@ class Raku::Element:ver<0.0.2>:auth<zef:lizmat> {
 }
 
 #- Group -----------------------------------------------------------------------
-class Raku::Group:ver<0.0.2>:auth<zef:lizmat> {
+class Raku::Group:ver<0.0.3>:auth<zef:lizmat> {
+    has str $.name;
+    has str $.description;
+    has     @.elements;
+
+    method TWEAK(--> Nil) {
+        @!elements := @!elements.List;
+    }
+}
+
+#- Tag -------------------------------------------------------------------------
+class Raku::Tag:ver<0.0.3>:auth<zef:lizmat> {
     has str $.name;
     has str $.description;
     has     @.elements;
@@ -30,7 +48,7 @@ class Raku::Group:ver<0.0.2>:auth<zef:lizmat> {
 }
 
 #- Elements --------------------------------------------------------------------
-class Raku::Elements:ver<0.0.2>:auth<zef:lizmat> {
+class Raku::Elements:ver<0.0.3>:auth<zef:lizmat> {
     has %.elements;
     has %.groups;
     has %.tags;
@@ -71,11 +89,19 @@ class Raku::Elements:ver<0.0.2>:auth<zef:lizmat> {
                 );
                 @elements.push: $element;
                 %elements{$_}.push($element) for $name, |@alternates;
+                %tags{$_}.push($element) for $element.tags;
             }
 
             %groups{$_} := Raku::Group.new(
               :name($_), :description(@lines.join("\n")), :@elements
             );
+        }
+
+        for %tags.keys -> $name {
+            my $description := %?RESOURCES{tags-prefix ~ $name}.slurp.chomp;
+            %tags{$name} := Raku::Tag.new(
+              :$name, :$description, :elements(%tags{$name}.List)
+            )
         }
 
         self.bless(:%elements, :%groups, :%tags)

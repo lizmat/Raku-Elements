@@ -1,10 +1,12 @@
 =
 infix macro
 bind right value in left container
+https://docs.raku.org/language/operators#infix_=_(item_assignment)
 
 :=
 infix macro
 bind right value to left lexpad entry
+https://docs.raku.org/language/operators#infix_:=
 
 
 contains all macro-ish infix operators that perform raw binding,

@@ -1,50 +1,62 @@
 +
 infix
 numeric add
+https://docs.raku.org/language/operators#infix_+
 
 - | −
 infix
 numeric subtract
+https://docs.raku.org/language/operators#infix_-
 
 ~
 infix
 string concatenation
+https://docs.raku.org/language/operators#infix_~
 
 +&
 infix
 integer AND
+https://docs.raku.org/language/operators#infix_+&
 
 +|
 infix
 integer OR
+https://docs.raku.org/language/operators#infix_+|
 
 +^
 infix
 integer XOR
+https://docs.raku.org/language/operators#infix_+^
 
 ~&
 infix
 string AND
+https://docs.raku.org/language/operators#infix_~&
 
 ~|
 infix
 string OR
+https://docs.raku.org/language/operators#infix_~|
 
 ~^
 infix
 string XOR
+https://docs.raku.org/language/operators#infix_~^
 
 ?&
 infix
 boolean AND
+https://docs.raku.org/language/operators#infix_?&
 
 ?|
 infix
 boolean OR
+https://docs.raku.org/language/operators#infix_?|
 
 ?^
 infix
 boolean XOR
+https://docs.raku.org/language/operators#infix_?^
 
 
 contains all infix operators that could be considered doing addition

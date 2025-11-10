@@ -1,38 +1,47 @@
 =>
 infix
-Pair constructor, named argument specification
+C<Pair> constructor, named argument specification
+https://docs.raku.org/language/operators#infix_=%3E
 
 ,
 infix
-List constructor
+C<List> constructor
+https://docs.raku.org/language/operators#infix_,
 
 [ ]
 circumfix
-Array constructor
+C<Array> constructor
+https://docs.raku.org/language/operators#circumfix_[_]
 
 { }
-circumfix
-Hash constructor
+circumfix syntax
+C<Block> or C<Hash> constructor
+https://docs.raku.org/language/operators#term_{_}
 
 :{ }
 circumfix
 Object Hash constructor
+https://docs.raku.org/language/hashmap#Non-string_keys_(object_hash)
 
 ' '
 syntax
 literal string constructor
+https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings
 
 " "
 syntax
 literal string constructor with interpolation
+https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings
 
 < >
 syntax
 literal word list constructor
+https://docs.raku.org/language/operators#term_%3C_%3E
 
 << >> | « »
 syntax
 literal word list constructor with interpolation
+https://docs.raku.org/language/quoting#Word_quoting_with_interpolation_and_quote_protection:_«_»
 
 $( )
 syntax
@@ -41,6 +50,7 @@ turn argument(s) into an item
 item
 sub method
 turn argument(s) into an item
+https://docs.raku.org/type/Mu#routine_item
 
 @( )
 syntax
@@ -49,6 +59,7 @@ turn argument(s) into a list
 list
 sub method
 turn argument(s) into a list
+https://docs.raku.org/type/List#routine_list
 
 %( )
 syntax
@@ -57,7 +68,8 @@ turn argument(s) into a hash
 hash
 sub method
 turn argument(s) into a hash
+https://docs.raku.org/type/Any#method_hash
 
 
 contains all elements that convert a given set of arguments into one of
-a Scalar, Pair, Positional or Associative object.
+a C<Scalar>, C<Pair>, C<Positional> or C<Associative> object.

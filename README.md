@@ -278,7 +278,7 @@ The Buildoid group contains all elements that convert a given set of arguments i
 
   * [syntax](#syntax)
 
-### `item` turn argument(s) into an item
+### [`item` turn argument(s) into an item](https://docs.raku.org/type/Mu#routine_item)
 
   * [sub](#sub) [method](#method)
 
@@ -286,7 +286,7 @@ The Buildoid group contains all elements that convert a given set of arguments i
 
   * [syntax](#syntax)
 
-### `list` turn argument(s) into a list
+### [`list` turn argument(s) into a list](https://docs.raku.org/type/List#routine_list)
 
   * [sub](#sub) [method](#method)
 
@@ -294,7 +294,7 @@ The Buildoid group contains all elements that convert a given set of arguments i
 
   * [syntax](#syntax)
 
-### `hash` turn argument(s) into a hash
+### [`hash` turn argument(s) into a hash](https://docs.raku.org/type/Any#method_hash)
 
   * [sub](#sub) [method](#method)
 

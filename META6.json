@@ -45,7 +45,17 @@
     "groups/Talkoid",
     "groups/Termoid",
     "groups/Throwoid",
-    "groups/Topicoid"
+    "groups/Topicoid",
+    "tags/circumfix",
+    "tags/infix",
+    "tags/macro",
+    "tags/method",
+    "tags/postfix",
+    "tags/prefix",
+    "tags/sub",
+    "tags/syntax",
+    "tags/term",
+    "tags/thunky"
   ],
   "source-url": "https://github.com/lizmat/Raku-Elements.git",
   "support": {
@@ -59,5 +69,5 @@
   ],
   "test-depends": [
   ],
-  "version": "0.0.2"
+  "version": "0.0.3"
 }
