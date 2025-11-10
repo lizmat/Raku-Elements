@@ -96,6 +96,18 @@ Raku::Tag
 
 The information about an element tag of the Raku Programming Language. It is usually created automatically when a `Raku::Elements` object is instantiated.
 
+### name
+
+The name of the tag.
+
+### description
+
+The description of the tag (if any)
+
+### elements
+
+A list of `Raku::Element` objects belonging that have this tag set.
+
 ELEMENTS
 ========
 
@@ -156,53 +168,53 @@ Addenoid
 
 The Addenoid group contains all infix operators that could be considered doing addition or substraction functions.
 
-### `+` numeric add
+### [`+` numeric add](https://docs.raku.org/language/operators#infix_+)
 
   * [infix](#infix)
 
-### `-` numeric subtract
+### [`-` numeric subtract](https://docs.raku.org/language/operators#infix_-)
 
   * alternates: `−`
 
   * [infix](#infix)
 
-### `~` string concatenation
+### [`~` string concatenation](https://docs.raku.org/language/operators#infix_~)
 
   * [infix](#infix)
 
-### `+&` integer AND
+### [`+&` integer AND](https://docs.raku.org/language/operators#infix_+&)
 
   * [infix](#infix)
 
-### `+|` integer OR
+### [`+|` integer OR](https://docs.raku.org/language/operators#infix_+|)
 
   * [infix](#infix)
 
-### `+^` integer XOR
+### [`+^` integer XOR](https://docs.raku.org/language/operators#infix_+^)
 
   * [infix](#infix)
 
-### `~&` string AND
+### [`~&` string AND](https://docs.raku.org/language/operators#infix_~&)
 
   * [infix](#infix)
 
-### `~|` string OR
+### [`~|` string OR](https://docs.raku.org/language/operators#infix_~|)
 
   * [infix](#infix)
 
-### `~^` string XOR
+### [`~^` string XOR](https://docs.raku.org/language/operators#infix_~^)
 
   * [infix](#infix)
 
-### `?&` boolean AND
+### [`?&` boolean AND](https://docs.raku.org/language/operators#infix_?&)
 
   * [infix](#infix)
 
-### `?|` boolean OR
+### [`?|` boolean OR](https://docs.raku.org/language/operators#infix_?|)
 
   * [infix](#infix)
 
-### `?^` boolean XOR
+### [`?^` boolean XOR](https://docs.raku.org/language/operators#infix_?^)
 
   * [infix](#infix)
 
@@ -211,52 +223,52 @@ Bindoid
 
 The Bindoid group contains all macro-ish infix operators that perform raw binding, possibly into a container (which would make it an assignment).
 
-### `=` bind right value in left container
+### [`=` bind right value in left container](https://docs.raku.org/language/operators#infix_=_(item_assignment))
 
   * [infix](#infix) [macro](#macro)
 
-### `:=` bind right value to left lexpad entry
+### [`:=` bind right value to left lexpad entry](https://docs.raku.org/language/operators#infix_:=)
 
   * [infix](#infix) [macro](#macro)
 
 Buildoid
 --------
 
-The Buildoid group contains all elements that convert a given set of arguments into one of a Scalar, Pair, Positional or Associative object.
+The Buildoid group contains all elements that convert a given set of arguments into one of a `Scalar`, `Pair`, `Positional` or `Associative` object.
 
-### `=>` Pair constructor, named argument specification
-
-  * [infix](#infix)
-
-### `,` List constructor
+### [`=>` `Pair` constructor, named argument specification](https://docs.raku.org/language/operators#infix_=%3E)
 
   * [infix](#infix)
 
-### `[ ]` Array constructor
+### [`,` `List` constructor](https://docs.raku.org/language/operators#infix_,)
+
+  * [infix](#infix)
+
+### [`[ ]` `Array` constructor](https://docs.raku.org/language/operators#circumfix_[_])
 
   * [circumfix](#circumfix)
 
-### `{ }` Hash constructor
+### [`{ }` `Block` or `Hash` constructor](https://docs.raku.org/language/operators#term_{_})
+
+  * [circumfix](#circumfix) [syntax](#syntax)
+
+### [`:{ }` Object Hash constructor](https://docs.raku.org/language/hashmap#Non-string_keys_(object_hash))
 
   * [circumfix](#circumfix)
 
-### `:{ }` Object Hash constructor
-
-  * [circumfix](#circumfix)
-
-### `' '` literal string constructor
+### [`' '` literal string constructor](https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings)
 
   * [syntax](#syntax)
 
-### `" "` literal string constructor with interpolation
+### [`" "` literal string constructor with interpolation](https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings)
 
   * [syntax](#syntax)
 
-### `< >` literal word list constructor
+### [`< >` literal word list constructor](https://docs.raku.org/language/operators#term_%3C_%3E)
 
   * [syntax](#syntax)
 
-### `<< >>` literal word list constructor with interpolation
+### [`<< >>` literal word list constructor with interpolation](https://docs.raku.org/language/quoting#Word_quoting_with_interpolation_and_quote_protection:_«_»)
 
   * alternates: `« »`
 
