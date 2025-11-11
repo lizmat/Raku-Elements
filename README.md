@@ -172,64 +172,106 @@ The Addenoid group contains all infix operators that could be considered doing a
 
   * [infix](#infix)
 
+Coerces either side to a `Numeric` value, and then adds them.
+
 ### [`-` numeric subtract](https://docs.raku.org/language/operators#infix_-)
 
   * alternates: `−`
 
   * [infix](#infix)
 
+Coerces both sides to a `Numeric` value, and then substracts the right side from the left side.
+
 ### [`~` string concatenation](https://docs.raku.org/language/operators#infix_~)
 
   * [infix](#infix)
+
+Performs a smart-match on the given arguments. Technically, this is calling the `.ACCEPTS` method on the right side, giving it the left side as the positional argument.
 
 ### [`+&` integer AND](https://docs.raku.org/language/operators#infix_+&)
 
   * [infix](#infix)
 
+Coerces both sides to an `Int` value, and then does a bitwise AND.
+
 ### [`+|` integer OR](https://docs.raku.org/language/operators#infix_+|)
 
   * [infix](#infix)
+
+Coerces both sides to an `Int` value, and then does a bitwise OR.
 
 ### [`+^` integer XOR](https://docs.raku.org/language/operators#infix_+^)
 
   * [infix](#infix)
 
+Coerces both sides to an `Int` value, and then does a bitwise XOR.
+
 ### [`~&` string AND](https://docs.raku.org/language/operators#infix_~&)
 
   * [infix](#infix)
+
+Coerces both sides to a `Buffer` value, and then does a bitwise AND and converts the result back to a `Str`.
 
 ### [`~|` string OR](https://docs.raku.org/language/operators#infix_~|)
 
   * [infix](#infix)
 
+Coerces both sides to a `Buffer` value, and then does a bitwise OR and converts the result back to a `Str`.
+
 ### [`~^` string XOR](https://docs.raku.org/language/operators#infix_~^)
 
   * [infix](#infix)
+
+Coerces both sides to a `Buffer` value, and then does a bitwise XOR and converts the result back to a `Str`.
 
 ### [`?&` boolean AND](https://docs.raku.org/language/operators#infix_?&)
 
   * [infix](#infix)
 
+Coerces both sides to a `Bool` value, and then does a logical AND.
+
 ### [`?|` boolean OR](https://docs.raku.org/language/operators#infix_?|)
 
   * [infix](#infix)
 
+Coerces both sides to a `Bool` value, and then does a logical OR.
+
 ### [`?^` boolean XOR](https://docs.raku.org/language/operators#infix_?^)
 
   * [infix](#infix)
+
+Coerces both sides to a `Bool` value, and then does a logical XOR.
 
 Bindoid
 -------
 
 The Bindoid group contains all macro-ish infix operators that perform raw binding, possibly into a container (which would make it an assignment).
 
-### [`=` bind right value in left container](https://docs.raku.org/language/operators#infix_=_(item_assignment))
+### [`=` assign value(s)](https://docs.raku.org/language/operators#infix_=_(item_assignment))
 
   * [infix](#infix) [macro](#macro)
+
+Performs an assignment. The left side is supposed to be either a `Scalar`, a `Positional` with `Scalar` containers (typically an `Array` such as `my @foo`), or an `Associative` with `Scalar` containers (typically a `Hash` such as `my %bar`).
+
+```raku
+my $a = 42;
+my @foo = 1,2,3,4,5;
+my %bar = a => 42, b => 666, c => 137;
+```
 
 ### [`:=` bind right value to left lexpad entry](https://docs.raku.org/language/operators#infix_:=)
 
   * [infix](#infix) [macro](#macro)
+
+Performs a binding operation on the lexpad entry on the left. This is generally done to indicate that it is an immutable value, or if you want to alias one container to another.
+
+```raku
+my $b := 42;  # immutable
+my $c = 666;
+my $d := $c;  # alias
+$d = 137;
+say $c;  # 137
+```
 
 Buildoid
 --------
