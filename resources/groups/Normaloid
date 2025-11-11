@@ -1,41 +1,41 @@
 +
-prefix
+prefix numeric
 numerify
 
 +^
-prefix
+prefix numeric
 numeric complement
 
 - | −
-prefix
+prefix numeric
 numeric negation
 
 ^
-prefix
+prefix numeric
 numeric from zero upto
 
 ~
-prefix
+prefix string
 stringify
 
 ?
-prefix
+prefix boolean
 boolify
 
 so
-prefix
+prefix boolean
 low precedence boolify
 
 ! | ?^
-prefix
+prefix boolean
 boolean negation
 
 not
-prefix
+prefix boolean
 low precedence boolean negation
 
 //
-prefix
+prefix boolean
 is defined
 
 |

@@ -1,45 +1,70 @@
 =>
-infix
+infix syntax pair
 C<Pair> constructor, named argument specification
 https://docs.raku.org/language/operators#infix_=%3E
+Indicates a named argument inside a C<Capture> (for instance, as
+argument to a subroutine call).  Otherwise it functions as a
+C<Pair> constructor, with the left side being the key.
+=begin code :lang<raku>
+frobnicate(a => 42);  # named argument
+my $p = foo => 42;    # Pair
+=end code
 
 ,
-infix
+infix list
 C<List> constructor
 https://docs.raku.org/language/operators#infix_,
+Places all of its arguments in a C<List>.  Note that parentheses
+are B<not> needed for a list to be created.  The only exception
+is the empty C<List>, which can be constructed by C<()>.
 
 [ ]
-circumfix
+circumfix list
 C<Array> constructor
 https://docs.raku.org/language/operators#circumfix_[_]
+Creates an C<Array> out of the given arguments, typically used
+when assigning to a hash.
+=begin code :lang<raku>
+my %foo;
+%foo<bar> = [1,2,3,4];
+=end code
 
 { }
-circumfix syntax
+circumfix syntax hash
 C<Block> or C<Hash> constructor
 https://docs.raku.org/language/operators#term_{_}
+Either creates a C<Block> object (if it looks like there is Raku code
+between the brackets), or a C<Hash> built from its arguments (which
+is usually done when assigning to another C<Hash> or C<Array>)..
+=begin code :lang<raku>
+my &hello = { say "hello world" }                 # code, so Block
+hello;  # hello world
+my @menu = { salad => 4.50 }, { steak => 22.50 }  # args, so Hash
+say @menu[0]<salad>;  # 4.5
+=end code
 
 :{ }
-circumfix
+circumfix hash
 Object Hash constructor
 https://docs.raku.org/language/hashmap#Non-string_keys_(object_hash)
 
 ' '
-syntax
+syntax string
 literal string constructor
 https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings
 
 " "
-syntax
+syntax string
 literal string constructor with interpolation
 https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings
 
 < >
-syntax
+syntax list string
 literal word list constructor
 https://docs.raku.org/language/operators#term_%3C_%3E
 
 << >> | « »
-syntax
+syntax list string
 literal word list constructor with interpolation
 https://docs.raku.org/language/quoting#Word_quoting_with_interpolation_and_quote_protection:_«_»
 
@@ -53,20 +78,20 @@ turn argument(s) into an item
 https://docs.raku.org/type/Mu#routine_item
 
 @( )
-syntax
+syntax list
 turn argument(s) into a list
 
 list
-sub method
+sub method list
 turn argument(s) into a list
 https://docs.raku.org/type/List#routine_list
 
 %( )
-syntax
+syntax hash
 turn argument(s) into a hash
 
 hash
-sub method
+sub method hash
 turn argument(s) into a hash
 https://docs.raku.org/type/Any#method_hash
 

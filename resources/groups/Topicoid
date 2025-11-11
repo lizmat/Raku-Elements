@@ -1,16 +1,16 @@
 given
-syntax
+syntax topic
 topicalize argument for scope
 
 when
 syntax
 if smartmatched topicalize argument for scope
 
-andthen
+andthen topic
 infix thunky
 topicalize left for right thunk
 
-orelse
+orelse topic
 infix thunky
 low precedence if defined OR, topicalizing left for right thunk
 

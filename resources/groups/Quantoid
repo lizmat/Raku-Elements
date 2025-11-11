@@ -1,25 +1,25 @@
 ∅
-term
+term quanthash
 empty Set
 
 (|) | ∪
-infix
+infix quanthash
 quanthash union
 
 (+) | ⊎
-infix
+infix quanthash
 quanthash addition
 
 (.) | ⊍
-infix
+infix quanthash
 quanthash multiplication
 
 (-) | ∖
-infix
+infix quanthash
 quanthash difference
 
 (^) | ⊖
-infix
+infix quanthash
 quanthash symmetric difference
 
 

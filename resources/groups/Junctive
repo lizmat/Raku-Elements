@@ -1,29 +1,29 @@
 &
-infix
+infix junction
 junctive all
 
 |
-infix
+infix junction
 junctive any
 
 ^
-infix
+infix junction
 junctive one
 
 all
-sub method
+sub method junction
 junctive all
 
 any
-sub method
+sub method junction
 junctive any
 
 one
-sub method
+sub method junction
 junctive one
 
 none
-sub method
+sub method junction
 junctive none
 
 

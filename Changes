@@ -2,10 +2,13 @@ Revision history for Raku::Elements
 
 {{$NEXT}}
 
-0.0.3  2025-11-10T21:17:37+01:00
-    - Added support for Raku::Tag objects and actually
-      flesh out the "tags" attribute.
+0.0.4  2025-11-11T19:54:28+01:00
+    - Add a bunch more tags
     - Some more fleshing out in documentation and links
+
+0.0.3  2025-11-10T21:17:37+01:00
+    - Add support for Raku::Tag objects and actually
+      flesh out the "tags" attribute.
 
 0.0.2  2025-11-10T15:52:35+01:00
     - Some more fleshing out

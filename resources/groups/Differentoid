@@ -1,77 +1,77 @@
 before
-infix
+infix boolean
 generic less
 
 <
-infix
+infix numeric boolean
 numerically less
 
 lt
-infix
+infix string boolean
 alphabetically less
 
 <= | ≤
-infix
+infix numeric boolean
 numerically less or equal
 
 le
-infix
+infix string boolean
 alphabetically less or equal
 
 != | ≠
-infix
+infix numeric boolean
 numeric inequality
 
 ne
-infix
+infix string boolean
 string inequality
 
 >=
-infix
+infix numeric boolean
 numerically more or equal
 
 ge
-infix
+infix string boolean
 alphabetically more or equal
 
 >
-infix
+infix numeric boolean
 numerically more
 
 gt
-infix
+infix string boolean
 alphabetically more
 
 after
-infix
+infix boolean
 generic more
 
 !(elem) | ∉
-infix
+infix boolean
 is not element in
 
 !(cont) | ∌
-infix
+infix boolean
 does not contain element
 
 !(<) | ⊄
-infix
+infix boolean
 is not a strict quanthash subset
 
 !(<=) | ⊈
-infix
+infix boolean
 is not a quanthash subset
 
 !(==) | ≢
-infix
+infix boolean
 quanthash inequality
 
 !(>=) | ⊉
-infix
+infix boolean
 is not a quanthash superset
 
 !(>) | ⊅
-infix
+infix boolean
 is not a strict quanthash superset
 
 

@@ -1,0 +1,2 @@
+Produces a C<QuantHash> object, which is one of:
+C<Set>, C<SetHash>, C<Bag>, C<BagHash>, C<Mix>, C<MixHash>.

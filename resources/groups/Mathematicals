@@ -1,21 +1,21 @@
 pi | π
-term
+term numeric
 The number π (3.1415...)
 
 tau | τ
-term
+term numeric
 The number τ (6.2831...)
 
 e | 𝑒
-term
+term numeric
 Euler's number (2.7182...)
 
 i
-term
+term numeric
 The imaginary unit (√-1)
 
 Inf | ∞
-term
+term numeric
 Infinity
 
 

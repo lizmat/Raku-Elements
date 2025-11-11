@@ -1,0 +1,1 @@
+Produces an C<Order> value, as in C<Less>, C<Same> or C<More>.

@@ -1,12 +1,31 @@
 =
 infix macro
-bind right value in left container
+assign value(s)
 https://docs.raku.org/language/operators#infix_=_(item_assignment)
+Performs an assignment.  The left side is supposed to be either a
+C<Scalar>, a C<Positional> with C<Scalar> containers (typically an
+C<Array> such as C<my @foo>), or an C<Associative> with C<Scalar>
+containers (typically a C<Hash> such as C<my %bar>).
+=begin code :lang<raku>
+my $a   = 42;
+my @foo = 1,2,3,4,5;
+my %bar = a => 42, b => 666, c => 137;
+=end code
 
 :=
 infix macro
 bind right value to left lexpad entry
 https://docs.raku.org/language/operators#infix_:=
+Performs a binding operation on the lexpad entry on the left.  This
+is generally done to indicate that it is an immutable value, or if
+you want to alias one container to another.
+=begin code :lang<raku>
+my $b := 42;  # immutable
+my $c  = 666;
+my $d := $c;  # alias
+$d = 137;
+say $c;  # 137
+=end code
 
 
 contains all macro-ish infix operators that perform raw binding,

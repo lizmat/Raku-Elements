@@ -1,9 +1,9 @@
 get
-sub method
+sub method string
 Read a line from C<$*STDIN> / C<$*ARGFILES>
 
 getc
-sub method
+sub method string
 Read a character from C<$*STDIN> / C<$*ARGFILES>
 
 read

@@ -1,62 +1,78 @@
 +
-infix
+infix numeric
 numeric add
 https://docs.raku.org/language/operators#infix_+
+Coerces either side to a C<Numeric> value, and then adds them.
 
 - | −
-infix
+infix numeric
 numeric subtract
 https://docs.raku.org/language/operators#infix_-
+Coerces both sides to a C<Numeric> value, and then substracts the right
+side from the left side.
 
 ~
-infix
+infix string
 string concatenation
 https://docs.raku.org/language/operators#infix_~
+Coerces both sides to a C<Str>, and then concatenates them.
 
 +&
-infix
+infix integer
 integer AND
 https://docs.raku.org/language/operators#infix_+&
+Coerces both sides to an C<Int> value, and then does a bitwise AND.
 
 +|
-infix
+infix integer
 integer OR
 https://docs.raku.org/language/operators#infix_+|
+Coerces both sides to an C<Int> value, and then does a bitwise OR.
 
 +^
-infix
+infix integer
 integer XOR
 https://docs.raku.org/language/operators#infix_+^
+Coerces both sides to an C<Int> value, and then does a bitwise XOR.
 
 ~&
-infix
+infix string
 string AND
 https://docs.raku.org/language/operators#infix_~&
+Coerces both sides to a C<Buffer> value, and then does a bitwise AND
+and converts the result back to a C<Str>.
 
 ~|
-infix
+infix string
 string OR
 https://docs.raku.org/language/operators#infix_~|
+Coerces both sides to a C<Buffer> value, and then does a bitwise OR
+and converts the result back to a C<Str>.
 
 ~^
-infix
+infix string
 string XOR
 https://docs.raku.org/language/operators#infix_~^
+Coerces both sides to a C<Buffer> value, and then does a bitwise XOR
+and converts the result back to a C<Str>.
 
 ?&
-infix
+infix boolean
 boolean AND
 https://docs.raku.org/language/operators#infix_?&
+Coerces both sides to a C<Bool> value, and then does a logical AND.
 
 ?|
-infix
+infix boolean
 boolean OR
 https://docs.raku.org/language/operators#infix_?|
+Coerces both sides to a C<Bool> value, and then does a logical OR.
 
 ?^
-infix
+infix boolean
 boolean XOR
 https://docs.raku.org/language/operators#infix_?^
+Coerces both sides to a C<Bool> value, and then does a logical XOR.
 
 
 contains all infix operators that could be considered doing addition

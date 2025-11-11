@@ -11,7 +11,7 @@ my constant @tags = resources.map: {
 }
 
 #- Element ---------------------------------------------------------------------
-class Raku::Element:ver<0.0.3>:auth<zef:lizmat> {
+class Raku::Element:ver<0.0.4>:auth<zef:lizmat> {
     has str $.name;
     has     @.alternates;
     has     @.tags;
@@ -26,7 +26,7 @@ class Raku::Element:ver<0.0.3>:auth<zef:lizmat> {
 }
 
 #- Group -----------------------------------------------------------------------
-class Raku::Group:ver<0.0.3>:auth<zef:lizmat> {
+class Raku::Group:ver<0.0.4>:auth<zef:lizmat> {
     has str $.name;
     has str $.description;
     has     @.elements;
@@ -37,7 +37,7 @@ class Raku::Group:ver<0.0.3>:auth<zef:lizmat> {
 }
 
 #- Tag -------------------------------------------------------------------------
-class Raku::Tag:ver<0.0.3>:auth<zef:lizmat> {
+class Raku::Tag:ver<0.0.4>:auth<zef:lizmat> {
     has str $.name;
     has str $.description;
     has     @.elements;
@@ -48,7 +48,7 @@ class Raku::Tag:ver<0.0.3>:auth<zef:lizmat> {
 }
 
 #- Elements --------------------------------------------------------------------
-class Raku::Elements:ver<0.0.3>:auth<zef:lizmat> {
+class Raku::Elements:ver<0.0.4>:auth<zef:lizmat> {
     has %.elements;
     has %.groups;
     has %.tags;

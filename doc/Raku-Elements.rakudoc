@@ -127,30 +127,67 @@ example of what can be done with the information provided by this
 distribution.
 
 =comment PLEASE DON'T CHANGE ANYTHING BELOW THIS LINE
-=comment Generated on 2025-11-10T21:17:09+01:00 by ./make-rakudoc.raku
+=comment Generated on 2025-11-11T19:48:02+01:00 by ./make-rakudoc.raku
 
 =head2 Raku Element Tags
 
+L<C<boolean>|#boolean>
 L<C<circumfix>|#circumfix>
+L<C<hash>|#hash>
 L<C<infix>|#infix>
+L<C<integer>|#integer>
+L<C<interrupt>|#interrupt>
+L<C<junction>|#junction>
+L<C<list>|#list>
 L<C<macro>|#macro>
 L<C<method>|#method>
+L<C<numeric>|#numeric>
+L<C<order>|#order>
+L<C<pair>|#pair>
 L<C<postfix>|#postfix>
 L<C<prefix>|#prefix>
+L<C<quanthash>|#quanthash>
+L<C<range>|#range>
+L<C<string>|#string>
 L<C<sub>|#sub>
 L<C<syntax>|#syntax>
 L<C<term>|#term>
 L<C<thunky>|#thunky>
+L<C<topic>|#topic>
+
+=head3 boolean
+
+Produces a C<Bool> value: either C<True> or C<False>.
 
 =head3 circumfix
 
 Operators that consist of an opening and a closing tag, with their
 arguments between them.
 
+=head3 hash
+
+Produces a C<Hash> object.
+
 =head3 infix
 
 Operators that typically take two values, one to the left and one to
 the right of the operator.
+
+=head3 integer
+
+Produces an C<Int> value.
+
+=head3 interrupt
+
+Interrupts the normal flow of execution.
+
+=head3 junction
+
+Produces a C<Junction> object.
+
+=head3 list
+
+Produces a C<List> or C<Array> object.
 
 =head3 macro
 
@@ -162,6 +199,18 @@ at compile time.
 A C<Callable> with a name that takes an invocant as its first argument,
 and which is typically part of a C<class>, C<role> or C<grammar>.
 
+=head3 numeric
+
+Produces a C<Numeric> value.
+
+=head3 order
+
+Produces an C<Order> value, as in C<Less>, C<Same> or C<More>.
+
+=head3 pair
+
+Produces a C<Pair> object.
+
 =head3 postfix
 
 An operator that is placed B<after> the argument it operates on.
@@ -169,6 +218,19 @@ An operator that is placed B<after> the argument it operates on.
 =head3 prefix
 
 An operator that is placed B<before> the argument it operates on.
+
+=head3 quanthash
+
+Produces a C<QuantHash> object, which is one of:
+C<Set>, C<SetHash>, C<Bag>, C<BagHash>, C<Mix>, C<MixHash>.
+
+=head3 range
+
+Produces a C<Range> object.
+
+=head3 string
+
+Produces a C<Str> object.
 
 =head3 sub
 
@@ -188,6 +250,11 @@ which are known to not accept any arguments.
 
 Having special syntax handling causing it to not immediately be executed
 (like a C<Callable>) but without having an independent scope.
+
+=head3 topic
+
+Sets the topic variable (C<$_>).
+
 =head2 Raku Element Groups
 
 L<C<Addenoid>|#Addenoid>
@@ -228,52 +295,101 @@ The Addenoid group contains all infix operators that could be considered doing a
 or substraction functions.
 
 =head3 L<C«+» numeric add|https://docs.raku.org/language/operators#infix_+>
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric>
+
+Coerces either side to a C<Numeric> value, and then adds them.
 
 =head3 L<C«-» numeric subtract|https://docs.raku.org/language/operators#infix_->
 =item alternates: C«−»
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric>
+
+Coerces both sides to a C<Numeric> value, and then substracts the right
+side from the left side.
 
 =head3 L<C«~» string concatenation|https://docs.raku.org/language/operators#infix_~>
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string>
+
+Coerces both sides to a C<Str>, and then concatenates them.
 
 =head3 L<C«+&» integer AND|https://docs.raku.org/language/operators#infix_+&>
-=item L<infix|#infix>
+=item L<infix|#infix> L<integer|#integer>
+
+Coerces both sides to an C<Int> value, and then does a bitwise AND.
 
 =head3 L<C«+|» integer OR|https://docs.raku.org/language/operators#infix_+|>
-=item L<infix|#infix>
+=item L<infix|#infix> L<integer|#integer>
+
+Coerces both sides to an C<Int> value, and then does a bitwise OR.
 
 =head3 L<C«+^» integer XOR|https://docs.raku.org/language/operators#infix_+^>
-=item L<infix|#infix>
+=item L<infix|#infix> L<integer|#integer>
+
+Coerces both sides to an C<Int> value, and then does a bitwise XOR.
 
 =head3 L<C«~&» string AND|https://docs.raku.org/language/operators#infix_~&>
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string>
+
+Coerces both sides to a C<Buffer> value, and then does a bitwise AND
+and converts the result back to a C<Str>.
 
 =head3 L<C«~|» string OR|https://docs.raku.org/language/operators#infix_~|>
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string>
+
+Coerces both sides to a C<Buffer> value, and then does a bitwise OR
+and converts the result back to a C<Str>.
 
 =head3 L<C«~^» string XOR|https://docs.raku.org/language/operators#infix_~^>
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string>
+
+Coerces both sides to a C<Buffer> value, and then does a bitwise XOR
+and converts the result back to a C<Str>.
 
 =head3 L<C«?&» boolean AND|https://docs.raku.org/language/operators#infix_?&>
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
+
+Coerces both sides to a C<Bool> value, and then does a logical AND.
 
 =head3 L<C«?|» boolean OR|https://docs.raku.org/language/operators#infix_?|>
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
+
+Coerces both sides to a C<Bool> value, and then does a logical OR.
 
 =head3 L<C«?^» boolean XOR|https://docs.raku.org/language/operators#infix_?^>
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
+
+Coerces both sides to a C<Bool> value, and then does a logical XOR.
 
 =head2 Bindoid
 
 The Bindoid group contains all macro-ish infix operators that perform raw binding,
 possibly into a container (which would make it an assignment).
 
-=head3 L<C«=» bind right value in left container|https://docs.raku.org/language/operators#infix_=_(item_assignment)>
+=head3 L<C«=» assign value(s)|https://docs.raku.org/language/operators#infix_=_(item_assignment)>
 =item L<infix|#infix> L<macro|#macro>
+
+Performs an assignment.  The left side is supposed to be either a
+C<Scalar>, a C<Positional> with C<Scalar> containers (typically an
+C<Array> such as C<my @foo>), or an C<Associative> with C<Scalar>
+containers (typically a C<Hash> such as C<my %bar>).
+=begin code :lang<raku>
+my $a   = 42;
+my @foo = 1,2,3,4,5;
+my %bar = a => 42, b => 666, c => 137;
+=end code
 
 =head3 L<C«:=» bind right value to left lexpad entry|https://docs.raku.org/language/operators#infix_:=>
 =item L<infix|#infix> L<macro|#macro>
+
+Performs a binding operation on the lexpad entry on the left.  This
+is generally done to indicate that it is an immutable value, or if
+you want to alias one container to another.
+=begin code :lang<raku>
+my $b := 42;  # immutable
+my $c  = 666;
+my $d := $c;  # alias
+$d = 137;
+say $c;  # 137
+=end code
 
 =head2 Buildoid
 
@@ -281,32 +397,61 @@ The Buildoid group contains all elements that convert a given set of arguments i
 a C<Scalar>, C<Pair>, C<Positional> or C<Associative> object.
 
 =head3 L<C«=>» C<Pair> constructor, named argument specification|https://docs.raku.org/language/operators#infix_=%3E>
-=item L<infix|#infix>
+=item L<infix|#infix> L<syntax|#syntax> L<pair|#pair>
+
+Indicates a named argument inside a C<Capture> (for instance, as
+argument to a subroutine call).  Otherwise it functions as a
+C<Pair> constructor, with the left side being the key.
+=begin code :lang<raku>
+frobnicate(a => 42);  # named argument
+my $p = foo => 42;    # Pair
+=end code
 
 =head3 L<C«,» C<List> constructor|https://docs.raku.org/language/operators#infix_,>
-=item L<infix|#infix>
+=item L<infix|#infix> L<list|#list>
+
+Places all of its arguments in a C<List>.  Note that parentheses
+are B<not> needed for a list to be created.  The only exception
+is the empty C<List>, which can be constructed by C<()>.
 
 =head3 L<C«[ ]» C<Array> constructor|https://docs.raku.org/language/operators#circumfix_[_]>
-=item L<circumfix|#circumfix>
+=item L<circumfix|#circumfix> L<list|#list>
+
+Creates an C<Array> out of the given arguments, typically used
+when assigning to a hash.
+=begin code :lang<raku>
+my %foo;
+%foo<bar> = [1,2,3,4];
+=end code
 
 =head3 L<C«{ }» C<Block> or C<Hash> constructor|https://docs.raku.org/language/operators#term_{_}>
-=item L<circumfix|#circumfix> L<syntax|#syntax>
+=item L<circumfix|#circumfix> L<syntax|#syntax> L<hash|#hash>
+
+Either creates a C<Block> object (if it looks like there is Raku code
+between the brackets), or a C<Hash> built from its arguments (which
+is usually done when assigning to another C<Hash> or C<Array>)..
+=begin code :lang<raku>
+my &hello = { say "hello world" }                 # code, so Block
+hello;  # hello world
+my @menu = { salad => 4.50 }, { steak => 22.50 }  # args, so Hash
+say @menu[0]<salad>;  # 4.5
+=end code
 
 =head3 L<C«:{ }» Object Hash constructor|https://docs.raku.org/language/hashmap#Non-string_keys_(object_hash)>
-=item L<circumfix|#circumfix>
+=item L<circumfix|#circumfix> L<hash|#hash>
 
 =head3 L<C«' '» literal string constructor|https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings>
-=item L<syntax|#syntax>
+=item L<syntax|#syntax> L<string|#string>
 
 =head3 L<C«" "» literal string constructor with interpolation|https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings>
-=item L<syntax|#syntax>
+=item L<syntax|#syntax> L<string|#string>
 
 =head3 L<C«< >» literal word list constructor|https://docs.raku.org/language/operators#term_%3C_%3E>
-=item L<syntax|#syntax>
+=item L<syntax|#syntax> L<list|#list> L<string|#string>
 
 =head3 L<C«<< >>» literal word list constructor with interpolation|https://docs.raku.org/language/quoting#Word_quoting_with_interpolation_and_quote_protection:_«_»>
 =item alternates: C<« »>
-=item L<syntax|#syntax>
+=item L<syntax|#syntax> L<list|#list> L<string|#string>
 
 =head3 C«$( )» turn argument(s) into an item
 =item L<syntax|#syntax>
@@ -315,16 +460,16 @@ a C<Scalar>, C<Pair>, C<Positional> or C<Associative> object.
 =item L<sub|#sub> L<method|#method>
 
 =head3 C«@( )» turn argument(s) into a list
-=item L<syntax|#syntax>
+=item L<syntax|#syntax> L<list|#list>
 
 =head3 L<C«list» turn argument(s) into a list|https://docs.raku.org/type/List#routine_list>
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<list|#list>
 
 =head3 C«%( )» turn argument(s) into a hash
-=item L<syntax|#syntax>
+=item L<syntax|#syntax> L<hash|#hash>
 
 =head3 L<C«hash» turn argument(s) into a hash|https://docs.raku.org/type/Any#method_hash>
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<hash|#hash>
 
 =head2 Declaroid
 
@@ -346,145 +491,147 @@ are different in a way, and False if they are considered equal in that
 way.
 
 =head3 C«before» generic less
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«<» numerically less
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric> L<boolean|#boolean>
 
 =head3 C«lt» alphabetically less
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string> L<boolean|#boolean>
 
 =head3 C«<=» numerically less or equal
 =item alternates: C«≤»
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric> L<boolean|#boolean>
 
 =head3 C«le» alphabetically less or equal
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string> L<boolean|#boolean>
 
 =head3 C«!=» numeric inequality
 =item alternates: C«≠»
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric> L<boolean|#boolean>
 
 =head3 C«ne» string inequality
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string> L<boolean|#boolean>
 
 =head3 C«>=» numerically more or equal
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric> L<boolean|#boolean>
 
 =head3 C«ge» alphabetically more or equal
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string> L<boolean|#boolean>
 
 =head3 C«>» numerically more
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric> L<boolean|#boolean>
 
 =head3 C«gt» alphabetically more
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string> L<boolean|#boolean>
 
 =head3 C«after» generic more
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«!(elem)» is not element in
 =item alternates: C«∉»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«!(cont)» does not contain element
 =item alternates: C«∌»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«!(<)» is not a strict quanthash subset
 =item alternates: C«⊄»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«!(<=)» is not a quanthash subset
 =item alternates: C«⊈»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«!(==)» quanthash inequality
 =item alternates: C«≢»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«!(>=)» is not a quanthash superset
 =item alternates: C«⊉»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«!(>)» is not a strict quanthash superset
 =item alternates: C«⊅»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head2 Equalish
 
-The Equalish group contains the infix operators that return True if the compared elements
-are considered equal in a way, and False if they are considered different
+The Equalish group contains the infix operators that return C<True> if the compared elements
+are considered equal in a way, and C<False> if they are considered different
 in that way.
 
-=head3 C«~~» smart match
+=head3 L<C«~~» smart match|Performs a smart-match on the given arguments.  Technically, this is>
 =item L<infix|#infix>
+
+calling the C<.ACCEPTS> method on the right side, giving it the
+left side as the positional argument.  Which usually results in a
+C<Bool> value.
 
 =head3 C«eqv» canonical equivalence
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«eq» string equality
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string> L<boolean|#boolean>
 
 =head3 C«==» numeric equality
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric> L<boolean|#boolean>
 
 =head3 C«=~=» numeric almost equal
 =item alternates: C«≅»
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric> L<boolean|#boolean>
 
 =head3 C«===» value identity
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«=:=» value identity without decontainerization
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«(elem)» is element in
 =item alternates: C«∈»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«(cont)» contains element
 =item alternates: C«∋»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«(<)» is strict quanthash subset
 =item alternates: C«⊂»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«(<=)» is quanthash subset
 =item alternates: C«⊆»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«(==)» quanthash equality
 =item alternates: C«≡»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«(>=)» is quanthash superset
 =item alternates: C«⊇»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«(>)» is strict quanthash superset
 =item alternates: C«⊃»
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head2 Expansive
 
 The Expansive group contains the postfix operators that expand on numeric values.
 
 =head3 L<C«i» numeric multiplication with the imaginary unit (√-1)|https://docs.raku.org/type/Complex#postfix_i>
-=item L<postfix|#postfix>
+=item L<postfix|#postfix> L<numeric|#numeric>
 
 C<4i> is the same as C<0+4i>.  Needs grouping for variables C<($a)i>
 because otherwise the C<i> will be considered part of the variable
 name.
 
-
 =head3 L<C«ⁿ» numeric literal integer exponentiation|https://docs.raku.org/routine/%2A%2A>
-=item L<postfix|#postfix>
+=item L<postfix|#postfix> L<numeric|#numeric>
 
 So C<$a²> is the same as C<$a ** 2>, etc.  Any of C<⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯> may
 be used.
-
 
 =head2 Feedoid
 
@@ -498,13 +645,11 @@ become the argument(s) for the next operation.
 C«(1,2,3,4) ==> sum() ==> say()» as opposed to C<say sum (1,2,3,4)>
 or C<(1,2,3,4).sum.say>.
 
-
 =head3 L<C«<==» feed right to left|https://docs.raku.org/language/operators#infix_%3C==>
 =item L<infix|#infix>
 
 C«say() <== sum() <== (1,2,3,4)» as opposed to C<say sum (1,2,3,4)>
 or C<(1,2,3,4).sum.say>.
-
 
 =head2 Flippant
 
@@ -570,10 +715,10 @@ repeatedly perform that operator on the provided argument list(s).
 The IOoid group contains the functions that are available for input / output of data.
 
 =head3 C«get» Read a line from C<C<$*STDIN>> / C<C<$*ARGFILES>>
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<string|#string>
 
 =head3 C«getc» Read a character from C<C<$*STDIN>> / C<C<$*ARGFILES>>
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<string|#string>
 
 =head3 C«read» Read bytes from an C<IO::Handle>
 =item L<method|#method>
@@ -599,25 +744,25 @@ can only be applied to atomic integers.
 =item L<prefix|#prefix>
 
 =head3 C«⚛++» atomic pre-increment by 1
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<numeric|#numeric>
 
 =head3 C«--» pre-decrement by 1
 =item L<prefix|#prefix>
 
 =head3 C«⚛--» atomic pre-decrement by 1
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<numeric|#numeric>
 
 =head3 C«++» post-increment by 1
 =item L<postfix|#postfix>
 
 =head3 C«⚛++» atomic post-increment by 1
-=item L<postfix|#postfix>
+=item L<postfix|#postfix> L<numeric|#numeric>
 
 =head3 C«--» post-decrement by 1
 =item L<postfix|#postfix>
 
 =head3 C«⚛--» atomic post-decrement by 1
-=item L<postfix|#postfix>
+=item L<postfix|#postfix> L<numeric|#numeric>
 
 =head2 Junctive
 
@@ -625,25 +770,25 @@ The Junctive group contains the infix operators and the functions that produce C
 objects.
 
 =head3 C«&» junctive all
-=item L<infix|#infix>
+=item L<infix|#infix> L<junction|#junction>
 
 =head3 C«|» junctive any
-=item L<infix|#infix>
+=item L<infix|#infix> L<junction|#junction>
 
 =head3 C«^» junctive one
-=item L<infix|#infix>
+=item L<infix|#infix> L<junction|#junction>
 
 =head3 C«all» junctive all
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<junction|#junction>
 
 =head3 C«any» junctive any
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<junction|#junction>
 
 =head3 C«one» junctive one
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<junction|#junction>
 
 =head3 C«none» junctive none
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<junction|#junction>
 
 =head2 Mathematicals
 
@@ -651,22 +796,22 @@ The Mathematicals group contains the mathematical terms that are provided by the
 
 =head3 C«pi» The number π (3.1415...)
 =item alternates: C«π»
-=item L<term|#term>
+=item L<term|#term> L<numeric|#numeric>
 
 =head3 C«tau» The number τ (6.2831...)
 =item alternates: C«τ»
-=item L<term|#term>
+=item L<term|#term> L<numeric|#numeric>
 
 =head3 C«e» Euler's number (2.7182...)
 =item alternates: C«𝑒»
-=item L<term|#term>
+=item L<term|#term> L<numeric|#numeric>
 
 =head3 C«i» The imaginary unit (√-1)
-=item L<term|#term>
+=item L<term|#term> L<numeric|#numeric>
 
 =head3 C«Inf» Infinity
 =item alternates: C«∞»
-=item L<term|#term>
+=item L<term|#term> L<numeric|#numeric>
 
 =head2 Metaoid
 
@@ -732,39 +877,39 @@ The Multiplicoid group contains all infix operators that are related to multipli
 way.
 
 =head3 C«div» integer divide
-=item L<infix|#infix>
+=item L<infix|#infix> L<integer|#integer>
 
 =head3 C«mod» integer modulus
-=item L<infix|#infix>
+=item L<infix|#infix> L<integer|#integer>
 
 =head3 C«gcd» greatest common divisor
-=item L<infix|#infix>
+=item L<infix|#infix> L<integer|#integer>
 
 =head3 C«lcm» lowest common multiple
-=item L<infix|#infix>
+=item L<infix|#infix> L<integer|#integer>
 
 =head3 C«*» multiply
 =item alternates: C«×»
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric>
 
 =head3 C«/» divide
 =item alternates: C«÷»
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric>
 
 =head3 C«**» exponentiation
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric>
 
 =head3 C«%» modulus
-=item L<infix|#infix>
+=item L<infix|#infix> L<numeric|#numeric>
 
 =head3 C«%%» is divisible
-=item L<infix|#infix>
+=item L<infix|#infix> L<boolean|#boolean>
 
 =head3 C«+<» integer shift left
-=item L<infix|#infix>
+=item L<infix|#infix> L<integer|#integer>
 
 =head3 C«+>» integer shift right
-=item L<infix|#infix>
+=item L<infix|#infix> L<integer|#integer>
 
 =head2 Normaloid
 
@@ -772,36 +917,36 @@ The Normaloid group contains the operators that somehow normalize the given argu
 something else, either in time or in value.
 
 =head3 C«+» numerify
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<numeric|#numeric>
 
 =head3 C«+^» numeric complement
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<numeric|#numeric>
 
 =head3 C«-» numeric negation
 =item alternates: C«−»
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<numeric|#numeric>
 
 =head3 C«^» numeric from zero upto
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<numeric|#numeric>
 
 =head3 C«~» stringify
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<string|#string>
 
 =head3 C«?» boolify
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<boolean|#boolean>
 
 =head3 C«so» low precedence boolify
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<boolean|#boolean>
 
 =head3 C«!» boolean negation
 =item alternates: C«?^»
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<boolean|#boolean>
 
 =head3 C«not» low precedence boolean negation
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<boolean|#boolean>
 
 =head3 C«//» is defined
-=item L<prefix|#prefix>
+=item L<prefix|#prefix> L<boolean|#boolean>
 
 =head3 L<C«|» flatten args, slip iterable|https://docs.raku.org/syntax/%7C>
 =item L<prefix|#prefix>
@@ -810,26 +955,24 @@ The meaning of prefix `|` was expanded in 6.c to be beyond the use within
 signatures, to mean converting any iterable to a `Slip` (a special type of
 `list` that will always be iterated).
 
-
 =head3 L<C«⚛» atomic integer access|https://docs.raku.org/routine/⚛>
 =item L<prefix|#prefix>
 
 Ensures the latest update of a value in the target is produced in
 multi-threaded situations.
 
-
 =head2 Orderoid
 
 The Orderoid group contains the infix operators that return an C<Order> value.
 
 =head3 C«cmp» equivalence order comparison
-=item L<infix|#infix>
+=item L<infix|#infix> L<order|#order>
 
 =head3 C«<=>» numerical order comparison
-=item L<infix|#infix>
+=item L<infix|#infix> L<order|#order>
 
 =head3 C«leg» string order comparison
-=item L<infix|#infix>
+=item L<infix|#infix> L<order|#order>
 
 =head2 Quantoid
 
@@ -837,46 +980,46 @@ The Quantoid group contains the functions that return a C<QuantHash> (a C<Set>, 
 C<Bag>, C<BagHash>, C<Mix> or C<MixHash> given any set or arguments.
 
 =head3 C«∅» empty Set
-=item L<term|#term>
+=item L<term|#term> L<quanthash|#quanthash>
 
 =head3 C«(|)» quanthash union
 =item alternates: C«∪»
-=item L<infix|#infix>
+=item L<infix|#infix> L<quanthash|#quanthash>
 
 =head3 C«(+)» quanthash addition
 =item alternates: C«⊎»
-=item L<infix|#infix>
+=item L<infix|#infix> L<quanthash|#quanthash>
 
 =head3 C«(.)» quanthash multiplication
 =item alternates: C«⊍»
-=item L<infix|#infix>
+=item L<infix|#infix> L<quanthash|#quanthash>
 
 =head3 C«(-)» quanthash difference
 =item alternates: C«∖»
-=item L<infix|#infix>
+=item L<infix|#infix> L<quanthash|#quanthash>
 
 =head3 C«(^)» quanthash symmetric difference
 =item alternates: C«⊖»
-=item L<infix|#infix>
+=item L<infix|#infix> L<quanthash|#quanthash>
 
 =head2 Rangoid
 
 The Rangoid group contains the infix operators that produce a C<Range>.
 
 =head3 C«..» range inclusive
-=item L<infix|#infix>
+=item L<infix|#infix> L<range|#range>
 
 =head3 C«^..» range excluding start
-=item L<infix|#infix>
+=item L<infix|#infix> L<range|#range>
 
 =head3 C«..^» range excluding end
-=item L<infix|#infix>
+=item L<infix|#infix> L<range|#range>
 
 =head3 C«^..^» range exclusive
-=item L<infix|#infix>
+=item L<infix|#infix> L<range|#range>
 
 =head3 C«minmax» range including min and max value
-=item L<infix|#infix>
+=item L<infix|#infix> L<range|#range>
 
 =head2 Reductoid
 
@@ -900,7 +1043,7 @@ a single value (or produces the steps to produce that value).
 The Replicant group contains the infix operators that reproduce the left value repeatedly.
 
 =head3 C«x» string repetition
-=item L<infix|#infix>
+=item L<infix|#infix> L<string|#string>
 
 =head3 C«xx» item repetition
 =item L<infix|#infix> L<thunky|#thunky>
@@ -950,7 +1093,7 @@ on the left hand side was met.
 =item L<infix|#infix> L<macro|#macro>
 
 =head3 C«notandthen» Empty if first defined, else last
-=item L<infix|#infix> L<macro|#macro>
+=item L<infix|#infix> L<macro|#macro> L<topic|#topic>
 
 =head2 Stuboid
 
@@ -973,16 +1116,16 @@ The Talkoid group contains the functions that are generally used to display mess
 to a user.
 
 =head3 C«print» stringify argument(s), write to C<$*STDOUT>
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<string|#string>
 
 =head3 C«say» create gist of argument(s), add newline, write to C<$*STDOUT>
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<string|#string>
 
 =head3 C«put» stringify argument(s), add newline, write to C<$*STDOUT>
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<string|#string>
 
 =head3 C«note» create gist of argument(s), add newline, write to C<$*STDERR>
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<string|#string>
 
 =head2 Termoid
 
@@ -1010,34 +1153,34 @@ The Throwoid group contains the functions that somehow interrupt the normal flow
 either very noticeably, or very much under the hood.
 
 =head3 C«die» halt execution, or be caught by C<CATCH>
-=item L<sub|#sub>
+=item L<sub|#sub> L<interrupt|#interrupt>
 
 =head3 C«warn» show error message, or be caught by C<CONTROL>
 =item L<sub|#sub>
 
 =head3 C«fail» return from Routine with Failure, or be caught by C<CATCH>
-=item L<sub|#sub>
+=item L<sub|#sub> L<interrupt|#interrupt>
 
 =head3 C«return» return from Routine with given value, or be caught by C<CONTROL>
-=item L<sub|#sub> L<method|#method>
+=item L<sub|#sub> L<method|#method> L<interrupt|#interrupt>
 
 =head3 C«next» proceed with next iteration, or be caught by C<CONTROL>
-=item L<sub|#sub>
+=item L<sub|#sub> L<interrupt|#interrupt>
 
 =head3 C«redo» restart current iteration, or be caught by C<CONTROL>
-=item L<sub|#sub>
+=item L<sub|#sub> L<interrupt|#interrupt>
 
 =head3 C«last» stop iterating, or be caught by C<CONTROL>
-=item L<sub|#sub>
+=item L<sub|#sub> L<interrupt|#interrupt>
 
 =head3 C«proceed» continue with next when/default, or be caught by C<CONTROL>
-=item L<sub|#sub>
+=item L<sub|#sub> L<interrupt|#interrupt>
 
 =head3 C«succeed» continue after last when/default, or be caught by C<CONTROL>
-=item L<sub|#sub>
+=item L<sub|#sub> L<interrupt|#interrupt>
 
 =head3 C«done» call "done" callback on taps, or be caught by C<CONTROL>
-=item L<sub|#sub>
+=item L<sub|#sub> L<interrupt|#interrupt>
 
 =head3 C«emit» emit given value to active supply, or be caught by C<CONTROL>
 =item L<sub|#sub> L<method|#method>
@@ -1050,15 +1193,15 @@ either very noticeably, or very much under the hood.
 The Topicoid group contains the functions that topicalize (set C<$_>) in some situations.
 
 =head3 C«given» topicalize argument for scope
-=item L<syntax|#syntax>
+=item L<syntax|#syntax> L<topic|#topic>
 
 =head3 C«when» if smartmatched topicalize argument for scope
 =item L<syntax|#syntax>
 
-=head3 C«andthen» topicalize left for right thunk
+=head3 C«andthen topic» topicalize left for right thunk
 =item L<infix|#infix> L<thunky|#thunky>
 
-=head3 C«orelse» low precedence if defined OR, topicalizing left for right thunk
+=head3 C«orelse topic» low precedence if defined OR, topicalizing left for right thunk
 =item L<infix|#infix> L<thunky|#thunky>
 
 =comment PLEASE DON'T CHANGE ANYTHING ABOVE THIS LINE

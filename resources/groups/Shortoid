@@ -27,7 +27,7 @@ infix macro
 high precedence is defined OR
 
 notandthen
-infix macro
+infix macro topic
 Empty if first defined, else last
 
 

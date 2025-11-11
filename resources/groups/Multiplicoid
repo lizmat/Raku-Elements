@@ -1,45 +1,45 @@
 div
-infix
+infix integer
 integer divide
 
 mod
-infix
+infix integer
 integer modulus
 
 gcd
-infix
+infix integer
 greatest common divisor
 
 lcm
-infix
+infix integer
 lowest common multiple
 
 * | ×
-infix
+infix numeric
 multiply
 
 / | ÷
-infix
+infix numeric
 divide
 
 **
-infix
+infix numeric
 exponentiation
 
 %
-infix
+infix numeric
 modulus
 
 %%
-infix
+infix boolean
 is divisible
 
 +<
-infix
+infix integer
 integer shift left
 
 +>
-infix
+infix integer
 integer shift right
 
 

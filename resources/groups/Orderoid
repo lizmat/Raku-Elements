@@ -1,13 +1,13 @@
 cmp
-infix
+infix order
 equivalence order comparison
 
 <=>
-infix
+infix order
 numerical order comparison
 
 leg
-infix
+infix order
 string order comparison
 
 

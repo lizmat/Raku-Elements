@@ -3,7 +3,7 @@ prefix
 pre-increment by 1
 
 ⚛++
-prefix
+prefix numeric
 atomic pre-increment by 1
 
 --
@@ -11,7 +11,7 @@ prefix
 pre-decrement by 1
 
 ⚛--
-prefix
+prefix numeric
 atomic pre-decrement by 1
 
 ++
@@ -19,7 +19,7 @@ postfix
 post-increment by 1
 
 ⚛++
-postfix
+postfix numeric
 atomic post-increment by 1
 
 --
@@ -27,7 +27,7 @@ postfix
 post-decrement by 1
 
 ⚛--
-postfix
+postfix numeric
 atomic post-decrement by 1
 
 

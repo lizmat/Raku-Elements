@@ -1,21 +1,21 @@
 ..
-infix
+infix range
 range inclusive
 
 ^..
-infix
+infix range
 range excluding start
 
 ..^
-infix
+infix range
 range excluding end
 
 ^..^
-infix
+infix range
 range exclusive
 
 minmax
-infix
+infix range
 range including min and max value
 
 

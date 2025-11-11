@@ -1,17 +1,17 @@
 print
-sub method
+sub method string
 stringify argument(s), write to $*STDOUT
 
 say
-sub method
+sub method string
 create gist of argument(s), add newline, write to $*STDOUT
 
 put
-sub method
+sub method string
 stringify argument(s), add newline, write to $*STDOUT
 
 note
-sub method
+sub method string
 create gist of argument(s), add newline, write to $*STDERR
 
 

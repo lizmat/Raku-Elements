@@ -1,0 +1,1 @@
+Produces a C<Bool> value: either C<True> or C<False>.

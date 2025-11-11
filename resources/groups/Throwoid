@@ -1,5 +1,5 @@
 die
-sub
+sub interrupt
 halt execution, or be caught by C<CATCH>
 
 warn
@@ -7,35 +7,35 @@ sub
 show error message, or be caught by C<CONTROL>
 
 fail
-sub
+sub interrupt
 return from Routine with Failure, or be caught by C<CATCH>
 
 return
-sub method
+sub method interrupt
 return from Routine with given value, or be caught by C<CONTROL>
 
 next
-sub
+sub interrupt
 proceed with next iteration, or be caught by C<CONTROL>
 
 redo
-sub
+sub interrupt
 restart current iteration, or be caught by C<CONTROL>
 
 last
-sub
+sub interrupt
 stop iterating, or be caught by C<CONTROL>
 
 proceed
-sub
+sub interrupt
 continue with next when/default, or be caught by C<CONTROL>
 
 succeed
-sub
+sub interrupt
 continue after last when/default, or be caught by C<CONTROL>
 
 done
-sub
+sub interrupt
 call "done" callback on taps, or be caught by C<CONTROL>
 
 emit

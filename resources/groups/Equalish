@@ -1,60 +1,64 @@
 ~~
 infix
 smart match
+Performs a smart-match on the given arguments.  Technically, this is
+calling the C<.ACCEPTS> method on the right side, giving it the
+left side as the positional argument.  Which usually results in a
+C<Bool> value.
 
 eqv
-infix
+infix boolean
 canonical equivalence
 
 eq
-infix
+infix string boolean
 string equality
 
 ==
-infix
+infix numeric boolean
 numeric equality
 
 =~= | ≅
-infix
+infix numeric boolean
 numeric almost equal
 
 ===
-infix
+infix boolean
 value identity
 
 =:=
-infix
+infix boolean
 value identity without decontainerization
 
 (elem) | ∈
-infix
+infix boolean
 is element in
 
 (cont) | ∋
-infix
+infix boolean
 contains element
 
 (<) | ⊂
-infix
+infix boolean
 is strict quanthash subset
 
 (<=) | ⊆
-infix
+infix boolean
 is quanthash subset
 
 (==) | ≡
-infix
+infix boolean
 quanthash equality
 
 (>=) | ⊇
-infix
+infix boolean
 is quanthash superset
 
 (>) | ⊃
-infix
+infix boolean
 is strict quanthash superset
 
 
-contains the infix operators that return True if the compared elements
-are considered equal in a way, and False if they are considered different
+contains the infix operators that return C<True> if the compared elements
+are considered equal in a way, and C<False> if they are considered different
 in that way.

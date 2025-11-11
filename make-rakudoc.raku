@@ -58,7 +58,7 @@ while @lines {
     }
 
     my @groups = $elements.groups.sort(*.key).map(*.value);
-    say "=head2 Raku Element Groups\n";
+    say "\n=head2 Raku Element Groups\n";
 
     for @groups.map(*.name) -> $name {
         say "L<C<$name>|#$name>";
@@ -77,7 +77,7 @@ while @lines {
                 say "=item alternates: @alternates.map(&backtick)";
             }
             say "=item $_.tags.map({ "L<$_|#$_>" })";
-            say "\n$_.description()\n" if .description;
+            say "\n$_.description()" if .description;
         }
     }
 
