@@ -116,15 +116,39 @@ This section of the documentation is generated from the information supplied by 
 Raku Element Tags
 -----------------
 
-[`circumfix`](#circumfix) [`infix`](#infix) [`macro`](#macro) [`method`](#method) [`postfix`](#postfix) [`prefix`](#prefix) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky)
+[`boolean`](#boolean) [`circumfix`](#circumfix) [`hash`](#hash) [`infix`](#infix) [`integer`](#integer) [`interrupt`](#interrupt) [`junction`](#junction) [`list`](#list) [`macro`](#macro) [`method`](#method) [`numeric`](#numeric) [`order`](#order) [`pair`](#pair) [`postfix`](#postfix) [`prefix`](#prefix) [`quanthash`](#quanthash) [`range`](#range) [`string`](#string) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky) [`topic`](#topic)
+
+### boolean
+
+Produces a `Bool` value: either `True` or `False`.
 
 ### circumfix
 
 Operators that consist of an opening and a closing tag, with their arguments between them.
 
+### hash
+
+Produces a `Hash` object.
+
 ### infix
 
 Operators that typically take two values, one to the left and one to the right of the operator.
+
+### integer
+
+Produces an `Int` value.
+
+### interrupt
+
+Interrupts the normal flow of execution.
+
+### junction
+
+Produces a `Junction` object.
+
+### list
+
+Produces a `List` or `Array` object.
 
 ### macro
 
@@ -134,6 +158,18 @@ Syntax structures that may change the semantics of the code given at compile tim
 
 A `Callable` with a name that takes an invocant as its first argument, and which is typically part of a `class`, `role` or `grammar`.
 
+### numeric
+
+Produces a `Numeric` value.
+
+### order
+
+Produces an `Order` value, as in `Less`, `Same` or `More`.
+
+### pair
+
+Produces a `Pair` object.
+
 ### postfix
 
 An operator that is placed **after** the argument it operates on.
@@ -141,6 +177,18 @@ An operator that is placed **after** the argument it operates on.
 ### prefix
 
 An operator that is placed **before** the argument it operates on.
+
+### quanthash
+
+Produces a `QuantHash` object, which is one of: `Set`, `SetHash`, `Bag`, `BagHash`, `Mix`, `MixHash`.
+
+### range
+
+Produces a `Range` object.
+
+### string
+
+Produces a `Str` object.
 
 ### sub
 
@@ -158,6 +206,10 @@ Elements of the Raku Programming Language that exists on their own and which are
 
 Having special syntax handling causing it to not immediately be executed (like a `Callable`) but without having an independent scope.
 
+### topic
+
+Sets the topic variable (`$_`).
+
 Raku Element Groups
 -------------------
 
@@ -170,7 +222,7 @@ The Addenoid group contains all infix operators that could be considered doing a
 
 ### [`+` numeric add](https://docs.raku.org/language/operators#infix_+)
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric)
 
 Coerces either side to a `Numeric` value, and then adds them.
 
@@ -178,67 +230,67 @@ Coerces either side to a `Numeric` value, and then adds them.
 
   * alternates: `−`
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric)
 
 Coerces both sides to a `Numeric` value, and then substracts the right side from the left side.
 
 ### [`~` string concatenation](https://docs.raku.org/language/operators#infix_~)
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string)
 
-Performs a smart-match on the given arguments. Technically, this is calling the `.ACCEPTS` method on the right side, giving it the left side as the positional argument.
+Coerces both sides to a `Str`, and then concatenates them.
 
 ### [`+&` integer AND](https://docs.raku.org/language/operators#infix_+&)
 
-  * [infix](#infix)
+  * [infix](#infix) [integer](#integer)
 
 Coerces both sides to an `Int` value, and then does a bitwise AND.
 
 ### [`+|` integer OR](https://docs.raku.org/language/operators#infix_+|)
 
-  * [infix](#infix)
+  * [infix](#infix) [integer](#integer)
 
 Coerces both sides to an `Int` value, and then does a bitwise OR.
 
 ### [`+^` integer XOR](https://docs.raku.org/language/operators#infix_+^)
 
-  * [infix](#infix)
+  * [infix](#infix) [integer](#integer)
 
 Coerces both sides to an `Int` value, and then does a bitwise XOR.
 
 ### [`~&` string AND](https://docs.raku.org/language/operators#infix_~&)
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string)
 
 Coerces both sides to a `Buffer` value, and then does a bitwise AND and converts the result back to a `Str`.
 
 ### [`~|` string OR](https://docs.raku.org/language/operators#infix_~|)
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string)
 
 Coerces both sides to a `Buffer` value, and then does a bitwise OR and converts the result back to a `Str`.
 
 ### [`~^` string XOR](https://docs.raku.org/language/operators#infix_~^)
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string)
 
 Coerces both sides to a `Buffer` value, and then does a bitwise XOR and converts the result back to a `Str`.
 
 ### [`?&` boolean AND](https://docs.raku.org/language/operators#infix_?&)
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 Coerces both sides to a `Bool` value, and then does a logical AND.
 
 ### [`?|` boolean OR](https://docs.raku.org/language/operators#infix_?|)
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 Coerces both sides to a `Bool` value, and then does a logical OR.
 
 ### [`?^` boolean XOR](https://docs.raku.org/language/operators#infix_?^)
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 Coerces both sides to a `Bool` value, and then does a logical XOR.
 
@@ -254,7 +306,7 @@ The Bindoid group contains all macro-ish infix operators that perform raw bindin
 Performs an assignment. The left side is supposed to be either a `Scalar`, a `Positional` with `Scalar` containers (typically an `Array` such as `my @foo`), or an `Associative` with `Scalar` containers (typically a `Hash` such as `my %bar`).
 
 ```raku
-my $a = 42;
+my $a   = 42;
 my @foo = 1,2,3,4,5;
 my %bar = a => 42, b => 666, c => 137;
 ```
@@ -267,7 +319,7 @@ Performs a binding operation on the lexpad entry on the left. This is generally 
 
 ```raku
 my $b := 42;  # immutable
-my $c = 666;
+my $c  = 666;
 my $d := $c;  # alias
 $d = 137;
 say $c;  # 137
@@ -280,41 +332,66 @@ The Buildoid group contains all elements that convert a given set of arguments i
 
 ### [`=>` `Pair` constructor, named argument specification](https://docs.raku.org/language/operators#infix_=%3E)
 
-  * [infix](#infix)
+  * [infix](#infix) [syntax](#syntax) [pair](#pair)
+
+Indicates a named argument inside a `Capture` (for instance, as argument to a subroutine call). Otherwise it functions as a `Pair` constructor, with the left side being the key.
+
+```raku
+frobnicate(a => 42);  # named argument
+my $p = foo => 42;    # Pair
+```
 
 ### [`,` `List` constructor](https://docs.raku.org/language/operators#infix_,)
 
-  * [infix](#infix)
+  * [infix](#infix) [list](#list)
+
+Places all of its arguments in a `List`. Note that parentheses are **not** needed for a list to be created. The only exception is the empty `List`, which can be constructed by `()`.
 
 ### [`[ ]` `Array` constructor](https://docs.raku.org/language/operators#circumfix_[_])
 
-  * [circumfix](#circumfix)
+  * [circumfix](#circumfix) [list](#list)
+
+Creates an `Array` out of the given arguments, typically used when assigning to a hash.
+
+```raku
+my %foo;
+%foo<bar> = [1,2,3,4];
+```
 
 ### [`{ }` `Block` or `Hash` constructor](https://docs.raku.org/language/operators#term_{_})
 
-  * [circumfix](#circumfix) [syntax](#syntax)
+  * [circumfix](#circumfix) [syntax](#syntax) [hash](#hash)
+
+Either creates a `Block` object (if it looks like there is Raku code between the brackets), or a `Hash` built from its arguments (which is usually done when assigning to another `Hash` or `Array`)..
+
+```raku
+my &hello = { say "hello world" }                 # code, so Block
+hello;  # hello world
+my @menu = { salad => 4.50 }, { steak => 22.50 }  # args, so Hash
+say @menu[0]<salad>;  # 4.5
+```
 
 ### [`:{ }` Object Hash constructor](https://docs.raku.org/language/hashmap#Non-string_keys_(object_hash))
 
-  * [circumfix](#circumfix)
+  * [circumfix](#circumfix) [hash](#hash)
 
 ### [`' '` literal string constructor](https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings)
 
-  * [syntax](#syntax)
+  * [syntax](#syntax) [string](#string)
 
 ### [`" "` literal string constructor with interpolation](https://docs.raku.org/language/101-basics#Double-quoted_strings_and_single-quoted_strings)
 
-  * [syntax](#syntax)
+  * [syntax](#syntax) [string](#string)
 
 ### [`< >` literal word list constructor](https://docs.raku.org/language/operators#term_%3C_%3E)
 
-  * [syntax](#syntax)
+  * [syntax](#syntax) [list](#list) [string](#string)
 
 ### [`<< >>` literal word list constructor with interpolation](https://docs.raku.org/language/quoting#Word_quoting_with_interpolation_and_quote_protection:_«_»)
 
   * alternates: `« »`
 
-  * [syntax](#syntax)
+  * [syntax](#syntax) [list](#list) [string](#string)
 
 ### `$( )` turn argument(s) into an item
 
@@ -326,19 +403,19 @@ The Buildoid group contains all elements that convert a given set of arguments i
 
 ### `@( )` turn argument(s) into a list
 
-  * [syntax](#syntax)
+  * [syntax](#syntax) [list](#list)
 
 ### [`list` turn argument(s) into a list](https://docs.raku.org/type/List#routine_list)
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [list](#list)
 
 ### `%( )` turn argument(s) into a hash
 
-  * [syntax](#syntax)
+  * [syntax](#syntax) [hash](#hash)
 
 ### [`hash` turn argument(s) into a hash](https://docs.raku.org/type/Any#method_hash)
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [hash](#hash)
 
 Declaroid
 ---------
@@ -364,174 +441,176 @@ The Differentoid group contains the infix operators that return True if the comp
 
 ### `before` generic less
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `<` numerically less
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric) [boolean](#boolean)
 
 ### `lt` alphabetically less
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string) [boolean](#boolean)
 
 ### `<=` numerically less or equal
 
   * alternates: `≤`
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric) [boolean](#boolean)
 
 ### `le` alphabetically less or equal
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string) [boolean](#boolean)
 
 ### `!=` numeric inequality
 
   * alternates: `≠`
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric) [boolean](#boolean)
 
 ### `ne` string inequality
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string) [boolean](#boolean)
 
 ### `>=` numerically more or equal
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric) [boolean](#boolean)
 
 ### `ge` alphabetically more or equal
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string) [boolean](#boolean)
 
 ### `>` numerically more
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric) [boolean](#boolean)
 
 ### `gt` alphabetically more
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string) [boolean](#boolean)
 
 ### `after` generic more
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `!(elem)` is not element in
 
   * alternates: `∉`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `!(cont)` does not contain element
 
   * alternates: `∌`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `!(<)` is not a strict quanthash subset
 
   * alternates: `⊄`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `!(<=)` is not a quanthash subset
 
   * alternates: `⊈`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `!(==)` quanthash inequality
 
   * alternates: `≢`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `!(>=)` is not a quanthash superset
 
   * alternates: `⊉`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `!(>)` is not a strict quanthash superset
 
   * alternates: `⊅`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 Equalish
 --------
 
-The Equalish group contains the infix operators that return True if the compared elements are considered equal in a way, and False if they are considered different in that way.
+The Equalish group contains the infix operators that return `True` if the compared elements are considered equal in a way, and `False` if they are considered different in that way.
 
-### `~~` smart match
+### [`~~` smart match](Performs a smart-match on the given arguments.  Technically, this is)
 
   * [infix](#infix)
+
+calling the `.ACCEPTS` method on the right side, giving it the left side as the positional argument. Which usually results in a `Bool` value.
 
 ### `eqv` canonical equivalence
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `eq` string equality
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string) [boolean](#boolean)
 
 ### `==` numeric equality
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric) [boolean](#boolean)
 
 ### `=~=` numeric almost equal
 
   * alternates: `≅`
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric) [boolean](#boolean)
 
 ### `===` value identity
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `=:=` value identity without decontainerization
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `(elem)` is element in
 
   * alternates: `∈`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `(cont)` contains element
 
   * alternates: `∋`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `(<)` is strict quanthash subset
 
   * alternates: `⊂`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `(<=)` is quanthash subset
 
   * alternates: `⊆`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `(==)` quanthash equality
 
   * alternates: `≡`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `(>=)` is quanthash superset
 
   * alternates: `⊇`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `(>)` is strict quanthash superset
 
   * alternates: `⊃`
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 Expansive
 ---------
@@ -540,13 +619,13 @@ The Expansive group contains the postfix operators that expand on numeric values
 
 ### [`i` numeric multiplication with the imaginary unit (√-1)](https://docs.raku.org/type/Complex#postfix_i)
 
-  * [postfix](#postfix)
+  * [postfix](#postfix) [numeric](#numeric)
 
 `4i` is the same as `0+4i`. Needs grouping for variables `($a)i` because otherwise the `i` will be considered part of the variable name.
 
 ### [`ⁿ` numeric literal integer exponentiation](https://docs.raku.org/routine/%2A%2A)
 
-  * [postfix](#postfix)
+  * [postfix](#postfix) [numeric](#numeric)
 
 So `$a²` is the same as `$a ** 2`, etc. Any of `⁰¹²³⁴⁵⁶⁷⁸⁹⁺¯¯` may be used.
 
@@ -652,11 +731,11 @@ The IOoid group contains the functions that are available for input / output of 
 
 ### `get` Read a line from `C<$*STDIN>` / `C<$*ARGFILES>`
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [string](#string)
 
 ### `getc` Read a character from `C<$*STDIN>` / `C<$*ARGFILES>`
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [string](#string)
 
 ### `read` Read bytes from an `IO::Handle`
 
@@ -687,7 +766,7 @@ The atomic versions of `--` and `++` were implemented for 6.d. They can only be 
 
 ### `⚛++` atomic pre-increment by 1
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [numeric](#numeric)
 
 ### `--` pre-decrement by 1
 
@@ -695,7 +774,7 @@ The atomic versions of `--` and `++` were implemented for 6.d. They can only be 
 
 ### `⚛--` atomic pre-decrement by 1
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [numeric](#numeric)
 
 ### `++` post-increment by 1
 
@@ -703,7 +782,7 @@ The atomic versions of `--` and `++` were implemented for 6.d. They can only be 
 
 ### `⚛++` atomic post-increment by 1
 
-  * [postfix](#postfix)
+  * [postfix](#postfix) [numeric](#numeric)
 
 ### `--` post-decrement by 1
 
@@ -711,7 +790,7 @@ The atomic versions of `--` and `++` were implemented for 6.d. They can only be 
 
 ### `⚛--` atomic post-decrement by 1
 
-  * [postfix](#postfix)
+  * [postfix](#postfix) [numeric](#numeric)
 
 Junctive
 --------
@@ -720,31 +799,31 @@ The Junctive group contains the infix operators and the functions that produce `
 
 ### `&` junctive all
 
-  * [infix](#infix)
+  * [infix](#infix) [junction](#junction)
 
 ### `|` junctive any
 
-  * [infix](#infix)
+  * [infix](#infix) [junction](#junction)
 
 ### `^` junctive one
 
-  * [infix](#infix)
+  * [infix](#infix) [junction](#junction)
 
 ### `all` junctive all
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [junction](#junction)
 
 ### `any` junctive any
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [junction](#junction)
 
 ### `one` junctive one
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [junction](#junction)
 
 ### `none` junctive none
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [junction](#junction)
 
 Mathematicals
 -------------
@@ -755,29 +834,29 @@ The Mathematicals group contains the mathematical terms that are provided by the
 
   * alternates: `π`
 
-  * [term](#term)
+  * [term](#term) [numeric](#numeric)
 
 ### `tau` The number τ (6.2831...)
 
   * alternates: `τ`
 
-  * [term](#term)
+  * [term](#term) [numeric](#numeric)
 
 ### `e` Euler's number (2.7182...)
 
   * alternates: `𝑒`
 
-  * [term](#term)
+  * [term](#term) [numeric](#numeric)
 
 ### `i` The imaginary unit (√-1)
 
-  * [term](#term)
+  * [term](#term) [numeric](#numeric)
 
 ### `Inf` Infinity
 
   * alternates: `∞`
 
-  * [term](#term)
+  * [term](#term) [numeric](#numeric)
 
 Metaoid
 -------
@@ -855,51 +934,51 @@ The Multiplicoid group contains all infix operators that are related to multipli
 
 ### `div` integer divide
 
-  * [infix](#infix)
+  * [infix](#infix) [integer](#integer)
 
 ### `mod` integer modulus
 
-  * [infix](#infix)
+  * [infix](#infix) [integer](#integer)
 
 ### `gcd` greatest common divisor
 
-  * [infix](#infix)
+  * [infix](#infix) [integer](#integer)
 
 ### `lcm` lowest common multiple
 
-  * [infix](#infix)
+  * [infix](#infix) [integer](#integer)
 
 ### `*` multiply
 
   * alternates: `×`
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric)
 
 ### `/` divide
 
   * alternates: `÷`
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric)
 
 ### `**` exponentiation
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric)
 
 ### `%` modulus
 
-  * [infix](#infix)
+  * [infix](#infix) [numeric](#numeric)
 
 ### `%%` is divisible
 
-  * [infix](#infix)
+  * [infix](#infix) [boolean](#boolean)
 
 ### `+<` integer shift left
 
-  * [infix](#infix)
+  * [infix](#infix) [integer](#integer)
 
 ### `+>` integer shift right
 
-  * [infix](#infix)
+  * [infix](#infix) [integer](#integer)
 
 Normaloid
 ---------
@@ -908,47 +987,47 @@ The Normaloid group contains the operators that somehow normalize the given argu
 
 ### `+` numerify
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [numeric](#numeric)
 
 ### `+^` numeric complement
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [numeric](#numeric)
 
 ### `-` numeric negation
 
   * alternates: `−`
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [numeric](#numeric)
 
 ### `^` numeric from zero upto
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [numeric](#numeric)
 
 ### `~` stringify
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [string](#string)
 
 ### `?` boolify
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [boolean](#boolean)
 
 ### `so` low precedence boolify
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [boolean](#boolean)
 
 ### `!` boolean negation
 
   * alternates: `?^`
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [boolean](#boolean)
 
 ### `not` low precedence boolean negation
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [boolean](#boolean)
 
 ### `//` is defined
 
-  * [prefix](#prefix)
+  * [prefix](#prefix) [boolean](#boolean)
 
 ### [`|` flatten args, slip iterable](https://docs.raku.org/syntax/%7C)
 
@@ -969,15 +1048,15 @@ The Orderoid group contains the infix operators that return an `Order` value.
 
 ### `cmp` equivalence order comparison
 
-  * [infix](#infix)
+  * [infix](#infix) [order](#order)
 
 ### `<=>` numerical order comparison
 
-  * [infix](#infix)
+  * [infix](#infix) [order](#order)
 
 ### `leg` string order comparison
 
-  * [infix](#infix)
+  * [infix](#infix) [order](#order)
 
 Quantoid
 --------
@@ -986,37 +1065,37 @@ The Quantoid group contains the functions that return a `QuantHash` (a `Set`, `S
 
 ### `∅` empty Set
 
-  * [term](#term)
+  * [term](#term) [quanthash](#quanthash)
 
 ### `(|)` quanthash union
 
   * alternates: `∪`
 
-  * [infix](#infix)
+  * [infix](#infix) [quanthash](#quanthash)
 
 ### `(+)` quanthash addition
 
   * alternates: `⊎`
 
-  * [infix](#infix)
+  * [infix](#infix) [quanthash](#quanthash)
 
 ### `(.)` quanthash multiplication
 
   * alternates: `⊍`
 
-  * [infix](#infix)
+  * [infix](#infix) [quanthash](#quanthash)
 
 ### `(-)` quanthash difference
 
   * alternates: `∖`
 
-  * [infix](#infix)
+  * [infix](#infix) [quanthash](#quanthash)
 
 ### `(^)` quanthash symmetric difference
 
   * alternates: `⊖`
 
-  * [infix](#infix)
+  * [infix](#infix) [quanthash](#quanthash)
 
 Rangoid
 -------
@@ -1025,23 +1104,23 @@ The Rangoid group contains the infix operators that produce a `Range`.
 
 ### `..` range inclusive
 
-  * [infix](#infix)
+  * [infix](#infix) [range](#range)
 
 ### `^..` range excluding start
 
-  * [infix](#infix)
+  * [infix](#infix) [range](#range)
 
 ### `..^` range excluding end
 
-  * [infix](#infix)
+  * [infix](#infix) [range](#range)
 
 ### `^..^` range exclusive
 
-  * [infix](#infix)
+  * [infix](#infix) [range](#range)
 
 ### `minmax` range including min and max value
 
-  * [infix](#infix)
+  * [infix](#infix) [range](#range)
 
 Reductoid
 ---------
@@ -1071,7 +1150,7 @@ The Replicant group contains the infix operators that reproduce the left value r
 
 ### `x` string repetition
 
-  * [infix](#infix)
+  * [infix](#infix) [string](#string)
 
 ### `xx` item repetition
 
@@ -1133,7 +1212,7 @@ The Shortoid group contains the infixish macros that exhibit short-cicuiting beh
 
 ### `notandthen` Empty if first defined, else last
 
-  * [infix](#infix) [macro](#macro)
+  * [infix](#infix) [macro](#macro) [topic](#topic)
 
 Stuboid
 -------
@@ -1159,19 +1238,19 @@ The Talkoid group contains the functions that are generally used to display mess
 
 ### `print` stringify argument(s), write to `$*STDOUT`
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [string](#string)
 
 ### `say` create gist of argument(s), add newline, write to `$*STDOUT`
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [string](#string)
 
 ### `put` stringify argument(s), add newline, write to `$*STDOUT`
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [string](#string)
 
 ### `note` create gist of argument(s), add newline, write to `$*STDERR`
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [string](#string)
 
 Termoid
 -------
@@ -1205,7 +1284,7 @@ The Throwoid group contains the functions that somehow interrupt the normal flow
 
 ### `die` halt execution, or be caught by `CATCH`
 
-  * [sub](#sub)
+  * [sub](#sub) [interrupt](#interrupt)
 
 ### `warn` show error message, or be caught by `CONTROL`
 
@@ -1213,35 +1292,35 @@ The Throwoid group contains the functions that somehow interrupt the normal flow
 
 ### `fail` return from Routine with Failure, or be caught by `CATCH`
 
-  * [sub](#sub)
+  * [sub](#sub) [interrupt](#interrupt)
 
 ### `return` return from Routine with given value, or be caught by `CONTROL`
 
-  * [sub](#sub) [method](#method)
+  * [sub](#sub) [method](#method) [interrupt](#interrupt)
 
 ### `next` proceed with next iteration, or be caught by `CONTROL`
 
-  * [sub](#sub)
+  * [sub](#sub) [interrupt](#interrupt)
 
 ### `redo` restart current iteration, or be caught by `CONTROL`
 
-  * [sub](#sub)
+  * [sub](#sub) [interrupt](#interrupt)
 
 ### `last` stop iterating, or be caught by `CONTROL`
 
-  * [sub](#sub)
+  * [sub](#sub) [interrupt](#interrupt)
 
 ### `proceed` continue with next when/default, or be caught by `CONTROL`
 
-  * [sub](#sub)
+  * [sub](#sub) [interrupt](#interrupt)
 
 ### `succeed` continue after last when/default, or be caught by `CONTROL`
 
-  * [sub](#sub)
+  * [sub](#sub) [interrupt](#interrupt)
 
 ### `done` call "done" callback on taps, or be caught by `CONTROL`
 
-  * [sub](#sub)
+  * [sub](#sub) [interrupt](#interrupt)
 
 ### `emit` emit given value to active supply, or be caught by `CONTROL`
 
@@ -1258,17 +1337,17 @@ The Topicoid group contains the functions that topicalize (set `$_`) in some sit
 
 ### `given` topicalize argument for scope
 
-  * [syntax](#syntax)
+  * [syntax](#syntax) [topic](#topic)
 
 ### `when` if smartmatched topicalize argument for scope
 
   * [syntax](#syntax)
 
-### `andthen` topicalize left for right thunk
+### `andthen topic` topicalize left for right thunk
 
   * [infix](#infix) [thunky](#thunky)
 
-### `orelse` low precedence if defined OR, topicalizing left for right thunk
+### `orelse topic` low precedence if defined OR, topicalizing left for right thunk
 
   * [infix](#infix) [thunky](#thunky)
 
