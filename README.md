@@ -31,6 +31,8 @@ Raku::Elements
 
 ```raku
 my $info = Raku::Elements.new;
+say "Groups: $info.groups.elems()";
+say "Tags: $info.tags.elems()";
 ```
 
 The programmatical interface to the elements of the Raku Programming Language. Can be instantiated by calling `.new`. Provides these methods:
@@ -116,7 +118,7 @@ This section of the documentation is generated from the information supplied by 
 Raku Element Tags
 -----------------
 
-[`boolean`](#boolean) [`circumfix`](#circumfix) [`hash`](#hash) [`infix`](#infix) [`integer`](#integer) [`interrupt`](#interrupt) [`junction`](#junction) [`list`](#list) [`macro`](#macro) [`method`](#method) [`numeric`](#numeric) [`order`](#order) [`pair`](#pair) [`postfix`](#postfix) [`prefix`](#prefix) [`quanthash`](#quanthash) [`range`](#range) [`string`](#string) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky) [`topic`](#topic)
+[`boolean`](#boolean) [`circumfix`](#circumfix) [`hash`](#hash) [`infix`](#infix) [`integer`](#integer) [`interrupt`](#interrupt) [`junction`](#junction) [`list`](#list) [`macro`](#macro) [`method`](#method) [`numeric`](#numeric) [`order`](#order) [`pair`](#pair) [`postfix`](#postfix) [`prefix`](#prefix) [`quanthash`](#quanthash) [`range`](#range) [`sequence`](#sequence) [`string`](#string) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky) [`topic`](#topic)
 
 ### boolean
 
@@ -180,11 +182,15 @@ An operator that is placed **before** the argument it operates on.
 
 ### quanthash
 
-Produces a `QuantHash` object, which is one of: `Set`, `SetHash`, `Bag`, `BagHash`, `Mix`, `MixHash`.
+May produce a `QuantHash` object (which is one of: `Set`, `SetHash`, `Bag`, `BagHash`, `Mix`, `MixHash`), or uses `QuantHash` semantics to return a `Bool`.
 
 ### range
 
 Produces a `Range` object.
+
+### sequence
+
+Produces a lazy `Seq` (sequence) object.
 
 ### string
 
@@ -224,7 +230,7 @@ The Addenoid group contains all infix operators that could be considered doing a
 
   * [infix](#infix) [numeric](#numeric)
 
-Coerces either side to a `Numeric` value, and then adds them.
+Coerces both sides to a `Numeric` value, and then adds them.
 
 ### [`-` numeric subtract](https://docs.raku.org/language/operators#infix_-)
 
@@ -312,6 +318,8 @@ my %bar = a => 42, b => 666, c => 137;
 ```
 
 ### [`:=` bind right value to left lexpad entry](https://docs.raku.org/language/operators#infix_:=)
+
+  * alternates: `≔`
 
   * [infix](#infix) [macro](#macro)
 
@@ -538,79 +546,109 @@ Equalish
 
 The Equalish group contains the infix operators that return `True` if the compared elements are considered equal in a way, and `False` if they are considered different in that way.
 
-### [`~~` smart match](Performs a smart-match on the given arguments.  Technically, this is)
+### [`~~` smart match](https://docs.raku.org/language/operators#infix_~~)
 
   * [infix](#infix)
 
-calling the `.ACCEPTS` method on the right side, giving it the left side as the positional argument. Which usually results in a `Bool` value.
+Performs a smart-match on the given arguments. Technically, this is calling the `.ACCEPTS` method on the right side, giving it the left side as the positional argument. Which usually results in a `Bool` value.
 
-### `eqv` canonical equivalence
+### [`eqv` canonical equivalence](https://docs.raku.org/language/operators#infix_eqv)
 
   * [infix](#infix) [boolean](#boolean)
 
-### `eq` string equality
+Performs a deep equivalence check logically dependent on the `.raku` representation.
+
+### [`eq` string equality](https://docs.raku.org/language/operators#infix_eq)
 
   * [infix](#infix) [string](#string) [boolean](#boolean)
 
-### `==` numeric equality
+Coerces both sides to a string and returns `True` if the resulting strings are equal. Else `False`.
+
+### [`==` numeric equality](https://docs.raku.org/language/operators#infix_)
+
+  * alternates: `⩵`
 
   * [infix](#infix) [numeric](#numeric) [boolean](#boolean)
 
-### `=~=` numeric almost equal
+Coerces both sides to a `Numeric` value, and then returns `True` if they are the same. Else `False`.
+
+### [`=~=` numeric almost equal](https://docs.raku.org/language/operators#infix_=~=)
 
   * alternates: `≅`
 
   * [infix](#infix) [numeric](#numeric) [boolean](#boolean)
 
-### `===` value identity
+Coerces both sides to a `Numeric` value, and then returns `True` if they are the same within `$*TOLERANCE` (defaults to `1e-15`). Else `False`.
+
+### [`===` value identity](https://docs.raku.org/language/operators#infix_===)
+
+  * alternates: `⩶`
 
   * [infix](#infix) [boolean](#boolean)
 
-### `=:=` value identity without decontainerization
+Decontainerizes both sides, and then returns `True` if both sides are the same object. Else `False`.
+
+### [`=:=` value identity without decontainerization](https://docs.raku.org/language/operators#infix_=:=)
 
   * [infix](#infix) [boolean](#boolean)
 
-### `(elem)` is element in
+Returns `True` if both sides are the same object **without** decontainerization. Else `False`.
+
+### [`(elem)` is element in](https://docs.raku.org/language/operators#infix_(elem),_infix_∈)
 
   * alternates: `∈`
 
-  * [infix](#infix) [boolean](#boolean)
+  * [infix](#infix) [boolean](#boolean) [quanthash](#quanthash)
 
-### `(cont)` contains element
+Returns `True` if all values on the left side are part of the right side, using `QuantHash` semantics. Else `False`.
+
+### [`(cont)` contains element](https://docs.raku.org/language/operators#infix_(cont),_infix_∋)
 
   * alternates: `∋`
 
-  * [infix](#infix) [boolean](#boolean)
+  * [infix](#infix) [boolean](#boolean) [quanthash](#quanthash)
 
-### `(<)` is strict quanthash subset
+Returns `True` if all values on the right side are part of the left side, using `QuantHash` semantics. Else `False`.
+
+### [`(<)` is strict subset](https://docs.raku.org/language/operators#infix_(%3C),_infix_⊂)
 
   * alternates: `⊂`
 
-  * [infix](#infix) [boolean](#boolean)
+  * [infix](#infix) [boolean](#boolean) [quanthash](#quanthash)
 
-### `(<=)` is quanthash subset
+Returns `True` if all values on the left side are part of the right side and the right side has more values, using `QuantHash` semantics. Else `False`.
+
+### [`(<=)` is subset](https://docs.raku.org/language/operators#infix_(%3C=),_infix_⊆)
 
   * alternates: `⊆`
 
-  * [infix](#infix) [boolean](#boolean)
+  * [infix](#infix) [boolean](#boolean) [quanthash](#quanthash)
 
-### `(==)` quanthash equality
+Returns `True` if all values on the left side are part of the right side, using `QuantHash` semantics. Else `False`.
+
+### [`(==)` quanthash equality](https://docs.raku.org/language/operators#infix_(==),_infix_≡)
 
   * alternates: `≡`
 
-  * [infix](#infix) [boolean](#boolean)
+  * [infix](#infix) [boolean](#boolean) [quanthash](#quanthash)
 
-### `(>=)` is quanthash superset
+Returns `True` if both sides contain the same valuies, using `QuantHash` semantics. Else `False`.
+
+### [`(>=)` is superset](https://docs.raku.org/language/operators#infix_(%3E=),_infix_⊇)
 
   * alternates: `⊇`
 
-  * [infix](#infix) [boolean](#boolean)
+  * [infix](#infix) [boolean](#boolean) [quanthash](#quanthash)
 
-### `(>)` is strict quanthash superset
+Returns `True` if all values on the right side are part of the left side, using `QuantHash` semantics. Else `False`.
+
+### [`(>)` is strict superset](https://docs.raku.org/language/operators#infix_(%3E),_infix_⊃)
 
   * alternates: `⊃`
 
-  * [infix](#infix) [boolean](#boolean)
+  * [infix](#infix) [boolean](#boolean) [quanthash](#quanthash)
+
+Returns `True` if all values on the right side are part of the left side and the left side has more values, using `QuantHash` semantics. Else `False`.
 
 Expansive
 ---------
@@ -1163,19 +1201,19 @@ The Sequoid group contains the infix operators that create a smart sequence (one
 
 ### `...` smart sequence inclusive
 
-  * [infix](#infix)
+  * [infix](#infix) [sequence](#sequence)
 
 ### `^...` smart sequence excluding start
 
-  * [infix](#infix)
+  * [infix](#infix) [sequence](#sequence)
 
 ### `...^` smart sequence excluding end
 
-  * [infix](#infix)
+  * [infix](#infix) [sequence](#sequence)
 
 ### `^...^` smart sequence exclusive
 
-  * [infix](#infix)
+  * [infix](#infix) [sequence](#sequence)
 
 Shortoid
 --------

@@ -1,6 +1,7 @@
 ~~
 infix
 smart match
+https://docs.raku.org/language/operators#infix_~~
 Performs a smart-match on the given arguments.  Technically, this is
 calling the C<.ACCEPTS> method on the right side, giving it the
 left side as the positional argument.  Which usually results in a
@@ -9,54 +10,96 @@ C<Bool> value.
 eqv
 infix boolean
 canonical equivalence
+https://docs.raku.org/language/operators#infix_eqv
+Performs a deep equivalence check logically dependent on the C<.raku>
+representation.
 
 eq
 infix string boolean
 string equality
+https://docs.raku.org/language/operators#infix_eq
+Coerces both sides to a string and returns C<True> if the resulting
+strings are equal.  Else C<False>.
 
-==
+== | ⩵
 infix numeric boolean
 numeric equality
+https://docs.raku.org/language/operators#infix_
+Coerces both sides to a C<Numeric> value, and then returns C<True>
+if they are the same.  Else C<False>.
 
 =~= | ≅
 infix numeric boolean
 numeric almost equal
+https://docs.raku.org/language/operators#infix_=~=
+Coerces both sides to a C<Numeric> value, and then returns C<True>
+if they are the same within C<$*TOLERANCE> (defaults to C<1e-15>).
+Else C<False>.
 
-===
+=== | ⩶
 infix boolean
 value identity
+https://docs.raku.org/language/operators#infix_===
+Decontainerizes both sides, and then returns C<True> if both sides
+are the same object.  Else C<False>.
 
 =:=
 infix boolean
 value identity without decontainerization
+https://docs.raku.org/language/operators#infix_=:=
+Returns C<True> if both sides are the same object B<without>
+decontainerization.  Else C<False>.
 
 (elem) | ∈
-infix boolean
+infix boolean quanthash
 is element in
+https://docs.raku.org/language/operators#infix_(elem),_infix_∈
+Returns C<True> if all values on the left side are part of the
+right side, using C<QuantHash> semantics.  Else C<False>.
 
 (cont) | ∋
-infix boolean
+infix boolean quanthash
 contains element
+https://docs.raku.org/language/operators#infix_(cont),_infix_∋
+Returns C<True> if all values on the right side are part of the
+left side, using C<QuantHash> semantics.  Else C<False>.
 
 (<) | ⊂
-infix boolean
-is strict quanthash subset
+infix boolean quanthash
+is strict subset
+https://docs.raku.org/language/operators#infix_(%3C),_infix_⊂
+Returns C<True> if all values on the left side are part of the
+right side and the right side has more values, using C<QuantHash>
+semantics.  Else C<False>.
 
 (<=) | ⊆
-infix boolean
-is quanthash subset
+infix boolean quanthash
+is subset
+https://docs.raku.org/language/operators#infix_(%3C=),_infix_⊆
+Returns C<True> if all values on the left side are part of the
+right side, using C<QuantHash> semantics.  Else C<False>.
 
 (==) | ≡
-infix boolean
+infix boolean quanthash
 quanthash equality
+https://docs.raku.org/language/operators#infix_(==),_infix_≡
+Returns C<True> if both sides contain the same valuies, using
+C<QuantHash> semantics.  Else C<False>.
 
 (>=) | ⊇
-infix boolean
-is quanthash superset
+infix boolean quanthash
+is superset
+https://docs.raku.org/language/operators#infix_(%3E=),_infix_⊇
+Returns C<True> if all values on the right side are part of the
+left side, using C<QuantHash> semantics.  Else C<False>.
 
 (>) | ⊃
-infix boolean
-is strict quanthash superset
+infix boolean quanthash
+is strict superset
+https://docs.raku.org/language/operators#infix_(%3E),_infix_⊃
+Returns C<True> if all values on the right side are part of the
+left side and the left side has more values, using C<QuantHash>
+semantics.  Else C<False>.
 
 
 contains the infix operators that return C<True> if the compared elements

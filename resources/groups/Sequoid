@@ -1,17 +1,17 @@
 ...
-infix
+infix sequence
 smart sequence inclusive
 
 ^...
-infix
+infix sequence
 smart sequence excluding start
 
 ...^
-infix
+infix sequence
 smart sequence excluding end
 
 ^...^
-infix
+infix sequence
 smart sequence exclusive
 
 

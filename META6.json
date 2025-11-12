@@ -64,6 +64,7 @@
     "tags/prefix",
     "tags/range",
     "tags/quanthash",
+    "tags/sequence",
     "tags/string",
     "tags/sub",
     "tags/syntax",

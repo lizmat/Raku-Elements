@@ -1,2 +1,3 @@
-Produces a C<QuantHash> object, which is one of:
-C<Set>, C<SetHash>, C<Bag>, C<BagHash>, C<Mix>, C<MixHash>.
+May produce a C<QuantHash> object (which is one of:
+C<Set>, C<SetHash>, C<Bag>, C<BagHash>, C<Mix>, C<MixHash>), or
+uses C<QuantHash> semantics to return a C<Bool>.

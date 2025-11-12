@@ -12,7 +12,7 @@ my @foo = 1,2,3,4,5;
 my %bar = a => 42, b => 666, c => 137;
 =end code
 
-:=
+:= | ≔
 infix macro
 bind right value to left lexpad entry
 https://docs.raku.org/language/operators#infix_:=

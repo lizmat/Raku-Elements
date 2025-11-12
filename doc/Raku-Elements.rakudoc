@@ -32,6 +32,8 @@ welcome!
 
 =begin code :lang<raku>
 my $info = Raku::Elements.new;
+say "Groups: $info.groups.elems()";
+say "Tags: $info.tags.elems()";
 =end code
 
 The programmatical interface to the elements of the Raku Programming
@@ -127,7 +129,7 @@ example of what can be done with the information provided by this
 distribution.
 
 =comment PLEASE DON'T CHANGE ANYTHING BELOW THIS LINE
-=comment Generated on 2025-11-11T19:48:02+01:00 by ./make-rakudoc.raku
+=comment Generated on 2025-11-12T21:13:23+01:00 by ./make-rakudoc.raku
 
 =head2 Raku Element Tags
 
@@ -148,6 +150,7 @@ L<C<postfix>|#postfix>
 L<C<prefix>|#prefix>
 L<C<quanthash>|#quanthash>
 L<C<range>|#range>
+L<C<sequence>|#sequence>
 L<C<string>|#string>
 L<C<sub>|#sub>
 L<C<syntax>|#syntax>
@@ -221,12 +224,17 @@ An operator that is placed B<before> the argument it operates on.
 
 =head3 quanthash
 
-Produces a C<QuantHash> object, which is one of:
-C<Set>, C<SetHash>, C<Bag>, C<BagHash>, C<Mix>, C<MixHash>.
+May produce a C<QuantHash> object (which is one of:
+C<Set>, C<SetHash>, C<Bag>, C<BagHash>, C<Mix>, C<MixHash>), or
+uses C<QuantHash> semantics to return a C<Bool>.
 
 =head3 range
 
 Produces a C<Range> object.
+
+=head3 sequence
+
+Produces a lazy C<Seq> (sequence) object.
 
 =head3 string
 
@@ -297,7 +305,7 @@ or substraction functions.
 =head3 L<C«+» numeric add|https://docs.raku.org/language/operators#infix_+>
 =item L<infix|#infix> L<numeric|#numeric>
 
-Coerces either side to a C<Numeric> value, and then adds them.
+Coerces both sides to a C<Numeric> value, and then adds them.
 
 =head3 L<C«-» numeric subtract|https://docs.raku.org/language/operators#infix_->
 =item alternates: C«−»
@@ -378,6 +386,7 @@ my %bar = a => 42, b => 666, c => 137;
 =end code
 
 =head3 L<C«:=» bind right value to left lexpad entry|https://docs.raku.org/language/operators#infix_:=>
+=item alternates: C«≔»
 =item L<infix|#infix> L<macro|#macro>
 
 Performs a binding operation on the lexpad entry on the left.  This
@@ -562,59 +571,104 @@ The Equalish group contains the infix operators that return C<True> if the compa
 are considered equal in a way, and C<False> if they are considered different
 in that way.
 
-=head3 L<C«~~» smart match|Performs a smart-match on the given arguments.  Technically, this is>
+=head3 L<C«~~» smart match|https://docs.raku.org/language/operators#infix_~~>
 =item L<infix|#infix>
 
+Performs a smart-match on the given arguments.  Technically, this is
 calling the C<.ACCEPTS> method on the right side, giving it the
 left side as the positional argument.  Which usually results in a
 C<Bool> value.
 
-=head3 C«eqv» canonical equivalence
+=head3 L<C«eqv» canonical equivalence|https://docs.raku.org/language/operators#infix_eqv>
 =item L<infix|#infix> L<boolean|#boolean>
 
-=head3 C«eq» string equality
+Performs a deep equivalence check logically dependent on the C<.raku>
+representation.
+
+=head3 L<C«eq» string equality|https://docs.raku.org/language/operators#infix_eq>
 =item L<infix|#infix> L<string|#string> L<boolean|#boolean>
 
-=head3 C«==» numeric equality
+Coerces both sides to a string and returns C<True> if the resulting
+strings are equal.  Else C<False>.
+
+=head3 L<C«==» numeric equality|https://docs.raku.org/language/operators#infix_>
+=item alternates: C«⩵»
 =item L<infix|#infix> L<numeric|#numeric> L<boolean|#boolean>
 
-=head3 C«=~=» numeric almost equal
+Coerces both sides to a C<Numeric> value, and then returns C<True>
+if they are the same.  Else C<False>.
+
+=head3 L<C«=~=» numeric almost equal|https://docs.raku.org/language/operators#infix_=~=>
 =item alternates: C«≅»
 =item L<infix|#infix> L<numeric|#numeric> L<boolean|#boolean>
 
-=head3 C«===» value identity
+Coerces both sides to a C<Numeric> value, and then returns C<True>
+if they are the same within C<$*TOLERANCE> (defaults to C<1e-15>).
+Else C<False>.
+
+=head3 L<C«===» value identity|https://docs.raku.org/language/operators#infix_===>
+=item alternates: C«⩶»
 =item L<infix|#infix> L<boolean|#boolean>
 
-=head3 C«=:=» value identity without decontainerization
+Decontainerizes both sides, and then returns C<True> if both sides
+are the same object.  Else C<False>.
+
+=head3 L<C«=:=» value identity without decontainerization|https://docs.raku.org/language/operators#infix_=:=>
 =item L<infix|#infix> L<boolean|#boolean>
 
-=head3 C«(elem)» is element in
+Returns C<True> if both sides are the same object B<without>
+decontainerization.  Else C<False>.
+
+=head3 L<C«(elem)» is element in|https://docs.raku.org/language/operators#infix_(elem),_infix_∈>
 =item alternates: C«∈»
-=item L<infix|#infix> L<boolean|#boolean>
+=item L<infix|#infix> L<boolean|#boolean> L<quanthash|#quanthash>
 
-=head3 C«(cont)» contains element
+Returns C<True> if all values on the left side are part of the
+right side, using C<QuantHash> semantics.  Else C<False>.
+
+=head3 L<C«(cont)» contains element|https://docs.raku.org/language/operators#infix_(cont),_infix_∋>
 =item alternates: C«∋»
-=item L<infix|#infix> L<boolean|#boolean>
+=item L<infix|#infix> L<boolean|#boolean> L<quanthash|#quanthash>
 
-=head3 C«(<)» is strict quanthash subset
+Returns C<True> if all values on the right side are part of the
+left side, using C<QuantHash> semantics.  Else C<False>.
+
+=head3 L<C«(<)» is strict subset|https://docs.raku.org/language/operators#infix_(%3C),_infix_⊂>
 =item alternates: C«⊂»
-=item L<infix|#infix> L<boolean|#boolean>
+=item L<infix|#infix> L<boolean|#boolean> L<quanthash|#quanthash>
 
-=head3 C«(<=)» is quanthash subset
+Returns C<True> if all values on the left side are part of the
+right side and the right side has more values, using C<QuantHash>
+semantics.  Else C<False>.
+
+=head3 L<C«(<=)» is subset|https://docs.raku.org/language/operators#infix_(%3C=),_infix_⊆>
 =item alternates: C«⊆»
-=item L<infix|#infix> L<boolean|#boolean>
+=item L<infix|#infix> L<boolean|#boolean> L<quanthash|#quanthash>
 
-=head3 C«(==)» quanthash equality
+Returns C<True> if all values on the left side are part of the
+right side, using C<QuantHash> semantics.  Else C<False>.
+
+=head3 L<C«(==)» quanthash equality|https://docs.raku.org/language/operators#infix_(==),_infix_≡>
 =item alternates: C«≡»
-=item L<infix|#infix> L<boolean|#boolean>
+=item L<infix|#infix> L<boolean|#boolean> L<quanthash|#quanthash>
 
-=head3 C«(>=)» is quanthash superset
+Returns C<True> if both sides contain the same valuies, using
+C<QuantHash> semantics.  Else C<False>.
+
+=head3 L<C«(>=)» is superset|https://docs.raku.org/language/operators#infix_(%3E=),_infix_⊇>
 =item alternates: C«⊇»
-=item L<infix|#infix> L<boolean|#boolean>
+=item L<infix|#infix> L<boolean|#boolean> L<quanthash|#quanthash>
 
-=head3 C«(>)» is strict quanthash superset
+Returns C<True> if all values on the right side are part of the
+left side, using C<QuantHash> semantics.  Else C<False>.
+
+=head3 L<C«(>)» is strict superset|https://docs.raku.org/language/operators#infix_(%3E),_infix_⊃>
 =item alternates: C«⊃»
-=item L<infix|#infix> L<boolean|#boolean>
+=item L<infix|#infix> L<boolean|#boolean> L<quanthash|#quanthash>
+
+Returns C<True> if all values on the right side are part of the
+left side and the left side has more values, using C<QuantHash>
+semantics.  Else C<False>.
 
 =head2 Expansive
 
@@ -1054,16 +1108,16 @@ The Sequoid group contains the infix operators that create a smart sequence (one
 inspect the arguments and interpretes special, almost magic, meaning).
 
 =head3 C«...» smart sequence inclusive
-=item L<infix|#infix>
+=item L<infix|#infix> L<sequence|#sequence>
 
 =head3 C«^...» smart sequence excluding start
-=item L<infix|#infix>
+=item L<infix|#infix> L<sequence|#sequence>
 
 =head3 C«...^» smart sequence excluding end
-=item L<infix|#infix>
+=item L<infix|#infix> L<sequence|#sequence>
 
 =head3 C«^...^» smart sequence exclusive
-=item L<infix|#infix>
+=item L<infix|#infix> L<sequence|#sequence>
 
 =head2 Shortoid
 

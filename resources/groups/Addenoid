@@ -2,7 +2,7 @@
 infix numeric
 numeric add
 https://docs.raku.org/language/operators#infix_+
-Coerces either side to a C<Numeric> value, and then adds them.
+Coerces both sides to a C<Numeric> value, and then adds them.
 
 - | −
 infix numeric
