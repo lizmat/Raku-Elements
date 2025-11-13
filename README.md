@@ -118,7 +118,7 @@ This section of the documentation is generated from the information supplied by 
 Raku Element Tags
 -----------------
 
-[`boolean`](#boolean) [`circumfix`](#circumfix) [`hash`](#hash) [`infix`](#infix) [`integer`](#integer) [`interrupt`](#interrupt) [`junction`](#junction) [`list`](#list) [`macro`](#macro) [`method`](#method) [`numeric`](#numeric) [`order`](#order) [`pair`](#pair) [`postfix`](#postfix) [`prefix`](#prefix) [`quanthash`](#quanthash) [`range`](#range) [`sequence`](#sequence) [`string`](#string) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky) [`topic`](#topic)
+[`boolean`](#boolean) [`circumfix`](#circumfix) [`hash`](#hash) [`infix`](#infix) [`integer`](#integer) [`interrupt`](#interrupt) [`junction`](#junction) [`list`](#list) [`macro`](#macro) [`method`](#method) [`numeric`](#numeric) [`order`](#order) [`pair`](#pair) [`postfix`](#postfix) [`prefix`](#prefix) [`quanthash`](#quanthash) [`range`](#range) [`sequence`](#sequence) [`statement`](#statement) [`string`](#string) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky) [`topic`](#topic)
 
 ### boolean
 
@@ -192,6 +192,10 @@ Produces a `Range` object.
 
 Produces a lazy `Seq` (sequence) object.
 
+### statement
+
+A syntax structure at the start of a statement.
+
 ### string
 
 Produces a `Str` object.
@@ -219,7 +223,7 @@ Sets the topic variable (`$_`).
 Raku Element Groups
 -------------------
 
-[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Junctive`](#Junctive) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Mixoid`](#Mixoid) [`Multiplicoid`](#Multiplicoid) [`Normaloid`](#Normaloid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termoid`](#Termoid) [`Throwoid`](#Throwoid) [`Topicoid`](#Topicoid)
+[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Condoid`](#Condoid) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Junctive`](#Junctive) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Mixoid`](#Mixoid) [`Multiplicoid`](#Multiplicoid) [`Normaloid`](#Normaloid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termoid`](#Termoid) [`Throwoid`](#Throwoid) [`Topicoid`](#Topicoid)
 
 Addenoid
 --------
@@ -424,6 +428,35 @@ say @menu[0]<salad>;  # 4.5
 ### [`hash` turn argument(s) into a hash](https://docs.raku.org/type/Any#method_hash)
 
   * [sub](#sub) [method](#method) [hash](#hash)
+
+Condoid
+-------
+
+The Condoid group contains the statement syntaxes to indicate conditional execution of code.
+
+### [`?? !!` ternary logic](https://docs.raku.org/language/operators#infix_??_!!)
+
+  * [syntax](#syntax)
+
+Depending on the condition (before the `??`) produces the value of the expression between `??` and `!!` (if true) or the expression after `!!` if the condition was **not** true.
+
+### [`if` execute block if condition is true](https://docs.raku.org/language/control#if)
+
+  * [syntax](#syntax) [statement](#statement)
+
+Start of one or more blocks of conditional execution.
+
+### [`elsif` execute block if condition is true and previous false](https://docs.raku.org/language/control#else/elsif)
+
+  * [syntax](#syntax) [statement](#statement)
+
+Followup of `if` or another `elsif`, checked if the first (or previous) condition evaluated to false. Executes the associated block if true.
+
+### [`else` execute block if none of previous conditions were true](https://docs.raku.org/language/control#else/elsif)
+
+  * [syntax](#syntax) [statement](#statement)
+
+Final followup of `if` or `elsif`. Executes the associated block if none of the previous conditions evaluated to true.
 
 Declaroid
 ---------
@@ -687,72 +720,76 @@ The Feedoid group contains the operators that provide an alternate syntax for cr
 Flippant
 --------
 
-The Flippant group contains the operators that produce one or the other value, depending on some condition.
+The Flippant group contains the operators that produce `True` or `False` depending on multiple conditions.
 
-### `?? !!` ternary logic
+### [`ff` flip-flop inclusive](https://docs.raku.org/language/operators#infix_ff)
 
-  * [syntax](#syntax)
+  * [infix](#infix) [macro](#macro) [boolean](#boolean)
 
-### `ff` flip-flop inclusive
+### [`^ff` flip-flop excluding start](https://docs.raku.org/language/operators#infix_^ff)
 
-  * [infix](#infix) [macro](#macro)
+  * [infix](#infix) [macro](#macro) [boolean](#boolean)
 
-### `^ff` flip-flop excluding start
+### [`ff^` flip-flop excluding end](https://docs.raku.org/language/operators#infix_ff^)
 
-  * [infix](#infix) [macro](#macro)
+  * [infix](#infix) [macro](#macro) [boolean](#boolean)
 
-### `ff^` flip-flop excluding end
+### [`^ff^` flip-flop exclusive](https://docs.raku.org/language/operators#infix_^ff^)
 
-  * [infix](#infix) [macro](#macro)
+  * [infix](#infix) [macro](#macro) [boolean](#boolean)
 
-### `^ff^` flip-flop exclusive
+### [`fff` sed-like flip-flop inclusive](https://docs.raku.org/language/operators#infix_fff)
 
-  * [infix](#infix) [macro](#macro)
+  * [infix](#infix) [macro](#macro) [boolean](#boolean)
 
-### `fff` sed-like flip-flop inclusive
+### [`^fff` sed-like flip-flop excluding start](https://docs.raku.org/language/operators#infix_^fff)
 
-  * [infix](#infix) [macro](#macro)
+  * [infix](#infix) [macro](#macro) [boolean](#boolean)
 
-### `^fff` sed-like flip-flop excluding start
+### [`fff^` sed-like flip-flop excluding end](https://docs.raku.org/language/operators#infix_fff^)
 
-  * [infix](#infix) [macro](#macro)
+  * [infix](#infix) [macro](#macro) [boolean](#boolean)
 
-### `fff^` sed-like flip-flop excluding end
+### [`^fff^` sed-like flip-flop exclusive](https://docs.raku.org/language/operators#infix_^fff^)
 
-  * [infix](#infix) [macro](#macro)
-
-### `^fff^` sed-like flip-flop exclusive
-
-  * [infix](#infix) [macro](#macro)
+  * [infix](#infix) [macro](#macro) [boolean](#boolean)
 
 Hyperoid
 --------
 
 The Hyperoid group contains the operators that take the name of an infix operator and repeatedly perform that operator on the provided argument list(s).
 
-### `>>op<<` produce operator results for equal lists
+### [`>>op<<` produce operator results for equal lists](https://docs.raku.org/language/operators#Hyper_operators)
 
   * alternates: `»op« `
 
   * [infix](#infix) [syntax](#syntax)
 
-### `>>op>>` produce operator results, left side leading
+Repeat the operation on each of the associated elements of two `Iterable`s with the same number of elements. Throws an exception if they are not equal.
+
+### [`>>op>>` produce operator results, left side leading](https://docs.raku.org/language/operators#Hyper_operators)
 
   * alternates: `»op»`
 
   * [infix](#infix) [syntax](#syntax)
 
-### `<<op<<` produce operator results, right side leading
+Repeat the operation on each of the associated elements of two `Iterable`s for each element on the left side. Missing values on the right side will be repeated.
+
+### [`<<op<<` produce operator results, right side leading](https://docs.raku.org/language/operators#Hyper_operators)
 
   * alternates: `«op«`
 
   * [infix](#infix) [syntax](#syntax)
 
-### `<<op>>` produce operator results, longest side leading
+Repeat the operation on each of the associated elements of two `Iterable`s for each element on the right side. Missing values on the left side will be repeated.
+
+### [`<<op>>` produce operator results, longest side leading](https://docs.raku.org/language/operators#Hyper_operators)
 
   * alternates: `«op»`
 
   * [infix](#infix) [syntax](#syntax)
+
+Repeat the operation on each of the associated elements of two `Iterable`s for each element on the side with the most elements. Missing values on the other side will be repeated.
 
 ### [`Zop` produce operator result, shortest side leading](Default for `op` is `,`)
 
@@ -1412,6 +1449,11 @@ The fourth line (if not empty) contains the URL for more information,
 Any other lines until an empty line, contains the description of the element. It may contain RakuDoc markup codes.
 
 If the first line is empty, then the rest of the file contains the description of the group (so you can recognize the description as the text after the first 2 empty lines). It may contain RakuDoc markup codes. If there are no 2 empty lines, then there is **no** description (yet) for the group.
+
+Tag file format
+---------------
+
+The whole text of a tag file becomes the `.description` of the tag with the name of the file.
 
 AUTHOR
 ======

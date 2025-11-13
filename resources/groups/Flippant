@@ -1,39 +1,43 @@
-?? !!
-syntax
-ternary logic
-
 ff
-infix macro
+infix macro boolean
 flip-flop inclusive
+https://docs.raku.org/language/operators#infix_ff
 
 ^ff
-infix macro
+infix macro boolean
 flip-flop excluding start
+https://docs.raku.org/language/operators#infix_^ff
 
 ff^
-infix macro
+infix macro boolean
 flip-flop excluding end
+https://docs.raku.org/language/operators#infix_ff^
 
 ^ff^
-infix macro
+infix macro boolean
 flip-flop exclusive
+https://docs.raku.org/language/operators#infix_^ff^
 
 fff
-infix macro
+infix macro boolean
 sed-like flip-flop inclusive
+https://docs.raku.org/language/operators#infix_fff
 
 ^fff
-infix macro
+infix macro boolean
 sed-like flip-flop excluding start
+https://docs.raku.org/language/operators#infix_^fff
 
 fff^
-infix macro
+infix macro boolean
 sed-like flip-flop excluding end
+https://docs.raku.org/language/operators#infix_fff^
 
 ^fff^
-infix macro
+infix macro boolean
 sed-like flip-flop exclusive
+https://docs.raku.org/language/operators#infix_^fff^
 
 
-contains the operators that produce one or the other value, depending
-on some condition.
+contains the operators that produce C<True> or C<False> depending on
+multiple conditions.

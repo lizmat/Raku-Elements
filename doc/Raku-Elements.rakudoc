@@ -129,7 +129,7 @@ example of what can be done with the information provided by this
 distribution.
 
 =comment PLEASE DON'T CHANGE ANYTHING BELOW THIS LINE
-=comment Generated on 2025-11-12T21:13:23+01:00 by ./make-rakudoc.raku
+=comment Generated on 2025-11-13T21:56:28+01:00 by ./make-rakudoc.raku
 
 =head2 Raku Element Tags
 
@@ -151,6 +151,7 @@ L<C<prefix>|#prefix>
 L<C<quanthash>|#quanthash>
 L<C<range>|#range>
 L<C<sequence>|#sequence>
+L<C<statement>|#statement>
 L<C<string>|#string>
 L<C<sub>|#sub>
 L<C<syntax>|#syntax>
@@ -236,6 +237,10 @@ Produces a C<Range> object.
 
 Produces a lazy C<Seq> (sequence) object.
 
+=head3 statement
+
+A syntax structure at the start of a statement.
+
 =head3 string
 
 Produces a C<Str> object.
@@ -268,6 +273,7 @@ Sets the topic variable (C<$_>).
 L<C<Addenoid>|#Addenoid>
 L<C<Bindoid>|#Bindoid>
 L<C<Buildoid>|#Buildoid>
+L<C<Condoid>|#Condoid>
 L<C<Declaroid>|#Declaroid>
 L<C<Differentoid>|#Differentoid>
 L<C<Equalish>|#Equalish>
@@ -479,6 +485,37 @@ say @menu[0]<salad>;  # 4.5
 
 =head3 L<C«hash» turn argument(s) into a hash|https://docs.raku.org/type/Any#method_hash>
 =item L<sub|#sub> L<method|#method> L<hash|#hash>
+
+=head2 Condoid
+
+The Condoid group contains the statement syntaxes to indicate conditional execution
+of code.
+
+=head3 L<C«?? !!» ternary logic|https://docs.raku.org/language/operators#infix_??_!!>
+=item L<syntax|#syntax>
+
+Depending on the condition (before the C<??>) produces the
+value of the expression between C<??> and C<!!> (if true)
+or the expression after C<!!> if the condition was B<not>
+true.
+
+=head3 L<C«if» execute block if condition is true|https://docs.raku.org/language/control#if>
+=item L<syntax|#syntax> L<statement|#statement>
+
+Start of one or more blocks of conditional execution.
+
+=head3 L<C«elsif» execute block if condition is true and previous false|https://docs.raku.org/language/control#else/elsif>
+=item L<syntax|#syntax> L<statement|#statement>
+
+Followup of C<if> or another C<elsif>, checked if the first
+(or previous) condition evaluated to false.  Executes the
+associated block if true.
+
+=head3 L<C«else» execute block if none of previous conditions were true|https://docs.raku.org/language/control#else/elsif>
+=item L<syntax|#syntax> L<statement|#statement>
+
+Final followup of C<if> or C<elsif>.  Executes the associated
+block if none of the previous conditions evaluated to true.
 
 =head2 Declaroid
 
@@ -707,56 +744,69 @@ or C<(1,2,3,4).sum.say>.
 
 =head2 Flippant
 
-The Flippant group contains the operators that produce one or the other value, depending
-on some condition.
+The Flippant group contains the operators that produce C<True> or C<False> depending on
+multiple conditions.
 
-=head3 C«?? !!» ternary logic
-=item L<syntax|#syntax>
+=head3 L<C«ff» flip-flop inclusive|https://docs.raku.org/language/operators#infix_ff>
+=item L<infix|#infix> L<macro|#macro> L<boolean|#boolean>
 
-=head3 C«ff» flip-flop inclusive
-=item L<infix|#infix> L<macro|#macro>
+=head3 L<C«^ff» flip-flop excluding start|https://docs.raku.org/language/operators#infix_^ff>
+=item L<infix|#infix> L<macro|#macro> L<boolean|#boolean>
 
-=head3 C«^ff» flip-flop excluding start
-=item L<infix|#infix> L<macro|#macro>
+=head3 L<C«ff^» flip-flop excluding end|https://docs.raku.org/language/operators#infix_ff^>
+=item L<infix|#infix> L<macro|#macro> L<boolean|#boolean>
 
-=head3 C«ff^» flip-flop excluding end
-=item L<infix|#infix> L<macro|#macro>
+=head3 L<C«^ff^» flip-flop exclusive|https://docs.raku.org/language/operators#infix_^ff^>
+=item L<infix|#infix> L<macro|#macro> L<boolean|#boolean>
 
-=head3 C«^ff^» flip-flop exclusive
-=item L<infix|#infix> L<macro|#macro>
+=head3 L<C«fff» sed-like flip-flop inclusive|https://docs.raku.org/language/operators#infix_fff>
+=item L<infix|#infix> L<macro|#macro> L<boolean|#boolean>
 
-=head3 C«fff» sed-like flip-flop inclusive
-=item L<infix|#infix> L<macro|#macro>
+=head3 L<C«^fff» sed-like flip-flop excluding start|https://docs.raku.org/language/operators#infix_^fff>
+=item L<infix|#infix> L<macro|#macro> L<boolean|#boolean>
 
-=head3 C«^fff» sed-like flip-flop excluding start
-=item L<infix|#infix> L<macro|#macro>
+=head3 L<C«fff^» sed-like flip-flop excluding end|https://docs.raku.org/language/operators#infix_fff^>
+=item L<infix|#infix> L<macro|#macro> L<boolean|#boolean>
 
-=head3 C«fff^» sed-like flip-flop excluding end
-=item L<infix|#infix> L<macro|#macro>
-
-=head3 C«^fff^» sed-like flip-flop exclusive
-=item L<infix|#infix> L<macro|#macro>
+=head3 L<C«^fff^» sed-like flip-flop exclusive|https://docs.raku.org/language/operators#infix_^fff^>
+=item L<infix|#infix> L<macro|#macro> L<boolean|#boolean>
 
 =head2 Hyperoid
 
 The Hyperoid group contains the operators that take the name of an infix operator and
 repeatedly perform that operator on the provided argument list(s).
 
-=head3 C«>>op<<» produce operator results for equal lists
+=head3 L<C«>>op<<» produce operator results for equal lists|https://docs.raku.org/language/operators#Hyper_operators>
 =item alternates: C<»op« >
 =item L<infix|#infix> L<syntax|#syntax>
 
-=head3 C«>>op>>» produce operator results, left side leading
+Repeat the operation on each of the associated elements of two
+C<Iterable>s with the same number of elements.  Throws an
+exception if they are not equal.
+
+=head3 L<C«>>op>>» produce operator results, left side leading|https://docs.raku.org/language/operators#Hyper_operators>
 =item alternates: C<»op»>
 =item L<infix|#infix> L<syntax|#syntax>
 
-=head3 C«<<op<<» produce operator results, right side leading
+Repeat the operation on each of the associated elements of two
+C<Iterable>s for each element on the left side.  Missing values
+on the right side will be repeated.
+
+=head3 L<C«<<op<<» produce operator results, right side leading|https://docs.raku.org/language/operators#Hyper_operators>
 =item alternates: C<«op«>
 =item L<infix|#infix> L<syntax|#syntax>
 
-=head3 C«<<op>>» produce operator results, longest side leading
+Repeat the operation on each of the associated elements of two
+C<Iterable>s for each element on the right side.  Missing values
+on the left side will be repeated.
+
+=head3 L<C«<<op>>» produce operator results, longest side leading|https://docs.raku.org/language/operators#Hyper_operators>
 =item alternates: C<«op»>
 =item L<infix|#infix> L<syntax|#syntax>
+
+Repeat the operation on each of the associated elements of two
+C<Iterable>s for each element on the side with the most elements.
+ Missing values on the other side will be repeated.
 
 =head3 L<C«Zop» produce operator result, shortest side leading|Default for `op` is `,`>
 =item L<infix|#infix> L<syntax|#syntax>
@@ -1292,6 +1342,11 @@ description of the group (so you can recognize the description as the
 text after the first 2 empty lines).  It may contain RakuDoc markup
 codes.  If there are no 2 empty lines, then there is B<no> description
 (yet) for the group.
+
+=head2 Tag file format
+
+The whole text of a tag file becomes the C<.description> of the tag
+with the name of the file.
 
 =head1 AUTHOR
 

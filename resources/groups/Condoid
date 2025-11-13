@@ -1,0 +1,33 @@
+?? !!
+syntax
+ternary logic
+https://docs.raku.org/language/operators#infix_??_!!
+Depending on the condition (before the C<??>) produces the
+value of the expression between C<??> and C<!!> (if true)
+or the expression after C<!!> if the condition was B<not>
+true.
+
+if
+syntax statement
+execute block if condition is true
+https://docs.raku.org/language/control#if
+Start of one or more blocks of conditional execution.
+
+elsif
+syntax statement
+execute block if condition is true and previous false
+https://docs.raku.org/language/control#else/elsif
+Followup of C<if> or another C<elsif>, checked if the first
+(or previous) condition evaluated to false.  Executes the
+associated block if true.
+
+else
+syntax statement
+execute block if none of previous conditions were true
+https://docs.raku.org/language/control#else/elsif
+Final followup of C<if> or C<elsif>.  Executes the associated
+block if none of the previous conditions evaluated to true.
+
+
+contains the statement syntaxes to indicate conditional execution
+of code.

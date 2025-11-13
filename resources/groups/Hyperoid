@@ -1,18 +1,34 @@
 >>op<< | »op« 
 infix syntax
 produce operator results for equal lists
+https://docs.raku.org/language/operators#Hyper_operators
+Repeat the operation on each of the associated elements of two
+C<Iterable>s with the same number of elements.  Throws an
+exception if they are not equal.
 
 >>op>> | »op»
 infix syntax
 produce operator results, left side leading
+https://docs.raku.org/language/operators#Hyper_operators
+Repeat the operation on each of the associated elements of two
+C<Iterable>s for each element on the left side.  Missing values
+on the right side will be repeated.
 
 <<op<< | «op«
 infix syntax
 produce operator results, right side leading
+https://docs.raku.org/language/operators#Hyper_operators
+Repeat the operation on each of the associated elements of two
+C<Iterable>s for each element on the right side.  Missing values
+on the left side will be repeated.
 
 <<op>> | «op»
 infix syntax
 produce operator results, longest side leading
+https://docs.raku.org/language/operators#Hyper_operators
+Repeat the operation on each of the associated elements of two
+C<Iterable>s for each element on the side with the most elements.
+ Missing values on the other side will be repeated.
 
 Zop
 infix syntax
