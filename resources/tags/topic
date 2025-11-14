@@ -1,1 +1,2 @@
-Sets the topic variable (C<$_>).
+Either sets the topic variable (C<$_>), or uses the topic variable as
+a default argument.

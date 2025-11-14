@@ -129,12 +129,14 @@ example of what can be done with the information provided by this
 distribution.
 
 =comment PLEASE DON'T CHANGE ANYTHING BELOW THIS LINE
-=comment Generated on 2025-11-13T21:56:28+01:00 by ./make-rakudoc.raku
+=comment Generated on 2025-11-14T20:17:18+01:00 by ./make-rakudoc.raku
 
 =head2 Raku Element Tags
 
 L<C<boolean>|#boolean>
 L<C<circumfix>|#circumfix>
+L<C<constant>|#constant>
+L<C<dynamic>|#dynamic>
 L<C<hash>|#hash>
 L<C<infix>|#infix>
 L<C<integer>|#integer>
@@ -143,6 +145,7 @@ L<C<junction>|#junction>
 L<C<list>|#list>
 L<C<macro>|#macro>
 L<C<method>|#method>
+L<C<modifier>|#modifier>
 L<C<numeric>|#numeric>
 L<C<order>|#order>
 L<C<pair>|#pair>
@@ -150,6 +153,7 @@ L<C<postfix>|#postfix>
 L<C<prefix>|#prefix>
 L<C<quanthash>|#quanthash>
 L<C<range>|#range>
+L<C<regex>|#regex>
 L<C<sequence>|#sequence>
 L<C<statement>|#statement>
 L<C<string>|#string>
@@ -158,6 +162,7 @@ L<C<syntax>|#syntax>
 L<C<term>|#term>
 L<C<thunky>|#thunky>
 L<C<topic>|#topic>
+L<C<variable>|#variable>
 
 =head3 boolean
 
@@ -167,6 +172,16 @@ Produces a C<Bool> value: either C<True> or C<False>.
 
 Operators that consist of an opening and a closing tag, with their
 arguments between them.
+
+=head3 constant
+
+Refers to a constant defined by the Raku Programming Language.
+
+=head3 dynamic
+
+Variable lookups happen in the dynamic scope at execution (the current
+callstack) rather than lookups at compile time.  Returns a C<Failure>
+if the variable could not be found.
 
 =head3 hash
 
@@ -203,6 +218,11 @@ at compile time.
 A C<Callable> with a name that takes an invocant as its first argument,
 and which is typically part of a C<class>, C<role> or C<grammar>.
 
+=head3 modifier
+
+A syntax structure at the end of a statement that affects whether
+the statement will actually be executed.
+
 =head3 numeric
 
 Produces a C<Numeric> value.
@@ -232,6 +252,10 @@ uses C<QuantHash> semantics to return a C<Bool>.
 =head3 range
 
 Produces a C<Range> object.
+
+=head3 regex
+
+Related to Raku regexes (aka "regular expressions").
 
 =head3 sequence
 
@@ -266,7 +290,12 @@ Having special syntax handling causing it to not immediately be executed
 
 =head3 topic
 
-Sets the topic variable (C<$_>).
+Either sets the topic variable (C<$_>), or uses the topic variable as
+a default argument.
+
+=head3 variable
+
+Refers to a variable defined by the Raku Programming Language.
 
 =head2 Raku Element Groups
 
@@ -274,8 +303,10 @@ L<C<Addenoid>|#Addenoid>
 L<C<Bindoid>|#Bindoid>
 L<C<Buildoid>|#Buildoid>
 L<C<Condoid>|#Condoid>
+L<C<Constoid>|#Constoid>
 L<C<Declaroid>|#Declaroid>
 L<C<Differentoid>|#Differentoid>
+L<C<Dynamoid>|#Dynamoid>
 L<C<Equalish>|#Equalish>
 L<C<Expansive>|#Expansive>
 L<C<Feedoid>|#Feedoid>
@@ -284,10 +315,12 @@ L<C<Hyperoid>|#Hyperoid>
 L<C<IOoid>|#IOoid>
 L<C<Incremental>|#Incremental>
 L<C<Junctive>|#Junctive>
+L<C<Lexicoid>|#Lexicoid>
 L<C<Mathematicals>|#Mathematicals>
 L<C<Metaoid>|#Metaoid>
 L<C<Methodic>|#Methodic>
 L<C<Mixoid>|#Mixoid>
+L<C<Modifoid>|#Modifoid>
 L<C<Multiplicoid>|#Multiplicoid>
 L<C<Normaloid>|#Normaloid>
 L<C<Orderoid>|#Orderoid>
@@ -502,7 +535,8 @@ true.
 =head3 L<C«if» execute block if condition is true|https://docs.raku.org/language/control#if>
 =item L<syntax|#syntax> L<statement|#statement>
 
-Start of one or more blocks of conditional execution.
+First of one or more blocks of conditional execution.  Will
+execute the block if the condition was true.
 
 =head3 L<C«elsif» execute block if condition is true and previous false|https://docs.raku.org/language/control#else/elsif>
 =item L<syntax|#syntax> L<statement|#statement>
@@ -511,23 +545,135 @@ Followup of C<if> or another C<elsif>, checked if the first
 (or previous) condition evaluated to false.  Executes the
 associated block if true.
 
-=head3 L<C«else» execute block if none of previous conditions were true|https://docs.raku.org/language/control#else/elsif>
+=head3 L<C«else» execute block if none of previous blocks were executed|https://docs.raku.org/language/control#else/elsif>
 =item L<syntax|#syntax> L<statement|#statement>
 
-Final followup of C<if> or C<elsif>.  Executes the associated
-block if none of the previous conditions evaluated to true.
+Final followup of C<if>, C<elsif>, C<with> or C<orwith>.  Executes
+the associated block if none of the previous blocks were executed.
+
+=head3 L<C«unless» execute block if condition is false|https://docs.raku.org/language/control#unless>
+=item L<syntax|#syntax> L<statement|#statement>
+
+A single block of conditional execution, to be executed if the
+given condition evaluates to false.
+
+=head3 L<C«with» execute block if value is defined, and set topic|https://docs.raku.org/language/control#with_orwith_without>
+=item L<syntax|#syntax> L<statement|#statement> L<topic|#topic>
+
+Start of one or more blocks of conditional execution.  Depending
+on whether the expression evaluates to a defined value, the block
+will be executed with the topic (C<$_>) set to the value inside
+the block.
+
+=head3 L<C«orwith» execute block if value is defined and previous not, and set topic|https://docs.raku.org/language/control#with_orwith_without>
+=item L<syntax|#syntax> L<statement|#statement>
+
+Followup of C<with> or another C<orwith>, checked if the first
+(or previous) expressions did not produce a defined value.
+Depending on whether the expression evaluates to a defined value,
+the block will be executed with the topic (C<$_>) set to the value
+inside the block.
+
+=head3 L<C«without» execute block if value is not defined, and set topic|https://docs.raku.org/language/control#with_orwith_without>
+=item L<syntax|#syntax> L<statement|#statement>
+
+A single block of conditional execution, to be executed if the
+given expression evaluates to undefined value.  Sets the topic
+(C<$_>) with the value inside the block.
+
+=head3 L<C«once» execute given block / thunk only once|https://docs.raku.org/language/control#once>
+=item L<syntax|#syntax> L<statement|#statement> L<thunky|#thunky>
+
+Execute the given block once int the given scope.  The code:
+=begin code :lang<raku>
+once say "foo";
+=end code
+is equivalent to:
+=begin code :lang<raku>
+state $flag;
+say "foo" unless $flag++;
+=end code
+
+=head2 Constoid
+
+The Constoid group contains all constant that are always available for usage.
+
+=head3 L<C«$?PACKAGE» the current package|https://docs.raku.org/language/variables#index-entry-$%3FPACKAGE>
+=item L<constant|#constant>
+
+The type object for the current package (as created by C<package>,
+C<module>, C<class>, C<role> or C<grammar>).
+
+=head3 L<C«$?MODULE» the current module|https://docs.raku.org/language/variables#index-entry-$?MODULE>
+=item alternates: C«::?MODULE»
+=item L<constant|#constant>
+
+The type object for the current module.  Available only if within
+a C<module> scope.
+
+=head3 L<C«$?CLASS» the current class / grammar|https://docs.raku.org/language/variables#index-entry-$%3FCLASS>
+=item alternates: C«::?CLASS»
+=item L<constant|#constant>
+
+The type object for the current class.  Available only if within
+a C<class> or C<grammar> scope, or
+
+=head3 L<C«$?ROLE» the current role|https://docs.raku.org/language/variables#index-entry-$%3FROLE>
+=item alternates: C«::?ROLE»
+=item L<constant|#constant>
+
+The type object for the current role.  Available only if within
+a C<role> scope.
+
+=head3 L<C«$?TABSTOP» number of spaces in a TAB|https://docs.raku.org/language/variables#index-entry-$%3FTABSTOP>
+=item L<constant|#constant>
+
+The number of spaces for a TAB character.
+
+=head3 L<C«$?NL» the newline character(s)|https://docs.raku.org/language/variables#index-entry-$%3FNL>
+=item L<constant|#constant>
+
+What a newline C<\n> means.  Can be set with the C<newline>
+pragma.
+
+=head3 L<C«$?BITS» default number of bits for native integers|https://docs.raku.org/language/variables#Rakudo-specific_compile-time_variables>
+=item L<constant|#constant>
+
+The number of bits for native integers, usually 64.
+
+=head3 L<C«&?ROUTINE» the current Routine (sub / method / submethod)|https://docs.raku.org/language/variables#&?ROUTINE>
+=item L<constant|#constant> L<sub|#sub> L<method|#method>
+
+The C<Routine> object of the current C<sub>, C<method> or C<submethod>.
+
+=head3 L<C«&?BLOCK» the current block|https://docs.raku.org/language/variables#&?BLOCK>
+=item L<constant|#constant>
+
+The C<Block> object associated with the current block (code between
+curly braces).
+
+=head3 L<C«$?DISTRIBUTION» distribution info|https://docs.raku.org/language/variables#$?DISTRIBUTION>
+=item L<constant|#constant>
+
+The (possibly auto-generated) object that performs the C<Distribution>
+role, expected to contain information usually found in the META6.json
+file of a distribution.  Only available if the compilation unit is
+executed as a module, not as a program.  Otherwise C<Nil>.
 
 =head2 Declaroid
 
 The Declaroid group contains the syntax for indicating the scope of an element to be defined.
 
-=head3 C«my» define something in MY:: scope
+=head3 L<C«my» define something in C<MY::> scope|https://docs.raku.org/language/variables#The_my_declarator>
 =item L<syntax|#syntax>
 
-=head3 C«our» define something in OUR:: scope
+=head3 L<C«our» define something in C<OUR::> scope|https://docs.raku.org/language/variables#The_our_declarator>
 =item L<syntax|#syntax>
 
-=head3 C«anon» define something without storing it in a scope
+=head3 L<C«anon» define something without storing it in a scope|https://docs.raku.org/language/variables#The_anon_declarator>
+=item L<syntax|#syntax>
+
+=head3 L<C«state» define something in C<MY::> scope, retain value|https://docs.raku.org/language/variables#The_state_declarator>
 =item L<syntax|#syntax>
 
 =head2 Differentoid
@@ -601,6 +747,84 @@ way.
 =head3 C«!(>)» is not a strict quanthash superset
 =item alternates: C«⊅»
 =item L<infix|#infix> L<boolean|#boolean>
+
+=head2 Dynamoid
+
+The Dynamoid group contains all variables that are always available either in the dynamic
+scope (looking up the callstack), or in the C<GLOBAL::> or C<PROCESS::>
+stashes.  All of these variable can be shadowed by lexically defined
+variables with the same name.
+
+=head3 L<C«$*IN» filehandle for STDIN (standard input)|https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The file handle for reading input, e.g. with C<.lines> or C<.slurp>.
+
+=head3 L<C«$*OUT» filehandle for STDOUT (standard output)|https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The file handle for writing standard output to, e.g. with C<say>.
+
+=head3 L<C«$*ERR» filehandle for STDERR (error output)|https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The file handle for writing error output to, e.g. with C<note>.
+
+=head3 L<C«%*ENV» access to operating system environment variables|https://docs.raku.org/language/variables#%*ENV>
+=item L<variable|#variable> L<dynamic|#dynamic> L<hash|#hash>
+
+A hash that contains all of the environment variables of the operating
+system when Raku is started.  May be altered.  Serves as a default for
+environment variables for any forked process.
+
+=head3 L<C«$*INIT-INSTANT» when Raku was started|https://docs.raku.org/language/variables#$*INIT-INSTANT>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The C<Instant> the raku process was started.
+
+=head3 L<C«$*CWD» what should be considered the default directory|https://docs.raku.org/language/variables#$*CWD>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+An C<IO::Path> object that contains the directory that should be
+considered to be the current working directory.  Initialized with the
+OS's current directory at startup.
+
+=head3 L<C«$*PID» the Process IDentifier|https://docs.raku.org/language/variables#$*PID>
+=item L<variable|#variable> L<dynamic|#dynamic> L<integer|#integer>
+
+An integer value for the PID of the current process.
+
+=head3 L<C«$*PROGRAM-NAME» name of current Raku program|https://docs.raku.org/language/variables#$*PROGRAM-NAME>
+=item L<variable|#variable> L<dynamic|#dynamic> L<string|#string>
+
+A string presentation of the path of the currently executing Raku
+program.
+
+=head3 L<C«$*PROGRAM» current Raku program|https://docs.raku.org/language/variables#$*PROGRAM>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+An C<IO::Path> of the currently executing Raku program.  Available at
+compile time, and can thus be used as part of a C<use lib> statement.
+=begin code :lang<raku>
+use lib $*PROGRAM.sibling("lib");
+=end code
+
+=head3 L<C«$*EXECUTABLE» currently running Raku runtime|https://docs.raku.org/language/variables#$*EXECUTABLE>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+An C<IO::Path> of the currently running Raku executable (typically
+"rakudo").  Can be used as the initial argument to e.g. C<run>.
+
+=head3 L<C«$*USER» the current user|https://docs.raku.org/language/variables#$*USER>
+=item L<variable|#variable> L<dynamic|#dynamic> L<integer|#integer> L<string|#string>
+
+An C<IntStr> with information about the current user (uid and name).
+
+=head3 L<C«$*GROUP» the group of the current user|https://docs.raku.org/language/variables#$*GROUP>
+=item L<variable|#variable> L<dynamic|#dynamic> L<integer|#integer> L<string|#string>
+
+An C<IntStr> with group information about the current user (gid and
+name) if supported by the operating system.
 
 =head2 Equalish
 
@@ -894,6 +1118,42 @@ objects.
 =head3 C«none» junctive none
 =item L<sub|#sub> L<method|#method> L<junction|#junction>
 
+=head2 Lexicoid
+
+The Lexicoid group contains all variables that are always available for usage in a
+lexical scope.
+
+=head3 L<C«$» anonymous state variable|https://docs.raku.org/language/variables#The_$_variable>
+=item L<variable|#variable>
+
+The anonymous state variable can be used without an explicit
+C<state> declaration.  Each reference to C<$> within a lexical
+scope is in effect a separate variable.
+
+=head3 L<C«$_» the current topic|https://docs.raku.org/language/variables#The_$__variable>
+=item L<variable|#variable> L<topic|#topic>
+
+Every block has its own topic variable.  It can be set directly,
+or is set automatically with statements such as C<given>, C<with>
+and C<for>.
+
+=head3 L<C«$/» the current regex match result|https://docs.raku.org/language/variables#The_$/_variable>
+=item L<variable|#variable> L<regex|#regex>
+
+Results of many actions related to regular expressions set
+this variable.  Each C<Routine> has its own copy of it.  It
+also provides C<Positional> functionality, so that C<$/[0]>
+refers to the first positional capture (which can be shortened
+to C<$0>).  And it also provides the C<Associative> functionality
+so that that C<$/<foo>> refers to the named capture "foo"
+(which can be shortened to C«$<foo>».
+
+=head3 L<C«$!» the current error variable|https://docs.raku.org/language/variables#The_$!_variable>
+=item L<variable|#variable>
+
+Typically contains the last caught exception seen.  Each
+C<Routine> has its own copy of it.
+
 =head2 Mathematicals
 
 The Mathematicals group contains the mathematical terms that are provided by the core.
@@ -974,6 +1234,39 @@ class or instantiation.
 
 =head3 C«but» cloning role mixin
 =item L<infix|#infix>
+
+=head2 Modifoid
+
+The Modifoid group contains the statement modifiers to indicate conditional execution
+of the preceding thunk.
+
+=head3 L<C«if» execute thunk if condition is true|https://docs.raku.org/language/control#if>
+=item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky>
+
+Executes the thunk if the condition is true.
+
+=head3 L<C«unless» execute thunk if condition is false|https://docs.raku.org/language/control#unless>
+=item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky>
+
+Executes the thunk if the condition is false.
+
+=head3 L<C«with» execute thunk set if value is defined, and set topic|https://docs.raku.org/language/control#with_orwith_without>
+=item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky>
+
+Execute thunk if given expression produces a defined value,
+sets topic inside thunk.
+
+=head3 L<C«without» execute thunk if value is not defined, and set topic|https://docs.raku.org/language/control#with_orwith_without>
+=item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky>
+
+Execute thunk if given expression does B<not> produce a defined
+value, sets topic inside thunk.
+
+=head3 L<C«when» execute thunk if value smartmatches with the topic|https://docs.raku.org/language/control#when>
+=item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky> L<topic|#topic>
+
+Execute thunk if given expression smartmatches with the topic
+(C<$_>).
 
 =head2 Multiplicoid
 

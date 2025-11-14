@@ -1,0 +1,38 @@
+$
+variable
+anonymous state variable
+https://docs.raku.org/language/variables#The_$_variable
+The anonymous state variable can be used without an explicit
+C<state> declaration.  Each reference to C<$> within a lexical
+scope is in effect a separate variable.
+
+$_
+variable topic
+the current topic
+https://docs.raku.org/language/variables#The_$__variable
+Every block has its own topic variable.  It can be set directly,
+or is set automatically with statements such as C<given>, C<with>
+and C<for>.
+
+$/
+variable regex
+the current regex match result
+https://docs.raku.org/language/variables#The_$/_variable
+Results of many actions related to regular expressions set
+this variable.  Each C<Routine> has its own copy of it.  It
+also provides C<Positional> functionality, so that C<$/[0]>
+refers to the first positional capture (which can be shortened
+to C<$0>).  And it also provides the C<Associative> functionality
+so that that C<$/<foo>> refers to the named capture "foo"
+(which can be shortened to C«$<foo>».
+
+$!
+variable
+the current error variable
+https://docs.raku.org/language/variables#The_$!_variable
+Typically contains the last caught exception seen.  Each
+C<Routine> has its own copy of it.
+
+
+contains all variables that are always available for usage in a
+lexical scope.

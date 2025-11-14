@@ -1,0 +1,3 @@
+Variable lookups happen in the dynamic scope at execution (the current
+callstack) rather than lookups at compile time.  Returns a C<Failure>
+if the variable could not be found.

@@ -11,7 +11,8 @@ if
 syntax statement
 execute block if condition is true
 https://docs.raku.org/language/control#if
-Start of one or more blocks of conditional execution.
+First of one or more blocks of conditional execution.  Will
+execute the block if the condition was true.
 
 elsif
 syntax statement
@@ -23,10 +24,58 @@ associated block if true.
 
 else
 syntax statement
-execute block if none of previous conditions were true
+execute block if none of previous blocks were executed
 https://docs.raku.org/language/control#else/elsif
-Final followup of C<if> or C<elsif>.  Executes the associated
-block if none of the previous conditions evaluated to true.
+Final followup of C<if>, C<elsif>, C<with> or C<orwith>.  Executes
+the associated block if none of the previous blocks were executed.
+
+unless
+syntax statement
+execute block if condition is false
+https://docs.raku.org/language/control#unless
+A single block of conditional execution, to be executed if the
+given condition evaluates to false.
+
+with
+syntax statement topic
+execute block if value is defined, and set topic
+https://docs.raku.org/language/control#with_orwith_without
+Start of one or more blocks of conditional execution.  Depending
+on whether the expression evaluates to a defined value, the block
+will be executed with the topic (C<$_>) set to the value inside
+the block.
+
+orwith
+syntax statement
+execute block if value is defined and previous not, and set topic
+https://docs.raku.org/language/control#with_orwith_without
+Followup of C<with> or another C<orwith>, checked if the first
+(or previous) expressions did not produce a defined value.
+Depending on whether the expression evaluates to a defined value,
+the block will be executed with the topic (C<$_>) set to the value
+inside the block.
+
+without
+syntax statement
+execute block if value is not defined, and set topic
+https://docs.raku.org/language/control#with_orwith_without
+A single block of conditional execution, to be executed if the
+given expression evaluates to undefined value.  Sets the topic
+(C<$_>) with the value inside the block.
+
+once
+syntax statement thunky
+execute given block / thunk only once
+https://docs.raku.org/language/control#once
+Execute the given block once int the given scope.  The code:
+=begin code :lang<raku>
+once say "foo";
+=end code
+is equivalent to:
+=begin code :lang<raku>
+state $flag;
+say "foo" unless $flag++;
+=end code
 
 
 contains the statement syntaxes to indicate conditional execution

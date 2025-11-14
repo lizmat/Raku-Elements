@@ -1,0 +1,88 @@
+$*IN
+variable dynamic
+filehandle for STDIN (standard input)
+https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR
+The file handle for reading input, e.g. with C<.lines> or C<.slurp>.
+
+$*OUT
+variable dynamic
+filehandle for STDOUT (standard output)
+https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR
+The file handle for writing standard output to, e.g. with C<say>.
+
+$*ERR
+variable dynamic
+filehandle for STDERR (error output)
+https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR
+The file handle for writing error output to, e.g. with C<note>.
+
+%*ENV
+variable dynamic hash
+access to operating system environment variables
+https://docs.raku.org/language/variables#%*ENV
+A hash that contains all of the environment variables of the operating
+system when Raku is started.  May be altered.  Serves as a default for
+environment variables for any forked process.
+
+$*INIT-INSTANT
+variable dynamic
+when Raku was started
+https://docs.raku.org/language/variables#$*INIT-INSTANT
+The C<Instant> the raku process was started.
+
+$*CWD
+variable dynamic
+what should be considered the default directory
+https://docs.raku.org/language/variables#$*CWD
+An C<IO::Path> object that contains the directory that should be
+considered to be the current working directory.  Initialized with the
+OS's current directory at startup.
+
+$*PID
+variable dynamic integer
+the Process IDentifier
+https://docs.raku.org/language/variables#$*PID
+An integer value for the PID of the current process.
+
+$*PROGRAM-NAME
+variable dynamic string
+name of current Raku program
+https://docs.raku.org/language/variables#$*PROGRAM-NAME
+A string presentation of the path of the currently executing Raku
+program.
+
+$*PROGRAM
+variable dynamic
+current Raku program
+https://docs.raku.org/language/variables#$*PROGRAM
+An C<IO::Path> of the currently executing Raku program.  Available at
+compile time, and can thus be used as part of a C<use lib> statement.
+=begin code :lang<raku>
+use lib $*PROGRAM.sibling("lib");
+=end code
+
+$*EXECUTABLE
+variable dynamic
+currently running Raku runtime
+https://docs.raku.org/language/variables#$*EXECUTABLE
+An C<IO::Path> of the currently running Raku executable (typically
+"rakudo").  Can be used as the initial argument to e.g. C<run>.
+
+$*USER
+variable dynamic integer string
+the current user
+https://docs.raku.org/language/variables#$*USER
+An C<IntStr> with information about the current user (uid and name).
+
+$*GROUP
+variable dynamic integer string
+the group of the current user
+https://docs.raku.org/language/variables#$*GROUP
+An C<IntStr> with group information about the current user (gid and
+name) if supported by the operating system.
+
+
+contains all variables that are always available either in the dynamic
+scope (looking up the callstack), or in the C<GLOBAL::> or C<PROCESS::>
+stashes.  All of these variable can be shadowed by lexically defined
+variables with the same name.

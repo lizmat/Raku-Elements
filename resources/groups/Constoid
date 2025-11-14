@@ -1,0 +1,71 @@
+$?PACKAGE
+constant
+the current package
+https://docs.raku.org/language/variables#index-entry-$%3FPACKAGE
+The type object for the current package (as created by C<package>,
+C<module>, C<class>, C<role> or C<grammar>).
+
+$?MODULE | ::?MODULE
+constant
+the current module
+https://docs.raku.org/language/variables#index-entry-$?MODULE
+The type object for the current module.  Available only if within
+a C<module> scope.
+
+$?CLASS | ::?CLASS
+constant
+the current class / grammar
+https://docs.raku.org/language/variables#index-entry-$%3FCLASS
+The type object for the current class.  Available only if within
+a C<class> or C<grammar> scope, or
+
+$?ROLE | ::?ROLE
+constant
+the current role
+https://docs.raku.org/language/variables#index-entry-$%3FROLE
+The type object for the current role.  Available only if within
+a C<role> scope.
+
+$?TABSTOP
+constant
+number of spaces in a TAB
+https://docs.raku.org/language/variables#index-entry-$%3FTABSTOP
+The number of spaces for a TAB character.
+
+$?NL
+constant
+the newline character(s)
+https://docs.raku.org/language/variables#index-entry-$%3FNL
+What a newline C<\n> means.  Can be set with the C<newline>
+pragma.
+
+$?BITS
+constant
+default number of bits for native integers
+https://docs.raku.org/language/variables#Rakudo-specific_compile-time_variables
+The number of bits for native integers, usually 64.
+
+&?ROUTINE
+constant sub method
+the current Routine (sub / method / submethod)
+https://docs.raku.org/language/variables#&?ROUTINE
+The C<Routine> object of the current C<sub>, C<method> or C<submethod>.
+
+&?BLOCK
+constant
+the current block
+https://docs.raku.org/language/variables#&?BLOCK
+The C<Block> object associated with the current block (code between
+curly braces).
+
+$?DISTRIBUTION
+constant
+distribution info
+https://docs.raku.org/language/variables#$?DISTRIBUTION
+The (possibly auto-generated) object that performs the C<Distribution>
+role, expected to contain information usually found in the META6.json
+file of a distribution.  Only available if the compilation unit is
+executed as a module, not as a program.  Otherwise C<Nil>.
+
+
+contains all constant that are always available for usage.

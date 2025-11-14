@@ -1,14 +1,22 @@
 my
 syntax
-define something in MY:: scope
+define something in C<MY::> scope
+https://docs.raku.org/language/variables#The_my_declarator
 
 our
 syntax
-define something in OUR:: scope
+define something in C<OUR::> scope
+https://docs.raku.org/language/variables#The_our_declarator
 
 anon
 syntax
 define something without storing it in a scope
+https://docs.raku.org/language/variables#The_anon_declarator
+
+state
+syntax
+define something in C<MY::> scope, retain value
+https://docs.raku.org/language/variables#The_state_declarator
 
 
 contains the syntax for indicating the scope of an element to be defined.

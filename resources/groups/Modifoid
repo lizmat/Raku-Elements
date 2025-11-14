@@ -1,0 +1,36 @@
+if
+syntax modifier thunky
+execute thunk if condition is true
+https://docs.raku.org/language/control#if
+Executes the thunk if the condition is true.
+
+unless
+syntax modifier thunky
+execute thunk if condition is false
+https://docs.raku.org/language/control#unless
+Executes the thunk if the condition is false.
+
+with
+syntax modifier thunky
+execute thunk set if value is defined, and set topic
+https://docs.raku.org/language/control#with_orwith_without
+Execute thunk if given expression produces a defined value,
+sets topic inside thunk.
+
+without
+syntax modifier thunky
+execute thunk if value is not defined, and set topic
+https://docs.raku.org/language/control#with_orwith_without
+Execute thunk if given expression does B<not> produce a defined
+value, sets topic inside thunk.
+
+when
+syntax modifier thunky topic
+execute thunk if value smartmatches with the topic
+https://docs.raku.org/language/control#when
+Execute thunk if given expression smartmatches with the topic
+(C<$_>).
+
+
+contains the statement modifiers to indicate conditional execution
+of the preceding thunk.

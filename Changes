@@ -2,6 +2,10 @@ Revision history for Raku::Elements
 
 {{$NEXT}}
 
+0.0.5  2025-11-14T20:21:07+01:00
+    - Add a bunch more tags and groups
+    - Some more fleshing out in documentation and links
+
 0.0.4  2025-11-11T19:54:28+01:00
     - Add a bunch more tags
     - Some more fleshing out in documentation and links

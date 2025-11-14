@@ -19,8 +19,10 @@
     "groups/Bindoid",
     "groups/Buildoid",
     "groups/Condoid",
+    "groups/Constoid",
     "groups/Declaroid",
     "groups/Differentoid",
+    "groups/Dynamoid",
     "groups/Equalish",
     "groups/Expansive",
     "groups/Feedoid",
@@ -29,10 +31,12 @@
     "groups/IOoid",
     "groups/Incremental",
     "groups/Junctive",
+    "groups/Lexicoid",
     "groups/Mathematicals",
     "groups/Metaoid",
     "groups/Methodic",
     "groups/Mixoid",
+    "groups/Modifoid",
     "groups/Multiplicoid",
     "groups/Normaloid",
     "groups/Orderoid",
@@ -49,6 +53,8 @@
     "groups/Topicoid",
     "tags/boolean",
     "tags/circumfix",
+    "tags/constant",
+    "tags/dynamic",
     "tags/hash",
     "tags/infix",
     "tags/integer",
@@ -64,8 +70,9 @@
     "tags/pair",
     "tags/postfix",
     "tags/prefix",
-    "tags/range",
     "tags/quanthash",
+    "tags/range",
+    "tags/regex",
     "tags/sequence",
     "tags/statement",
     "tags/string",
@@ -73,7 +80,8 @@
     "tags/syntax",
     "tags/term",
     "tags/thunky",
-    "tags/topic"
+    "tags/topic",
+    "tags/variable"
   ],
   "source-url": "https://github.com/lizmat/Raku-Elements.git",
   "support": {
@@ -87,5 +95,5 @@
   ],
   "test-depends": [
   ],
-  "version": "0.0.4"
+  "version": "0.0.5"
 }
