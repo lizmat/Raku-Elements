@@ -218,7 +218,7 @@ Having special syntax handling causing it to not immediately be executed (like a
 
 ### topic
 
-Sets the topic variable (`$_`).
+Either sets the topic variable (`$_`), or uses the topic variable as a default argument.
 
 Raku Element Groups
 -------------------
@@ -444,7 +444,7 @@ Depending on the condition (before the `??`) produces the value of the expressio
 
   * [syntax](#syntax) [statement](#statement)
 
-Start of one or more blocks of conditional execution.
+First of one or more blocks of conditional execution. Will execute the block if the condition was true.
 
 ### [`elsif` execute block if condition is true and previous false](https://docs.raku.org/language/control#else/elsif)
 
@@ -452,11 +452,52 @@ Start of one or more blocks of conditional execution.
 
 Followup of `if` or another `elsif`, checked if the first (or previous) condition evaluated to false. Executes the associated block if true.
 
-### [`else` execute block if none of previous conditions were true](https://docs.raku.org/language/control#else/elsif)
+### [`else` execute block if none of previous blocks were executed](https://docs.raku.org/language/control#else/elsif)
 
   * [syntax](#syntax) [statement](#statement)
 
-Final followup of `if` or `elsif`. Executes the associated block if none of the previous conditions evaluated to true.
+Final followup of `if`, `elsif`, `with` or `orwith`. Executes the associated block if none of the previous blocks were executed.
+
+### [`unless` execute block if condition is false](https://docs.raku.org/language/control#unless)
+
+  * [syntax](#syntax) [statement](#statement)
+
+A single block of conditional execution, to be executed if the given condition evaluates to false.
+
+### [`with` execute block if value is defined, and set topic](https://docs.raku.org/language/control#with_orwith_without)
+
+  * [syntax](#syntax) [statement](#statement) [topic](#topic)
+
+Start of one or more blocks of conditional execution. Depending on whether the expression evaluates to a defined value, the block will be executed with the topic (`$_`) set to the value inside the block.
+
+### [`orwith` execute block if value is defined and previous not, and set topic](https://docs.raku.org/language/control#with_orwith_without)
+
+  * [syntax](#syntax) [statement](#statement)
+
+Followup of `with` or another `orwith`, checked if the first (or previous) expressions did not produce a defined value. Depending on whether the expression evaluates to a defined value, the block will be executed with the topic (`$_`) set to the value inside the block.
+
+### [`without` execute block if value is not defined, and set topic](https://docs.raku.org/language/control#with_orwith_without)
+
+  * [syntax](#syntax) [statement](#statement)
+
+A single block of conditional execution, to be executed if the given expression evaluates to undefined value. Sets the topic (`$_`) with the value inside the block.
+
+### [`once` execute given block / thunk only once](https://docs.raku.org/language/control#once)
+
+  * [syntax](#syntax) [statement](#statement) [thunky](#thunky)
+
+Execute the given block once int the given scope. The code:
+
+```raku
+once say "foo";
+```
+
+is equivalent to:
+
+```raku
+state $flag;
+say "foo" unless $flag++;
+```
 
 Declaroid
 ---------
