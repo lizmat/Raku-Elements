@@ -118,7 +118,7 @@ This section of the documentation is generated from the information supplied by 
 Raku Element Tags
 -----------------
 
-[`boolean`](#boolean) [`circumfix`](#circumfix) [`hash`](#hash) [`infix`](#infix) [`integer`](#integer) [`interrupt`](#interrupt) [`junction`](#junction) [`list`](#list) [`macro`](#macro) [`method`](#method) [`numeric`](#numeric) [`order`](#order) [`pair`](#pair) [`postfix`](#postfix) [`prefix`](#prefix) [`quanthash`](#quanthash) [`range`](#range) [`sequence`](#sequence) [`statement`](#statement) [`string`](#string) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky) [`topic`](#topic)
+[`boolean`](#boolean) [`circumfix`](#circumfix) [`constant`](#constant) [`dynamic`](#dynamic) [`hash`](#hash) [`infix`](#infix) [`integer`](#integer) [`interrupt`](#interrupt) [`junction`](#junction) [`list`](#list) [`macro`](#macro) [`method`](#method) [`modifier`](#modifier) [`numeric`](#numeric) [`order`](#order) [`pair`](#pair) [`postfix`](#postfix) [`prefix`](#prefix) [`quanthash`](#quanthash) [`range`](#range) [`regex`](#regex) [`sequence`](#sequence) [`statement`](#statement) [`string`](#string) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky) [`topic`](#topic) [`variable`](#variable)
 
 ### boolean
 
@@ -127,6 +127,14 @@ Produces a `Bool` value: either `True` or `False`.
 ### circumfix
 
 Operators that consist of an opening and a closing tag, with their arguments between them.
+
+### constant
+
+Refers to a constant defined by the Raku Programming Language.
+
+### dynamic
+
+Variable lookups happen in the dynamic scope at execution (the current callstack) rather than lookups at compile time. Returns a `Failure` if the variable could not be found.
 
 ### hash
 
@@ -160,6 +168,10 @@ Syntax structures that may change the semantics of the code given at compile tim
 
 A `Callable` with a name that takes an invocant as its first argument, and which is typically part of a `class`, `role` or `grammar`.
 
+### modifier
+
+A syntax structure at the end of a statement that affects whether the statement will actually be executed.
+
 ### numeric
 
 Produces a `Numeric` value.
@@ -187,6 +199,10 @@ May produce a `QuantHash` object (which is one of: `Set`, `SetHash`, `Bag`, `Bag
 ### range
 
 Produces a `Range` object.
+
+### regex
+
+Related to Raku regexes (aka "regular expressions").
 
 ### sequence
 
@@ -220,10 +236,14 @@ Having special syntax handling causing it to not immediately be executed (like a
 
 Either sets the topic variable (`$_`), or uses the topic variable as a default argument.
 
+### variable
+
+Refers to a variable defined by the Raku Programming Language.
+
 Raku Element Groups
 -------------------
 
-[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Condoid`](#Condoid) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Junctive`](#Junctive) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Mixoid`](#Mixoid) [`Multiplicoid`](#Multiplicoid) [`Normaloid`](#Normaloid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termoid`](#Termoid) [`Throwoid`](#Throwoid) [`Topicoid`](#Topicoid)
+[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Condoid`](#Condoid) [`Constoid`](#Constoid) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Dynamoid`](#Dynamoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Junctive`](#Junctive) [`Lexicoid`](#Lexicoid) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Mixoid`](#Mixoid) [`Modifoid`](#Modifoid) [`Multiplicoid`](#Multiplicoid) [`Normaloid`](#Normaloid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termoid`](#Termoid) [`Throwoid`](#Throwoid) [`Topicoid`](#Topicoid)
 
 Addenoid
 --------
@@ -499,20 +519,95 @@ state $flag;
 say "foo" unless $flag++;
 ```
 
+Constoid
+--------
+
+The Constoid group contains all constant that are always available for usage.
+
+### [`$?PACKAGE` the current package](https://docs.raku.org/language/variables#index-entry-$%3FPACKAGE)
+
+  * [constant](#constant)
+
+The type object for the current package (as created by `package`, `module`, `class`, `role` or `grammar`).
+
+### [`$?MODULE` the current module](https://docs.raku.org/language/variables#index-entry-$?MODULE)
+
+  * alternates: `::?MODULE`
+
+  * [constant](#constant)
+
+The type object for the current module. Available only if within a `module` scope.
+
+### [`$?CLASS` the current class / grammar](https://docs.raku.org/language/variables#index-entry-$%3FCLASS)
+
+  * alternates: `::?CLASS`
+
+  * [constant](#constant)
+
+The type object for the current class. Available only if within a `class` or `grammar` scope, or
+
+### [`$?ROLE` the current role](https://docs.raku.org/language/variables#index-entry-$%3FROLE)
+
+  * alternates: `::?ROLE`
+
+  * [constant](#constant)
+
+The type object for the current role. Available only if within a `role` scope.
+
+### [`$?TABSTOP` number of spaces in a TAB](https://docs.raku.org/language/variables#index-entry-$%3FTABSTOP)
+
+  * [constant](#constant)
+
+The number of spaces for a TAB character.
+
+### [`$?NL` the newline character(s)](https://docs.raku.org/language/variables#index-entry-$%3FNL)
+
+  * [constant](#constant)
+
+What a newline `\n` means. Can be set with the `newline` pragma.
+
+### [`$?BITS` default number of bits for native integers](https://docs.raku.org/language/variables#Rakudo-specific_compile-time_variables)
+
+  * [constant](#constant)
+
+The number of bits for native integers, usually 64.
+
+### [`&?ROUTINE` the current Routine (sub / method / submethod)](https://docs.raku.org/language/variables#&?ROUTINE)
+
+  * [constant](#constant) [sub](#sub) [method](#method)
+
+The `Routine` object of the current `sub`, `method` or `submethod`.
+
+### [`&?BLOCK` the current block](https://docs.raku.org/language/variables#&?BLOCK)
+
+  * [constant](#constant)
+
+The `Block` object associated with the current block (code between curly braces).
+
+### [`$?DISTRIBUTION` distribution info](https://docs.raku.org/language/variables#$?DISTRIBUTION)
+
+  * [constant](#constant)
+
+The (possibly auto-generated) object that performs the `Distribution` role, expected to contain information usually found in the META6.json file of a distribution. Only available if the compilation unit is executed as a module, not as a program. Otherwise `Nil`.
+
 Declaroid
 ---------
 
 The Declaroid group contains the syntax for indicating the scope of an element to be defined.
 
-### `my` define something in MY:: scope
+### [`my` define something in `MY::` scope](https://docs.raku.org/language/variables#The_my_declarator)
 
   * [syntax](#syntax)
 
-### `our` define something in OUR:: scope
+### [`our` define something in `OUR::` scope](https://docs.raku.org/language/variables#The_our_declarator)
 
   * [syntax](#syntax)
 
-### `anon` define something without storing it in a scope
+### [`anon` define something without storing it in a scope](https://docs.raku.org/language/variables#The_anon_declarator)
+
+  * [syntax](#syntax)
+
+### [`state` define something in `MY::` scope, retain value](https://docs.raku.org/language/variables#The_state_declarator)
 
   * [syntax](#syntax)
 
@@ -614,6 +709,87 @@ The Differentoid group contains the infix operators that return True if the comp
   * alternates: `⊅`
 
   * [infix](#infix) [boolean](#boolean)
+
+Dynamoid
+--------
+
+The Dynamoid group contains all variables that are always available either in the dynamic scope (looking up the callstack), or in the `GLOBAL::` or `PROCESS::` stashes. All of these variable can be shadowed by lexically defined variables with the same name.
+
+### [`$*IN` filehandle for STDIN (standard input)](https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The file handle for reading input, e.g. with `.lines` or `.slurp`.
+
+### [`$*OUT` filehandle for STDOUT (standard output)](https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The file handle for writing standard output to, e.g. with `say`.
+
+### [`$*ERR` filehandle for STDERR (error output)](https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The file handle for writing error output to, e.g. with `note`.
+
+### [`%*ENV` access to operating system environment variables](https://docs.raku.org/language/variables#%*ENV)
+
+  * [variable](#variable) [dynamic](#dynamic) [hash](#hash)
+
+A hash that contains all of the environment variables of the operating system when Raku is started. May be altered. Serves as a default for environment variables for any forked process.
+
+### [`$*INIT-INSTANT` when Raku was started](https://docs.raku.org/language/variables#$*INIT-INSTANT)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The `Instant` the raku process was started.
+
+### [`$*CWD` what should be considered the default directory](https://docs.raku.org/language/variables#$*CWD)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+An `IO::Path` object that contains the directory that should be considered to be the current working directory. Initialized with the OS's current directory at startup.
+
+### [`$*PID` the Process IDentifier](https://docs.raku.org/language/variables#$*PID)
+
+  * [variable](#variable) [dynamic](#dynamic) [integer](#integer)
+
+An integer value for the PID of the current process.
+
+### [`$*PROGRAM-NAME` name of current Raku program](https://docs.raku.org/language/variables#$*PROGRAM-NAME)
+
+  * [variable](#variable) [dynamic](#dynamic) [string](#string)
+
+A string presentation of the path of the currently executing Raku program.
+
+### [`$*PROGRAM` current Raku program](https://docs.raku.org/language/variables#$*PROGRAM)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+An `IO::Path` of the currently executing Raku program. Available at compile time, and can thus be used as part of a `use lib` statement.
+
+```raku
+use lib $*PROGRAM.sibling("lib");
+```
+
+### [`$*EXECUTABLE` currently running Raku runtime](https://docs.raku.org/language/variables#$*EXECUTABLE)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+An `IO::Path` of the currently running Raku executable (typically "rakudo"). Can be used as the initial argument to e.g. `run`.
+
+### [`$*USER` the current user](https://docs.raku.org/language/variables#$*USER)
+
+  * [variable](#variable) [dynamic](#dynamic) [integer](#integer) [string](#string)
+
+An `IntStr` with information about the current user (uid and name).
+
+### [`$*GROUP` the group of the current user](https://docs.raku.org/language/variables#$*GROUP)
+
+  * [variable](#variable) [dynamic](#dynamic) [integer](#integer) [string](#string)
+
+An `IntStr` with group information about the current user (gid and name) if supported by the operating system.
 
 Equalish
 --------
@@ -941,6 +1117,35 @@ The Junctive group contains the infix operators and the functions that produce `
 
   * [sub](#sub) [method](#method) [junction](#junction)
 
+Lexicoid
+--------
+
+The Lexicoid group contains all variables that are always available for usage in a lexical scope.
+
+### [`$` anonymous state variable](https://docs.raku.org/language/variables#The_$_variable)
+
+  * [variable](#variable)
+
+The anonymous state variable can be used without an explicit `state` declaration. Each reference to `$` within a lexical scope is in effect a separate variable.
+
+### [`$_` the current topic](https://docs.raku.org/language/variables#The_$__variable)
+
+  * [variable](#variable) [topic](#topic)
+
+Every block has its own topic variable. It can be set directly, or is set automatically with statements such as `given`, `with` and `for`.
+
+### [`$/` the current regex match result](https://docs.raku.org/language/variables#The_$/_variable)
+
+  * [variable](#variable) [regex](#regex)
+
+Results of many actions related to regular expressions set this variable. Each `Routine` has its own copy of it. It also provides `Positional` functionality, so that `$/[0]` refers to the first positional capture (which can be shortened to `$0`). And it also provides the `Associative` functionality so that that `$/<foo>` refers to the named capture "foo" (which can be shortened to `$<foo>`.
+
+### [`$!` the current error variable](https://docs.raku.org/language/variables#The_$!_variable)
+
+  * [variable](#variable)
+
+Typically contains the last caught exception seen. Each `Routine` has its own copy of it.
+
 Mathematicals
 -------------
 
@@ -1042,6 +1247,41 @@ The Mixoid group contains the functions that allow mixing in functionality into 
 ### `but` cloning role mixin
 
   * [infix](#infix)
+
+Modifoid
+--------
+
+The Modifoid group contains the statement modifiers to indicate conditional execution of the preceding thunk.
+
+### [`if` execute thunk if condition is true](https://docs.raku.org/language/control#if)
+
+  * [syntax](#syntax) [modifier](#modifier) [thunky](#thunky)
+
+Executes the thunk if the condition is true.
+
+### [`unless` execute thunk if condition is false](https://docs.raku.org/language/control#unless)
+
+  * [syntax](#syntax) [modifier](#modifier) [thunky](#thunky)
+
+Executes the thunk if the condition is false.
+
+### [`with` execute thunk set if value is defined, and set topic](https://docs.raku.org/language/control#with_orwith_without)
+
+  * [syntax](#syntax) [modifier](#modifier) [thunky](#thunky)
+
+Execute thunk if given expression produces a defined value, sets topic inside thunk.
+
+### [`without` execute thunk if value is not defined, and set topic](https://docs.raku.org/language/control#with_orwith_without)
+
+  * [syntax](#syntax) [modifier](#modifier) [thunky](#thunky)
+
+Execute thunk if given expression does **not** produce a defined value, sets topic inside thunk.
+
+### [`when` execute thunk if value smartmatches with the topic](https://docs.raku.org/language/control#when)
+
+  * [syntax](#syntax) [modifier](#modifier) [thunky](#thunky) [topic](#topic)
+
+Execute thunk if given expression smartmatches with the topic (`$_`).
 
 Multiplicoid
 ------------
