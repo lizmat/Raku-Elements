@@ -243,7 +243,7 @@ Refers to a variable defined by the Raku Programming Language.
 Raku Element Groups
 -------------------
 
-[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Condoid`](#Condoid) [`Constoid`](#Constoid) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Dynamoid`](#Dynamoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Junctive`](#Junctive) [`Lexicoid`](#Lexicoid) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Mixoid`](#Mixoid) [`Modifoid`](#Modifoid) [`Multiplicoid`](#Multiplicoid) [`Normaloid`](#Normaloid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termoid`](#Termoid) [`Throwoid`](#Throwoid) [`Topicoid`](#Topicoid)
+[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Condoid`](#Condoid) [`Constoid`](#Constoid) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Environoid`](#Environoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Introspectoid`](#Introspectoid) [`Junctive`](#Junctive) [`Lexicoid`](#Lexicoid) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Mixoid`](#Mixoid) [`Modifoid`](#Modifoid) [`Multiplicoid`](#Multiplicoid) [`Normaloid`](#Normaloid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termoid`](#Termoid) [`Throwoid`](#Throwoid) [`Topicoid`](#Topicoid) [`Tweakoid`](#Tweakoid)
 
 Addenoid
 --------
@@ -599,17 +599,25 @@ The Declaroid group contains the syntax for indicating the scope of an element t
 
   * [syntax](#syntax)
 
+Define an element in the current block's `MY::` stash.
+
 ### [`our` define something in `OUR::` scope](https://docs.raku.org/language/variables#The_our_declarator)
 
   * [syntax](#syntax)
+
+Define an element in the current compilation unit's `OUR::` stash.
 
 ### [`anon` define something without storing it in a scope](https://docs.raku.org/language/variables#The_anon_declarator)
 
   * [syntax](#syntax)
 
+Define an element **without** storing it in any scope.
+
 ### [`state` define something in `MY::` scope, retain value](https://docs.raku.org/language/variables#The_state_declarator)
 
   * [syntax](#syntax)
+
+Define an element in the current block's `MY::` stash, but keep it alive between incantations of the block (and only run the initializer on initial execution).
 
 Differentoid
 ------------
@@ -710,28 +718,10 @@ The Differentoid group contains the infix operators that return True if the comp
 
   * [infix](#infix) [boolean](#boolean)
 
-Dynamoid
---------
+Environoid
+----------
 
-The Dynamoid group contains all variables that are always available either in the dynamic scope (looking up the callstack), or in the `GLOBAL::` or `PROCESS::` stashes. All of these variable can be shadowed by lexically defined variables with the same name.
-
-### [`$*IN` filehandle for STDIN (standard input)](https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR)
-
-  * [variable](#variable) [dynamic](#dynamic)
-
-The file handle for reading input, e.g. with `.lines` or `.slurp`.
-
-### [`$*OUT` filehandle for STDOUT (standard output)](https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR)
-
-  * [variable](#variable) [dynamic](#dynamic)
-
-The file handle for writing standard output to, e.g. with `say`.
-
-### [`$*ERR` filehandle for STDERR (error output)](https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR)
-
-  * [variable](#variable) [dynamic](#dynamic)
-
-The file handle for writing error output to, e.g. with `note`.
+The Environoid group contains all dynamic variables related to the actual hardware / software the current process is running under.
 
 ### [`%*ENV` access to operating system environment variables](https://docs.raku.org/language/variables#%*ENV)
 
@@ -739,45 +729,11 @@ The file handle for writing error output to, e.g. with `note`.
 
 A hash that contains all of the environment variables of the operating system when Raku is started. May be altered. Serves as a default for environment variables for any forked process.
 
-### [`$*INIT-INSTANT` when Raku was started](https://docs.raku.org/language/variables#$*INIT-INSTANT)
-
-  * [variable](#variable) [dynamic](#dynamic)
-
-The `Instant` the raku process was started.
-
-### [`$*CWD` what should be considered the default directory](https://docs.raku.org/language/variables#$*CWD)
-
-  * [variable](#variable) [dynamic](#dynamic)
-
-An `IO::Path` object that contains the directory that should be considered to be the current working directory. Initialized with the OS's current directory at startup.
-
 ### [`$*PID` the Process IDentifier](https://docs.raku.org/language/variables#$*PID)
 
   * [variable](#variable) [dynamic](#dynamic) [integer](#integer)
 
 An integer value for the PID of the current process.
-
-### [`$*PROGRAM-NAME` name of current Raku program](https://docs.raku.org/language/variables#$*PROGRAM-NAME)
-
-  * [variable](#variable) [dynamic](#dynamic) [string](#string)
-
-A string presentation of the path of the currently executing Raku program.
-
-### [`$*PROGRAM` current Raku program](https://docs.raku.org/language/variables#$*PROGRAM)
-
-  * [variable](#variable) [dynamic](#dynamic)
-
-An `IO::Path` of the currently executing Raku program. Available at compile time, and can thus be used as part of a `use lib` statement.
-
-```raku
-use lib $*PROGRAM.sibling("lib");
-```
-
-### [`$*EXECUTABLE` currently running Raku runtime](https://docs.raku.org/language/variables#$*EXECUTABLE)
-
-  * [variable](#variable) [dynamic](#dynamic)
-
-An `IO::Path` of the currently running Raku executable (typically "rakudo"). Can be used as the initial argument to e.g. `run`.
 
 ### [`$*USER` the current user](https://docs.raku.org/language/variables#$*USER)
 
@@ -790,6 +746,48 @@ An `IntStr` with information about the current user (uid and name).
   * [variable](#variable) [dynamic](#dynamic) [integer](#integer) [string](#string)
 
 An `IntStr` with group information about the current user (gid and name) if supported by the operating system.
+
+### [`$*DISTRO` operating system information](https://docs.raku.org/language/variables#$*DISTRO)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+A `Distro` object containing the information about the operating system under which this process is running.
+
+### [`$*KERNEL` kernel information](https://docs.raku.org/language/variables#$*KERNEL)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+A `Kernel` object containing the information about the kernel under which this process is running.
+
+### [`$*HOMEDRIVE` home drive of user](https://docs.raku.org/language/variables#$*HOMEDRIVE)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+Windows only: an `IO::Path` object of the home drive of the user, based on the `HOMEDRIVE` environment variable.
+
+### [`$*HOMEPATH` home path of user](https://docs.raku.org/language/variables#$*HOMEPATH)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+Windows only: an `IO::Path` object of the home path of the user, based on the `HOMEPATH` environment variable.
+
+### [`$*HOME` generic home directory](https://docs.raku.org/language/variables#$*HOME)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+An `IO::Path` object of the home directory of the user, based on the `HOME`, `HOMEDRIVE` and `HOMEPATH` environment variable as appropriate for the operating system in use.
+
+### [`$*TMPDIR` directory for temporary files](https://docs.raku.org/language/variables#$*TMPDIR)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+An `IO::Path` object that can be used to store temporary files.
+
+### [`$*SPEC` OS specific path semantics](https://docs.raku.org/language/variables#$*SPEC)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+An `IO::Spec` subclass object containing any specific path semantics of the operating system.
 
 Equalish
 --------
@@ -1083,6 +1081,75 @@ The atomic versions of `--` and `++` were implemented for 6.d. They can only be 
 ### `⚛--` atomic post-decrement by 1
 
   * [postfix](#postfix) [numeric](#numeric)
+
+Introspectoid
+-------------
+
+The Introspectoid group contains all dynamic variables that respresent some type if internal state of the runtime. Even though they can be changed or shadowed, it is usually a bad design decision to do so.
+
+### [`$*INIT-INSTANT` when Raku was started](https://docs.raku.org/language/variables#$*INIT-INSTANT)
+
+  * [constant](#constant) [dynamic](#dynamic)
+
+The `Instant` the raku process was started.
+
+### [`$*PROGRAM-NAME` name of current Raku program](https://docs.raku.org/language/variables#$*PROGRAM-NAME)
+
+  * [variable](#variable) [dynamic](#dynamic) [string](#string)
+
+A string presentation of the path of the currently executing Raku program.
+
+### [`$*PROGRAM` current Raku program](https://docs.raku.org/language/variables#$*PROGRAM)
+
+  * [constant](#constant) [dynamic](#dynamic)
+
+An `IO::Path` of the currently executing Raku program. Available at compile time, and can thus be used as part of a `use lib` statement.
+
+```raku
+use lib $*PROGRAM.sibling("lib");
+```
+
+### [`$*EXECUTABLE-NAME` basename of the currently running Raku runtime](https://docs.raku.org/language/variables#$*EXECUTABLE-NAME)
+
+  * [constant](#constant) [dynamic](#dynamic) [string](#string)
+
+A string presentation of the basename of the currently executing Raku program (usually "raku" or "rakudo").
+
+### [`$*EXECUTABLE` currently running Raku runtime](https://docs.raku.org/language/variables#$*EXECUTABLE)
+
+  * [constant](#constant) [dynamic](#dynamic)
+
+An `IO::Path` of the currently running Raku executable (typically "rakudo"). Can be used as the initial argument to e.g. `run`.
+
+### [`$*REPO` start of repository chain](https://docs.raku.org/language/variables#$*REPO)
+
+  * [constant](#constant) [dynamic](#dynamic)
+
+The first of a chain of `CompUnit::Repository` objects that are responsible for registering modules and making them available for usage.
+
+### [`$*RAKU` information on this Raku](https://docs.raku.org/language/variables#$*RAKU)
+
+  * [constant](#constant) [dynamic](#dynamic)
+
+A `Raku` object that contains information about the currently executing version of the Raku Programming Language.
+
+### [`$*THREAD` the current thread](https://docs.raku.org/language/variables#$*THREAD)
+
+  * [constant](#constant) [dynamic](#dynamic)
+
+The `Thread` object describing the currently active thread.
+
+### [`$*SCHEDULER` the logic for scheduling the running of async work](https://docs.raku.org/language/variables#$*SCHEDULER)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The `Scheduler` object that handles all scheduling of async jobs.
+
+### [`$*SAMPLER` the current `Telemetry` sampler](https://docs.raku.org/language/variables#$*SAMPLER)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The sampler logic for making snapshots of the system state. Only available if the `Telemetry` module has been loaded.
 
 Junctive
 --------
@@ -1706,6 +1773,65 @@ The Topicoid group contains the functions that topicalize (set `$_`) in some sit
 ### `orelse topic` low precedence if defined OR, topicalizing left for right thunk
 
   * [infix](#infix) [thunky](#thunky)
+
+Tweakoid
+--------
+
+The Tweakoid group contains all dynamic variables that scope (looking up the callstack), or in the `GLOBAL::` or `PROCESS::` stashes. All of these variable can be shadowed by lexically defined variables with the same name.
+
+### [`$*IN` filehandle for STDIN (standard input)](https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The file handle for reading input, e.g. with `.lines` or `.slurp`.
+
+### [`$*OUT` filehandle for STDOUT (standard output)](https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The file handle for writing standard output to, e.g. with `say`.
+
+### [`$*ERR` filehandle for STDERR (error output)](https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The file handle for writing error output to, e.g. with `note`.
+
+### [`$*CWD` what should be considered the default directory](https://docs.raku.org/language/variables#$*CWD)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+An `IO::Path` object that contains the directory that should be considered to be the current working directory. Initialized with the OS's current directory at startup.
+
+### [`$*DEFAULT-READ-ELEMS` the number of bytes to read by default in binary mode](https://docs.raku.org/language/variables#$*DEFAULT-READ-ELEMS)
+
+  * [constant](#constant) [dynamic](#dynamic) [integer](#integer)
+
+Indicates the default number of bytes to read with `IO::Handle.read`.
+
+### [`$*COLLATION` how to collate (unicode sort)](https://docs.raku.org/language/variables#$*COLLATION)
+
+  * [constant](#constant) [dynamic](#dynamic)
+
+A `Collation` object that describes how the `collate` function and the `coll` infix operator will handle unicode graphemes.
+
+### [`$*RAT-OVERFLOW` action to perform on `Rat` overflow](https://docs.raku.org/language/variables#$*RAT-OVERFLOW)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+Contains a class to indicate what to do when a `Rat` object overflows. By default, it will convert the value to a lossy `Num` value.
+
+### [`$*TOLERANCE` how much a value may differ with `=~=`](https://docs.raku.org/language/variables#$*TOLERANCE)
+
+  * [variable](#variable) [dynamic](#dynamic)
+
+The difference a numeric value may have from a target value in order to be assumed the same with the infix `=~=` operator.
+
+### [`$*TZ` timezone in seconds](https://docs.raku.org/language/variables#$*TZ)
+
+  * [variable](#variable) [dynamic](#dynamic) [integer](#integer)
+
+The current timezone offset in seconds. **0** implies the user is running on `UTC`. Initialized with the OS's time offset at startup.
 
 RESOURCE FILES
 ==============

@@ -129,7 +129,7 @@ example of what can be done with the information provided by this
 distribution.
 
 =comment PLEASE DON'T CHANGE ANYTHING BELOW THIS LINE
-=comment Generated on 2025-11-14T20:17:18+01:00 by ./make-rakudoc.raku
+=comment Generated on 2025-11-15T20:29:04+01:00 by ./make-rakudoc.raku
 
 =head2 Raku Element Tags
 
@@ -306,7 +306,7 @@ L<C<Condoid>|#Condoid>
 L<C<Constoid>|#Constoid>
 L<C<Declaroid>|#Declaroid>
 L<C<Differentoid>|#Differentoid>
-L<C<Dynamoid>|#Dynamoid>
+L<C<Environoid>|#Environoid>
 L<C<Equalish>|#Equalish>
 L<C<Expansive>|#Expansive>
 L<C<Feedoid>|#Feedoid>
@@ -314,6 +314,7 @@ L<C<Flippant>|#Flippant>
 L<C<Hyperoid>|#Hyperoid>
 L<C<IOoid>|#IOoid>
 L<C<Incremental>|#Incremental>
+L<C<Introspectoid>|#Introspectoid>
 L<C<Junctive>|#Junctive>
 L<C<Lexicoid>|#Lexicoid>
 L<C<Mathematicals>|#Mathematicals>
@@ -335,6 +336,7 @@ L<C<Talkoid>|#Talkoid>
 L<C<Termoid>|#Termoid>
 L<C<Throwoid>|#Throwoid>
 L<C<Topicoid>|#Topicoid>
+L<C<Tweakoid>|#Tweakoid>
 
 =head2 Addenoid
 
@@ -667,14 +669,24 @@ The Declaroid group contains the syntax for indicating the scope of an element t
 =head3 L<C«my» define something in C<MY::> scope|https://docs.raku.org/language/variables#The_my_declarator>
 =item L<syntax|#syntax>
 
+Define an element in the current block's C<MY::> stash.
+
 =head3 L<C«our» define something in C<OUR::> scope|https://docs.raku.org/language/variables#The_our_declarator>
 =item L<syntax|#syntax>
+
+Define an element in the current compilation unit's C<OUR::> stash.
 
 =head3 L<C«anon» define something without storing it in a scope|https://docs.raku.org/language/variables#The_anon_declarator>
 =item L<syntax|#syntax>
 
+Define an element B<without> storing it in any scope.
+
 =head3 L<C«state» define something in C<MY::> scope, retain value|https://docs.raku.org/language/variables#The_state_declarator>
 =item L<syntax|#syntax>
+
+Define an element in the current block's C<MY::> stash, but
+keep it alive between incantations of the block (and only run the
+initializer on initial execution).
 
 =head2 Differentoid
 
@@ -748,27 +760,10 @@ way.
 =item alternates: C«⊅»
 =item L<infix|#infix> L<boolean|#boolean>
 
-=head2 Dynamoid
+=head2 Environoid
 
-The Dynamoid group contains all variables that are always available either in the dynamic
-scope (looking up the callstack), or in the C<GLOBAL::> or C<PROCESS::>
-stashes.  All of these variable can be shadowed by lexically defined
-variables with the same name.
-
-=head3 L<C«$*IN» filehandle for STDIN (standard input)|https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR>
-=item L<variable|#variable> L<dynamic|#dynamic>
-
-The file handle for reading input, e.g. with C<.lines> or C<.slurp>.
-
-=head3 L<C«$*OUT» filehandle for STDOUT (standard output)|https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR>
-=item L<variable|#variable> L<dynamic|#dynamic>
-
-The file handle for writing standard output to, e.g. with C<say>.
-
-=head3 L<C«$*ERR» filehandle for STDERR (error output)|https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR>
-=item L<variable|#variable> L<dynamic|#dynamic>
-
-The file handle for writing error output to, e.g. with C<note>.
+The Environoid group contains all dynamic variables related to the actual hardware
+/ software the current process is running under.
 
 =head3 L<C«%*ENV» access to operating system environment variables|https://docs.raku.org/language/variables#%*ENV>
 =item L<variable|#variable> L<dynamic|#dynamic> L<hash|#hash>
@@ -777,43 +772,10 @@ A hash that contains all of the environment variables of the operating
 system when Raku is started.  May be altered.  Serves as a default for
 environment variables for any forked process.
 
-=head3 L<C«$*INIT-INSTANT» when Raku was started|https://docs.raku.org/language/variables#$*INIT-INSTANT>
-=item L<variable|#variable> L<dynamic|#dynamic>
-
-The C<Instant> the raku process was started.
-
-=head3 L<C«$*CWD» what should be considered the default directory|https://docs.raku.org/language/variables#$*CWD>
-=item L<variable|#variable> L<dynamic|#dynamic>
-
-An C<IO::Path> object that contains the directory that should be
-considered to be the current working directory.  Initialized with the
-OS's current directory at startup.
-
 =head3 L<C«$*PID» the Process IDentifier|https://docs.raku.org/language/variables#$*PID>
 =item L<variable|#variable> L<dynamic|#dynamic> L<integer|#integer>
 
 An integer value for the PID of the current process.
-
-=head3 L<C«$*PROGRAM-NAME» name of current Raku program|https://docs.raku.org/language/variables#$*PROGRAM-NAME>
-=item L<variable|#variable> L<dynamic|#dynamic> L<string|#string>
-
-A string presentation of the path of the currently executing Raku
-program.
-
-=head3 L<C«$*PROGRAM» current Raku program|https://docs.raku.org/language/variables#$*PROGRAM>
-=item L<variable|#variable> L<dynamic|#dynamic>
-
-An C<IO::Path> of the currently executing Raku program.  Available at
-compile time, and can thus be used as part of a C<use lib> statement.
-=begin code :lang<raku>
-use lib $*PROGRAM.sibling("lib");
-=end code
-
-=head3 L<C«$*EXECUTABLE» currently running Raku runtime|https://docs.raku.org/language/variables#$*EXECUTABLE>
-=item L<variable|#variable> L<dynamic|#dynamic>
-
-An C<IO::Path> of the currently running Raku executable (typically
-"rakudo").  Can be used as the initial argument to e.g. C<run>.
 
 =head3 L<C«$*USER» the current user|https://docs.raku.org/language/variables#$*USER>
 =item L<variable|#variable> L<dynamic|#dynamic> L<integer|#integer> L<string|#string>
@@ -825,6 +787,48 @@ An C<IntStr> with information about the current user (uid and name).
 
 An C<IntStr> with group information about the current user (gid and
 name) if supported by the operating system.
+
+=head3 L<C«$*DISTRO» operating system information|https://docs.raku.org/language/variables#$*DISTRO>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+A C<Distro> object containing the information about the operating
+system under which this process is running.
+
+=head3 L<C«$*KERNEL» kernel information|https://docs.raku.org/language/variables#$*KERNEL>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+A C<Kernel> object containing the information about the kernel
+under which this process is running.
+
+=head3 L<C«$*HOMEDRIVE» home drive of user|https://docs.raku.org/language/variables#$*HOMEDRIVE>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+Windows only: an C<IO::Path> object of the home drive of the user,
+based on the C<HOMEDRIVE> environment variable.
+
+=head3 L<C«$*HOMEPATH» home path of user|https://docs.raku.org/language/variables#$*HOMEPATH>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+Windows only: an C<IO::Path> object of the home path of the user,
+based on the C<HOMEPATH> environment variable.
+
+=head3 L<C«$*HOME» generic home directory|https://docs.raku.org/language/variables#$*HOME>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+An C<IO::Path> object of the home directory of the user, based on
+the C<HOME>, C<HOMEDRIVE> and C<HOMEPATH> environment variable
+as appropriate for the operating system in use.
+
+=head3 L<C«$*TMPDIR» directory for temporary files|https://docs.raku.org/language/variables#$*TMPDIR>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+An C<IO::Path> object that can be used to store temporary files.
+
+=head3 L<C«$*SPEC» OS specific path semantics|https://docs.raku.org/language/variables#$*SPEC>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+An C<IO::Spec> subclass object containing any specific path semantics
+of the operating system.
 
 =head2 Equalish
 
@@ -1091,6 +1095,73 @@ can only be applied to atomic integers.
 
 =head3 C«⚛--» atomic post-decrement by 1
 =item L<postfix|#postfix> L<numeric|#numeric>
+
+=head2 Introspectoid
+
+The Introspectoid group contains all dynamic variables that respresent some type if internal
+state of the runtime.  Even though they can be changed or shadowed,
+it is usually a bad design decision to do so.
+
+=head3 L<C«$*INIT-INSTANT» when Raku was started|https://docs.raku.org/language/variables#$*INIT-INSTANT>
+=item L<constant|#constant> L<dynamic|#dynamic>
+
+The C<Instant> the raku process was started.
+
+=head3 L<C«$*PROGRAM-NAME» name of current Raku program|https://docs.raku.org/language/variables#$*PROGRAM-NAME>
+=item L<variable|#variable> L<dynamic|#dynamic> L<string|#string>
+
+A string presentation of the path of the currently executing Raku
+program.
+
+=head3 L<C«$*PROGRAM» current Raku program|https://docs.raku.org/language/variables#$*PROGRAM>
+=item L<constant|#constant> L<dynamic|#dynamic>
+
+An C<IO::Path> of the currently executing Raku program.  Available at
+compile time, and can thus be used as part of a C<use lib> statement.
+=begin code :lang<raku>
+use lib $*PROGRAM.sibling("lib");
+=end code
+
+=head3 L<C«$*EXECUTABLE-NAME» basename of the currently running Raku runtime|https://docs.raku.org/language/variables#$*EXECUTABLE-NAME>
+=item L<constant|#constant> L<dynamic|#dynamic> L<string|#string>
+
+A string presentation of the basename of the currently executing
+Raku program (usually "raku" or "rakudo").
+
+=head3 L<C«$*EXECUTABLE» currently running Raku runtime|https://docs.raku.org/language/variables#$*EXECUTABLE>
+=item L<constant|#constant> L<dynamic|#dynamic>
+
+An C<IO::Path> of the currently running Raku executable (typically
+"rakudo").  Can be used as the initial argument to e.g. C<run>.
+
+=head3 L<C«$*REPO» start of repository chain|https://docs.raku.org/language/variables#$*REPO>
+=item L<constant|#constant> L<dynamic|#dynamic>
+
+The first of a chain of C<CompUnit::Repository> objects that are
+responsible for registering modules and making them available for
+usage.
+
+=head3 L<C«$*RAKU» information on this Raku|https://docs.raku.org/language/variables#$*RAKU>
+=item L<constant|#constant> L<dynamic|#dynamic>
+
+A C<Raku> object that contains information about the currently
+executing version of the Raku Programming Language.
+
+=head3 L<C«$*THREAD» the current thread|https://docs.raku.org/language/variables#$*THREAD>
+=item L<constant|#constant> L<dynamic|#dynamic>
+
+The C<Thread> object describing the currently active thread.
+
+=head3 L<C«$*SCHEDULER» the logic for scheduling the running of async work|https://docs.raku.org/language/variables#$*SCHEDULER>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The C<Scheduler> object that handles all scheduling of async jobs.
+
+=head3 L<C«$*SAMPLER» the current C<Telemetry> sampler|https://docs.raku.org/language/variables#$*SAMPLER>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The sampler logic for making snapshots of the system state.  Only
+available if the C<Telemetry> module has been loaded.
 
 =head2 Junctive
 
@@ -1600,6 +1671,67 @@ The Topicoid group contains the functions that topicalize (set C<$_>) in some si
 
 =head3 C«orelse topic» low precedence if defined OR, topicalizing left for right thunk
 =item L<infix|#infix> L<thunky|#thunky>
+
+=head2 Tweakoid
+
+The Tweakoid group contains all dynamic variables that 
+scope (looking up the callstack), or in the C<GLOBAL::> or C<PROCESS::>
+stashes.  All of these variable can be shadowed by lexically defined
+variables with the same name.
+
+=head3 L<C«$*IN» filehandle for STDIN (standard input)|https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The file handle for reading input, e.g. with C<.lines> or C<.slurp>.
+
+=head3 L<C«$*OUT» filehandle for STDOUT (standard output)|https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The file handle for writing standard output to, e.g. with C<say>.
+
+=head3 L<C«$*ERR» filehandle for STDERR (error output)|https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The file handle for writing error output to, e.g. with C<note>.
+
+=head3 L<C«$*CWD» what should be considered the default directory|https://docs.raku.org/language/variables#$*CWD>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+An C<IO::Path> object that contains the directory that should be
+considered to be the current working directory.  Initialized with the
+OS's current directory at startup.
+
+=head3 L<C«$*DEFAULT-READ-ELEMS» the number of bytes to read by default in binary mode|https://docs.raku.org/language/variables#$*DEFAULT-READ-ELEMS>
+=item L<constant|#constant> L<dynamic|#dynamic> L<integer|#integer>
+
+Indicates the default number of bytes to read with
+C<IO::Handle.read>.
+
+=head3 L<C«$*COLLATION» how to collate (unicode sort)|https://docs.raku.org/language/variables#$*COLLATION>
+=item L<constant|#constant> L<dynamic|#dynamic>
+
+A C<Collation> object that describes how the C<collate> function
+and the C<coll> infix operator will handle unicode graphemes.
+
+=head3 L<C«$*RAT-OVERFLOW» action to perform on C<Rat> overflow|https://docs.raku.org/language/variables#$*RAT-OVERFLOW>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+Contains a class to indicate what to do when a C<Rat> object
+overflows.  By default, it will convert the value to a lossy
+C<Num> value.
+
+=head3 L<C«$*TOLERANCE» how much a value may differ with C<=~=>|https://docs.raku.org/language/variables#$*TOLERANCE>
+=item L<variable|#variable> L<dynamic|#dynamic>
+
+The difference a numeric value may have from a target value in
+order to be assumed the same with the infix C<=~=> operator.
+
+=head3 L<C«$*TZ» timezone in seconds|https://docs.raku.org/language/variables#$*TZ>
+=item L<variable|#variable> L<dynamic|#dynamic> L<integer|#integer>
+
+The current timezone offset in seconds.  B<0> implies the user
+is running on C<UTC>.  Initialized with the OS's time offset at
+startup.
 
 =comment PLEASE DON'T CHANGE ANYTHING ABOVE THIS LINE
 
