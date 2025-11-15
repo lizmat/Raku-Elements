@@ -1,0 +1,75 @@
+$*INIT-INSTANT
+constant dynamic
+when Raku was started
+https://docs.raku.org/language/variables#$*INIT-INSTANT
+The C<Instant> the raku process was started.
+
+$*PROGRAM-NAME
+variable dynamic string
+name of current Raku program
+https://docs.raku.org/language/variables#$*PROGRAM-NAME
+A string presentation of the path of the currently executing Raku
+program.
+
+$*PROGRAM
+constant dynamic
+current Raku program
+https://docs.raku.org/language/variables#$*PROGRAM
+An C<IO::Path> of the currently executing Raku program.  Available at
+compile time, and can thus be used as part of a C<use lib> statement.
+=begin code :lang<raku>
+use lib $*PROGRAM.sibling("lib");
+=end code
+
+$*EXECUTABLE-NAME
+constant dynamic string
+basename of the currently running Raku runtime
+https://docs.raku.org/language/variables#$*EXECUTABLE-NAME
+A string presentation of the basename of the currently executing
+Raku program (usually "raku" or "rakudo").
+
+$*EXECUTABLE
+constant dynamic
+currently running Raku runtime
+https://docs.raku.org/language/variables#$*EXECUTABLE
+An C<IO::Path> of the currently running Raku executable (typically
+"rakudo").  Can be used as the initial argument to e.g. C<run>.
+
+$*REPO
+constant dynamic
+start of repository chain
+https://docs.raku.org/language/variables#$*REPO
+The first of a chain of C<CompUnit::Repository> objects that are
+responsible for registering modules and making them available for
+usage.
+
+$*RAKU
+constant dynamic
+information on this Raku
+https://docs.raku.org/language/variables#$*RAKU
+A C<Raku> object that contains information about the currently
+executing version of the Raku Programming Language.
+
+$*THREAD
+constant dynamic
+the current thread
+https://docs.raku.org/language/variables#$*THREAD
+The C<Thread> object describing the currently active thread.
+
+$*SCHEDULER
+variable dynamic
+the logic for scheduling the running of async work
+https://docs.raku.org/language/variables#$*SCHEDULER
+The C<Scheduler> object that handles all scheduling of async jobs.
+
+$*SAMPLER
+variable dynamic
+the current C<Telemetry> sampler
+https://docs.raku.org/language/variables#$*SAMPLER
+The sampler logic for making snapshots of the system state.  Only
+available if the C<Telemetry> module has been loaded.
+
+
+contains all dynamic variables that respresent some type if internal
+state of the runtime.  Even though they can be changed or shadowed,
+it is usually a bad design decision to do so.

@@ -2,21 +2,27 @@ my
 syntax
 define something in C<MY::> scope
 https://docs.raku.org/language/variables#The_my_declarator
+Define an element in the current block's C<MY::> stash.
 
 our
 syntax
 define something in C<OUR::> scope
 https://docs.raku.org/language/variables#The_our_declarator
+Define an element in the current compilation unit's C<OUR::> stash.
 
 anon
 syntax
 define something without storing it in a scope
 https://docs.raku.org/language/variables#The_anon_declarator
+Define an element B<without> storing it in any scope.
 
 state
 syntax
 define something in C<MY::> scope, retain value
 https://docs.raku.org/language/variables#The_state_declarator
+Define an element in the current block's C<MY::> stash, but
+keep it alive between incantations of the block (and only run the
+initializer on initial execution).
 
 
 contains the syntax for indicating the scope of an element to be defined.

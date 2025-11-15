@@ -1,0 +1,68 @@
+$*IN
+variable dynamic
+filehandle for STDIN (standard input)
+https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR
+The file handle for reading input, e.g. with C<.lines> or C<.slurp>.
+
+$*OUT
+variable dynamic
+filehandle for STDOUT (standard output)
+https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR
+The file handle for writing standard output to, e.g. with C<say>.
+
+$*ERR
+variable dynamic
+filehandle for STDERR (error output)
+https://docs.raku.org/language/variables#Special_filehandles:_STDIN,_STDOUT_and_STDERR
+The file handle for writing error output to, e.g. with C<note>.
+
+$*CWD
+variable dynamic
+what should be considered the default directory
+https://docs.raku.org/language/variables#$*CWD
+An C<IO::Path> object that contains the directory that should be
+considered to be the current working directory.  Initialized with the
+OS's current directory at startup.
+
+$*DEFAULT-READ-ELEMS
+constant dynamic integer
+the number of bytes to read by default in binary mode
+https://docs.raku.org/language/variables#$*DEFAULT-READ-ELEMS
+Indicates the default number of bytes to read with
+C<IO::Handle.read>.
+
+$*COLLATION
+constant dynamic
+how to collate (unicode sort)
+https://docs.raku.org/language/variables#$*COLLATION
+A C<Collation> object that describes how the C<collate> function
+and the C<coll> infix operator will handle unicode graphemes.
+
+$*RAT-OVERFLOW
+variable dynamic
+action to perform on C<Rat> overflow
+https://docs.raku.org/language/variables#$*RAT-OVERFLOW
+Contains a class to indicate what to do when a C<Rat> object
+overflows.  By default, it will convert the value to a lossy
+C<Num> value.
+
+$*TOLERANCE
+variable dynamic
+how much a value may differ with C<=~=>
+https://docs.raku.org/language/variables#$*TOLERANCE
+The difference a numeric value may have from a target value in
+order to be assumed the same with the infix C<=~=> operator.
+
+$*TZ
+variable dynamic integer
+timezone in seconds
+https://docs.raku.org/language/variables#$*TZ
+The current timezone offset in seconds.  B<0> implies the user
+is running on C<UTC>.  Initialized with the OS's time offset at
+startup.
+
+
+contains all dynamic variables that 
+scope (looking up the callstack), or in the C<GLOBAL::> or C<PROCESS::>
+stashes.  All of these variable can be shadowed by lexically defined
+variables with the same name.

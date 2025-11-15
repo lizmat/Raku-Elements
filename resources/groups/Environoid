@@ -1,0 +1,79 @@
+%*ENV
+variable dynamic hash
+access to operating system environment variables
+https://docs.raku.org/language/variables#%*ENV
+A hash that contains all of the environment variables of the operating
+system when Raku is started.  May be altered.  Serves as a default for
+environment variables for any forked process.
+
+$*PID
+variable dynamic integer
+the Process IDentifier
+https://docs.raku.org/language/variables#$*PID
+An integer value for the PID of the current process.
+
+$*USER
+variable dynamic integer string
+the current user
+https://docs.raku.org/language/variables#$*USER
+An C<IntStr> with information about the current user (uid and name).
+
+$*GROUP
+variable dynamic integer string
+the group of the current user
+https://docs.raku.org/language/variables#$*GROUP
+An C<IntStr> with group information about the current user (gid and
+name) if supported by the operating system.
+
+$*DISTRO
+variable dynamic
+operating system information
+https://docs.raku.org/language/variables#$*DISTRO
+A C<Distro> object containing the information about the operating
+system under which this process is running.
+
+$*KERNEL
+variable dynamic
+kernel information
+https://docs.raku.org/language/variables#$*KERNEL
+A C<Kernel> object containing the information about the kernel
+under which this process is running.
+
+$*HOMEDRIVE
+variable dynamic
+home drive of user
+https://docs.raku.org/language/variables#$*HOMEDRIVE
+Windows only: an C<IO::Path> object of the home drive of the user,
+based on the C<HOMEDRIVE> environment variable.
+
+$*HOMEPATH
+variable dynamic
+home path of user
+https://docs.raku.org/language/variables#$*HOMEPATH
+Windows only: an C<IO::Path> object of the home path of the user,
+based on the C<HOMEPATH> environment variable.
+
+$*HOME
+variable dynamic
+generic home directory
+https://docs.raku.org/language/variables#$*HOME
+An C<IO::Path> object of the home directory of the user, based on
+the C<HOME>, C<HOMEDRIVE> and C<HOMEPATH> environment variable
+as appropriate for the operating system in use.
+
+$*TMPDIR
+variable dynamic
+directory for temporary files
+https://docs.raku.org/language/variables#$*TMPDIR
+An C<IO::Path> object that can be used to store temporary files.
+
+$*SPEC
+variable dynamic
+OS specific path semantics
+https://docs.raku.org/language/variables#$*SPEC
+An C<IO::Spec> subclass object containing any specific path semantics
+of the operating system.
+
+
+contains all dynamic variables related to the actual hardware
+/ software the current process is running under.
