@@ -118,7 +118,7 @@ This section of the documentation is generated from the information supplied by 
 Raku Element Tags
 -----------------
 
-[`boolean`](#boolean) [`circumfix`](#circumfix) [`constant`](#constant) [`dynamic`](#dynamic) [`hash`](#hash) [`infix`](#infix) [`integer`](#integer) [`interrupt`](#interrupt) [`junction`](#junction) [`list`](#list) [`macro`](#macro) [`method`](#method) [`modifier`](#modifier) [`numeric`](#numeric) [`order`](#order) [`pair`](#pair) [`postfix`](#postfix) [`prefix`](#prefix) [`quanthash`](#quanthash) [`range`](#range) [`regex`](#regex) [`sequence`](#sequence) [`statement`](#statement) [`string`](#string) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky) [`topic`](#topic) [`variable`](#variable)
+[`boolean`](#boolean) [`circumfix`](#circumfix) [`constant`](#constant) [`dynamic`](#dynamic) [`hash`](#hash) [`infix`](#infix) [`integer`](#integer) [`interrupt`](#interrupt) [`junction`](#junction) [`list`](#list) [`macro`](#macro) [`method`](#method) [`modifier`](#modifier) [`numeric`](#numeric) [`order`](#order) [`pair`](#pair) [`postfix`](#postfix) [`prefix`](#prefix) [`quanthash`](#quanthash) [`range`](#range) [`regex`](#regex) [`role`](#role) [`sequence`](#sequence) [`statement`](#statement) [`string`](#string) [`sub`](#sub) [`syntax`](#syntax) [`term`](#term) [`thunky`](#thunky) [`topic`](#topic) [`variable`](#variable)
 
 ### boolean
 
@@ -203,6 +203,10 @@ Produces a `Range` object.
 ### regex
 
 Related to Raku regexes (aka "regular expressions").
+
+### role
+
+Related to role composition.
 
 ### sequence
 
@@ -721,7 +725,7 @@ The Differentoid group contains the infix operators that return True if the comp
 Environoid
 ----------
 
-The Environoid group contains all dynamic variables related to the actual hardware / software the current process is running under.
+The Environoid group contains all dynamic variables related to the actual hardware / software / user the current process is running under.
 
 ### [`%*ENV` access to operating system environment variables](https://docs.raku.org/language/variables#%*ENV)
 
@@ -1006,13 +1010,17 @@ Repeat the operation on each of the associated elements of two `Iterable`s for e
 
 Repeat the operation on each of the associated elements of two `Iterable`s for each element on the side with the most elements. Missing values on the other side will be repeated.
 
-### [`Zop` produce operator result, shortest side leading](Default for `op` is `,`)
+### [`Zop` produce operator result, shortest side leading](https://docs.raku.org/language/operators#Zip_metaoperator)
 
   * [infix](#infix) [syntax](#syntax)
 
-### [`Xop` produce operator result for combinations](Default for `op` is `,`)
+Default for `op` is `,`
+
+### [`Xop` produce operator result for combinations](https://docs.raku.org/language/operators#Cross_metaoperators)
 
   * [infix](#infix) [syntax](#syntax)
+
+Default for `op` is `,`
 
 IOoid
 -----
@@ -1048,39 +1056,53 @@ Incremental
 
 The Incremental group contains the infix operators for incrementing / decrementing (usually) numeric values.
 
-The atomic versions of `--` and `++` were implemented for 6.d. They can only be applied to atomic integers.
+### [`++` pre-increment](https://docs.raku.org/language/operators#prefix_++)
 
-### `++` pre-increment by 1
+  * [prefix](#prefix) [variable](#variable)
 
-  * [prefix](#prefix)
+Calls the `.succ` method on the variable, stores it in the variable and returns the result.
 
-### `⚛++` atomic pre-increment by 1
+### [`++⚛` atomic pre-increment by 1](https://docs.raku.org/type/atomicint#prefix_++⚛)
 
-  * [prefix](#prefix) [numeric](#numeric)
+  * [prefix](#prefix) [integer](#integer) [variable](#variable)
 
-### `--` pre-decrement by 1
+Atomically increment the atomic integer variable and return its value.
 
-  * [prefix](#prefix)
+### [`--` pre-decrement by 1](https://docs.raku.org/language/operators#prefix_--)
 
-### `⚛--` atomic pre-decrement by 1
+  * [prefix](#prefix) [variable](#variable)
 
-  * [prefix](#prefix) [numeric](#numeric)
+Calls the `.pred` method on the variable, stores it in the variable and returns the result.
 
-### `++` post-increment by 1
+### [`--⚛` atomic pre-decrement by 1](https://docs.raku.org/type/atomicint#prefix_--⚛)
 
-  * [postfix](#postfix)
+  * [prefix](#prefix) [integer](#integer) [variable](#variable)
 
-### `⚛++` atomic post-increment by 1
+Atomically decrement the atomic integer variable and return its value.
 
-  * [postfix](#postfix) [numeric](#numeric)
+### [`++` post-increment](https://docs.raku.org/language/operators#postfix_++)
 
-### `--` post-decrement by 1
+  * [postfix](#postfix) [variable](#variable)
 
-  * [postfix](#postfix)
+Keeps the value of the variable, calls the `.succ` method on the variable, stores it in the variable and returns the previously saved result.
 
-### `⚛--` atomic post-decrement by 1
+### [`⚛++` atomic post-increment by 1](https://docs.raku.org/type/atomicint#postfix_⚛++)
 
-  * [postfix](#postfix) [numeric](#numeric)
+  * [postfix](#postfix) [integer](#integer) [variable](#variable)
+
+Keeps the value of the variable, then atomically increment the atomic integer variable and return the previously saved value.
+
+### [`--` post-decrement](https://docs.raku.org/language/operators#postfix_--)
+
+  * [postfix](#postfix) [variable](#variable)
+
+Keeps the value of the variable, calls the `.pred` method on the variable, stores it in the variable and returns the previously saved result.
+
+### [`⚛--` atomic post-decrement by 1](https://docs.raku.org/type/atomicint#postfix_⚛--)
+
+  * [postfix](#postfix) [integer](#integer) [variable](#variable)
+
+Keeps the value of the variable, then atomically decrement the atomic integer variable and return the previously saved value.
 
 Introspectoid
 -------------
@@ -1156,38 +1178,52 @@ Junctive
 
 The Junctive group contains the infix operators and the functions that produce `Junction` objects.
 
-### `&` junctive all
+### [`&` junctive all](https://docs.raku.org/language/operators#infix_&)
 
   * [infix](#infix) [junction](#junction)
 
-### `|` junctive any
+Create an `all` `Junction` from the arguments.
+
+### [`|` junctive any](https://docs.raku.org/language/operators#infix_|)
 
   * [infix](#infix) [junction](#junction)
 
-### `^` junctive one
+Create an `any` `Junction` from the arguments.
+
+### [`^` junctive one](https://docs.raku.org/language/operators#infix_^)
 
   * [infix](#infix) [junction](#junction)
 
-### `all` junctive all
+Create a `one` `Junction` from the arguments.
+
+### [`all` junctive all](https://docs.raku.org/type/Any#routine_all)
 
   * [sub](#sub) [method](#method) [junction](#junction)
 
-### `any` junctive any
+Create an `all` `Junction` from the arguments.
+
+### [`any` junctive any](https://docs.raku.org/type/Any#routine_any)
 
   * [sub](#sub) [method](#method) [junction](#junction)
 
-### `one` junctive one
+Create an `any` `Junction` from the arguments.
+
+### [`one` junctive one](https://docs.raku.org/type/Any#routine_one)
 
   * [sub](#sub) [method](#method) [junction](#junction)
 
-### `none` junctive none
+Create a `one` `Junction` from the arguments.
+
+### [`none` junctive none](https://docs.raku.org/type/Any#routine_none)
 
   * [sub](#sub) [method](#method) [junction](#junction)
+
+Create a `none` `Junction` from the arguments.
 
 Lexicoid
 --------
 
-The Lexicoid group contains all variables that are always available for usage in a lexical scope.
+The Lexicoid group contains all lexical variables that are always available for usage in a scope.
 
 ### [`$` anonymous state variable](https://docs.raku.org/language/variables#The_$_variable)
 
@@ -1218,33 +1254,35 @@ Mathematicals
 
 The Mathematicals group contains the mathematical terms that are provided by the core.
 
-### `pi` The number π (3.1415...)
+### [`pi` the number π (3.1415...)](https://docs.raku.org/language/terms#term_pi)
 
   * alternates: `π`
 
   * [term](#term) [numeric](#numeric)
 
-### `tau` The number τ (6.2831...)
+### [`tau` the number τ (6.2831...)](https://docs.raku.org/language/terms#term_tau)
 
   * alternates: `τ`
 
   * [term](#term) [numeric](#numeric)
 
-### `e` Euler's number (2.7182...)
+### [`e` Euler's number (2.7182...)](https://docs.raku.org/language/terms#term_e)
 
   * alternates: `𝑒`
 
   * [term](#term) [numeric](#numeric)
 
-### `i` The imaginary unit (√-1)
+### [`i` The imaginary unit (√-1)](https://docs.raku.org/language/terms#term_i)
 
   * [term](#term) [numeric](#numeric)
 
-### `Inf` Infinity
+### [`Inf` Infinity](https://docs.raku.org/type/Num#Inf)
 
   * alternates: `∞`
 
   * [term](#term) [numeric](#numeric)
+
+A `Num` value that represents infinity.
 
 Metaoid
 -------
@@ -1307,13 +1345,17 @@ Mixoid
 
 The Mixoid group contains the functions that allow mixing in functionality into an existing class or instantiation.
 
-### `does` mutating role mixin
+### [`does` mutating role mixin](https://docs.raku.org/language/operators#infix_does)
 
-  * [infix](#infix)
+  * [infix](#infix) [variable](#variable) [role](#role)
 
-### `but` cloning role mixin
+Creates a copy of the object on the left side, and mixes in the role from the right side into the copy, stores that in the variable and returns that.
 
-  * [infix](#infix)
+### [`but` cloning role mixin](https://docs.raku.org/language/operators#infix_but)
+
+  * [infix](#infix) [role](#role)
+
+Creates a copy of the object on the left side, and mixes in the role from the right side into the copy and returns that.
 
 Modifoid
 --------
@@ -1355,51 +1397,51 @@ Multiplicoid
 
 The Multiplicoid group contains all infix operators that are related to multiplication in some way.
 
-### `div` integer divide
+### [`div` integer divide](https://docs.raku.org/type/Int#infix_div)
 
   * [infix](#infix) [integer](#integer)
 
-### `mod` integer modulus
+### [`mod` integer modulus](https://docs.raku.org/language/operators#infix_mod)
 
   * [infix](#infix) [integer](#integer)
 
-### `gcd` greatest common divisor
+### [`gcd` greatest common divisor](https://docs.raku.org/language/operators#infix_gcd)
 
   * [infix](#infix) [integer](#integer)
 
-### `lcm` lowest common multiple
+### [`lcm` lowest common multiple](https://docs.raku.org/language/operators#infix_lcm)
 
   * [infix](#infix) [integer](#integer)
 
-### `*` multiply
+### [`*` multiply](https://docs.raku.org/language/operators#infix_*)
 
   * alternates: `×`
 
   * [infix](#infix) [numeric](#numeric)
 
-### `/` divide
+### [`/` divide](https://docs.raku.org/language/operators#infix_/)
 
   * alternates: `÷`
 
   * [infix](#infix) [numeric](#numeric)
 
-### `**` exponentiation
+### [`**` exponentiation](https://docs.raku.org/language/operators#infix_**)
 
   * [infix](#infix) [numeric](#numeric)
 
-### `%` modulus
+### [`%` modulus](https://docs.raku.org/language/operators#infix_%)
 
   * [infix](#infix) [numeric](#numeric)
 
-### `%%` is divisible
+### [`%%` is divisible](https://docs.raku.org/language/operators#infix_%%)
 
   * [infix](#infix) [boolean](#boolean)
 
-### `+<` integer shift left
+### [`+<` integer shift left](https://docs.raku.org/language/operators#infix_+%3C)
 
   * [infix](#infix) [integer](#integer)
 
-### `+>` integer shift right
+### [`+>` integer shift right](https://docs.raku.org/language/operators#infix_+%3E)
 
   * [infix](#infix) [integer](#integer)
 
@@ -1408,47 +1450,47 @@ Normaloid
 
 The Normaloid group contains the operators that somehow normalize the given arguments into something else, either in time or in value.
 
-### `+` numerify
+### [`+` numerify](https://docs.raku.org/language/operators#prefix_+)
 
   * [prefix](#prefix) [numeric](#numeric)
 
-### `+^` numeric complement
+### [`+^` numeric complement](https://docs.raku.org/language/operators#prefix_+^)
 
   * [prefix](#prefix) [numeric](#numeric)
 
-### `-` numeric negation
+### [`-` numeric negation](https://docs.raku.org/language/operators#prefix_-)
 
   * alternates: `−`
 
   * [prefix](#prefix) [numeric](#numeric)
 
-### `^` numeric from zero upto
+### [`^` numeric from zero upto](https://docs.raku.org/language/operators#prefix_^)
 
   * [prefix](#prefix) [numeric](#numeric)
 
-### `~` stringify
+### [`~` stringify](https://docs.raku.org/language/operators#prefix_~)
 
   * [prefix](#prefix) [string](#string)
 
-### `?` boolify
+### [`?` boolify](https://docs.raku.org/language/operators#prefix_?)
 
   * [prefix](#prefix) [boolean](#boolean)
 
-### `so` low precedence boolify
+### [`so` low precedence boolify](https://docs.raku.org/language/operators#prefix_so)
 
   * [prefix](#prefix) [boolean](#boolean)
 
-### `!` boolean negation
+### [`!` boolean negation](https://docs.raku.org/language/operators#prefix_!)
 
   * alternates: `?^`
 
   * [prefix](#prefix) [boolean](#boolean)
 
-### `not` low precedence boolean negation
+### [`not` low precedence boolean negation](https://docs.raku.org/language/operators#prefix_not)
 
   * [prefix](#prefix) [boolean](#boolean)
 
-### `//` is defined
+### [`//` is defined](https://docs.raku.org/language/operators#prefix_//)
 
   * [prefix](#prefix) [boolean](#boolean)
 
@@ -1469,15 +1511,15 @@ Orderoid
 
 The Orderoid group contains the infix operators that return an `Order` value.
 
-### `cmp` equivalence order comparison
+### [`cmp` equivalence order comparison](https://docs.raku.org/language/operators#infix_cmp)
 
   * [infix](#infix) [order](#order)
 
-### `<=>` numerical order comparison
+### [`<=>` numerical order comparison](https://docs.raku.org/language/operators#infix_%3C=%3E)
 
   * [infix](#infix) [order](#order)
 
-### `leg` string order comparison
+### [`leg` string order comparison](https://docs.raku.org/language/operators#infix_leg)
 
   * [infix](#infix) [order](#order)
 
@@ -1486,35 +1528,37 @@ Quantoid
 
 The Quantoid group contains the functions that return a `QuantHash` (a `Set`, `SetHash`, `Bag`, `BagHash`, `Mix` or `MixHash` given any set or arguments.
 
-### `∅` empty Set
+### [`∅` empty Set](https://docs.raku.org/language/terms#term_∅)
+
+  * alternates: `set`
 
   * [term](#term) [quanthash](#quanthash)
 
-### `(|)` quanthash union
+### [`(|)` quanthash union](https://docs.raku.org/language/operators#infix_(|),_infix_∪)
 
   * alternates: `∪`
 
   * [infix](#infix) [quanthash](#quanthash)
 
-### `(+)` quanthash addition
+### [`(+)` quanthash addition](https://docs.raku.org/language/operators#infix_(+),_infix_⊎)
 
   * alternates: `⊎`
 
   * [infix](#infix) [quanthash](#quanthash)
 
-### `(.)` quanthash multiplication
+### [`(.)` quanthash multiplication](https://docs.raku.org/language/operators#infix_(.),_infix_⊍)
 
   * alternates: `⊍`
 
   * [infix](#infix) [quanthash](#quanthash)
 
-### `(-)` quanthash difference
+### [`(-)` quanthash difference](https://docs.raku.org/language/operators#infix_(-),_infix_%E2%88%96)
 
   * alternates: `∖`
 
   * [infix](#infix) [quanthash](#quanthash)
 
-### `(^)` quanthash symmetric difference
+### [`(^)` quanthash symmetric difference](https://docs.raku.org/language/operators#infix_(^),_infix_⊖)
 
   * alternates: `⊖`
 
@@ -1525,23 +1569,23 @@ Rangoid
 
 The Rangoid group contains the infix operators that produce a `Range`.
 
-### `..` range inclusive
+### [`..` range inclusive](https://docs.raku.org/language/operators#infix_..)
 
   * [infix](#infix) [range](#range)
 
-### `^..` range excluding start
+### [`^..` range excluding start](https://docs.raku.org/language/operators#infix_^..)
 
   * [infix](#infix) [range](#range)
 
-### `..^` range excluding end
+### [`..^` range excluding end](https://docs.raku.org/language/operators#infix_..^)
 
   * [infix](#infix) [range](#range)
 
-### `^..^` range exclusive
+### [`^..^` range exclusive](https://docs.raku.org/language/operators#infix_^..^)
 
   * [infix](#infix) [range](#range)
 
-### `minmax` range including min and max value
+### [`minmax` range including min and max value](https://docs.raku.org/language/operators#infix_minmax)
 
   * [infix](#infix) [range](#range)
 
@@ -1550,11 +1594,11 @@ Reductoid
 
 The Reductoid group contains the functions that reduce a given set of arguments into a single value (or produces the steps to produce that value).
 
-### `min` reduce values to smallest value
+### [`min` reduce values to smallest value](https://docs.raku.org/language/operators#infix_min)
 
   * [infix](#infix) [sub](#sub) [method](#method)
 
-### `max` reduce values to largest value
+### [`max` reduce values to largest value](https://docs.raku.org/language/operators#infix_max)
 
   * [infix](#infix) [sub](#sub) [method](#method)
 

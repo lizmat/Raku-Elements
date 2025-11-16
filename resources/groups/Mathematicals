@@ -1,22 +1,28 @@
 pi | π
 term numeric
-The number π (3.1415...)
+the number π (3.1415...)
+https://docs.raku.org/language/terms#term_pi
 
 tau | τ
 term numeric
-The number τ (6.2831...)
+the number τ (6.2831...)
+https://docs.raku.org/language/terms#term_tau
 
 e | 𝑒
 term numeric
 Euler's number (2.7182...)
+https://docs.raku.org/language/terms#term_e
 
 i
 term numeric
 The imaginary unit (√-1)
+https://docs.raku.org/language/terms#term_i
 
 Inf | ∞
 term numeric
 Infinity
+https://docs.raku.org/type/Num#Inf
+A C<Num> value that represents infinity.
 
 
 contains the mathematical terms that are provided by the core.

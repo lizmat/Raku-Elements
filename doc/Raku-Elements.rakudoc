@@ -129,7 +129,7 @@ example of what can be done with the information provided by this
 distribution.
 
 =comment PLEASE DON'T CHANGE ANYTHING BELOW THIS LINE
-=comment Generated on 2025-11-15T20:29:04+01:00 by ./make-rakudoc.raku
+=comment Generated on 2025-11-17T00:56:02+01:00 by ./make-rakudoc.raku
 
 =head2 Raku Element Tags
 
@@ -154,6 +154,7 @@ L<C<prefix>|#prefix>
 L<C<quanthash>|#quanthash>
 L<C<range>|#range>
 L<C<regex>|#regex>
+L<C<role>|#role>
 L<C<sequence>|#sequence>
 L<C<statement>|#statement>
 L<C<string>|#string>
@@ -256,6 +257,10 @@ Produces a C<Range> object.
 =head3 regex
 
 Related to Raku regexes (aka "regular expressions").
+
+=head3 role
+
+Related to role composition.
 
 =head3 sequence
 
@@ -763,7 +768,7 @@ way.
 =head2 Environoid
 
 The Environoid group contains all dynamic variables related to the actual hardware
-/ software the current process is running under.
+/ software / user the current process is running under.
 
 =head3 L<C«%*ENV» access to operating system environment variables|https://docs.raku.org/language/variables#%*ENV>
 =item L<variable|#variable> L<dynamic|#dynamic> L<hash|#hash>
@@ -1036,11 +1041,15 @@ Repeat the operation on each of the associated elements of two
 C<Iterable>s for each element on the side with the most elements.
  Missing values on the other side will be repeated.
 
-=head3 L<C«Zop» produce operator result, shortest side leading|Default for `op` is `,`>
+=head3 L<C«Zop» produce operator result, shortest side leading|https://docs.raku.org/language/operators#Zip_metaoperator>
 =item L<infix|#infix> L<syntax|#syntax>
 
-=head3 L<C«Xop» produce operator result for combinations|Default for `op` is `,`>
+Default for `op` is `,`
+
+=head3 L<C«Xop» produce operator result for combinations|https://docs.raku.org/language/operators#Cross_metaoperators>
 =item L<infix|#infix> L<syntax|#syntax>
+
+Default for `op` is `,`
 
 =head2 IOoid
 
@@ -1069,32 +1078,55 @@ The IOoid group contains the functions that are available for input / output of 
 The Incremental group contains the infix operators for incrementing / decrementing (usually)
 numeric values.
 
-The atomic versions of C<--> and C<++> were implemented for 6.d.  They
-can only be applied to atomic integers.
+=head3 L<C«++» pre-increment|https://docs.raku.org/language/operators#prefix_++>
+=item L<prefix|#prefix> L<variable|#variable>
 
-=head3 C«++» pre-increment by 1
-=item L<prefix|#prefix>
+Calls the C<.succ> method on the variable, stores it in the
+variable and returns the result.
 
-=head3 C«⚛++» atomic pre-increment by 1
-=item L<prefix|#prefix> L<numeric|#numeric>
+=head3 L<C«++⚛» atomic pre-increment by 1|https://docs.raku.org/type/atomicint#prefix_++⚛>
+=item L<prefix|#prefix> L<integer|#integer> L<variable|#variable>
 
-=head3 C«--» pre-decrement by 1
-=item L<prefix|#prefix>
+Atomically increment the atomic integer variable and return its
+value.
 
-=head3 C«⚛--» atomic pre-decrement by 1
-=item L<prefix|#prefix> L<numeric|#numeric>
+=head3 L<C«--» pre-decrement by 1|https://docs.raku.org/language/operators#prefix_-->
+=item L<prefix|#prefix> L<variable|#variable>
 
-=head3 C«++» post-increment by 1
-=item L<postfix|#postfix>
+Calls the C<.pred> method on the variable, stores it in the
+variable and returns the result.
 
-=head3 C«⚛++» atomic post-increment by 1
-=item L<postfix|#postfix> L<numeric|#numeric>
+=head3 L<C«--⚛» atomic pre-decrement by 1|https://docs.raku.org/type/atomicint#prefix_--⚛>
+=item L<prefix|#prefix> L<integer|#integer> L<variable|#variable>
 
-=head3 C«--» post-decrement by 1
-=item L<postfix|#postfix>
+Atomically decrement the atomic integer variable and return its
+value.
 
-=head3 C«⚛--» atomic post-decrement by 1
-=item L<postfix|#postfix> L<numeric|#numeric>
+=head3 L<C«++» post-increment|https://docs.raku.org/language/operators#postfix_++>
+=item L<postfix|#postfix> L<variable|#variable>
+
+Keeps the value of the variable, calls the C<.succ> method on the
+variable, stores it in the variable and returns the previously
+saved result.
+
+=head3 L<C«⚛++» atomic post-increment by 1|https://docs.raku.org/type/atomicint#postfix_⚛++>
+=item L<postfix|#postfix> L<integer|#integer> L<variable|#variable>
+
+Keeps the value of the variable, then atomically increment the
+atomic integer variable and return the previously saved value.
+
+=head3 L<C«--» post-decrement|https://docs.raku.org/language/operators#postfix_-->
+=item L<postfix|#postfix> L<variable|#variable>
+
+Keeps the value of the variable, calls the C<.pred> method on the
+variable, stores it in the variable and returns the previously
+saved result.
+
+=head3 L<C«⚛--» atomic post-decrement by 1|https://docs.raku.org/type/atomicint#postfix_⚛-->
+=item L<postfix|#postfix> L<integer|#integer> L<variable|#variable>
+
+Keeps the value of the variable, then atomically decrement the
+atomic integer variable and return the previously saved value.
 
 =head2 Introspectoid
 
@@ -1168,31 +1200,45 @@ available if the C<Telemetry> module has been loaded.
 The Junctive group contains the infix operators and the functions that produce C<Junction>
 objects.
 
-=head3 C«&» junctive all
+=head3 L<C«&» junctive all|https://docs.raku.org/language/operators#infix_&>
 =item L<infix|#infix> L<junction|#junction>
 
-=head3 C«|» junctive any
+Create an C<all> C<Junction> from the arguments.
+
+=head3 L<C«|» junctive any|https://docs.raku.org/language/operators#infix_|>
 =item L<infix|#infix> L<junction|#junction>
 
-=head3 C«^» junctive one
+Create an C<any> C<Junction> from the arguments.
+
+=head3 L<C«^» junctive one|https://docs.raku.org/language/operators#infix_^>
 =item L<infix|#infix> L<junction|#junction>
 
-=head3 C«all» junctive all
+Create a C<one> C<Junction> from the arguments.
+
+=head3 L<C«all» junctive all|https://docs.raku.org/type/Any#routine_all>
 =item L<sub|#sub> L<method|#method> L<junction|#junction>
 
-=head3 C«any» junctive any
+Create an C<all> C<Junction> from the arguments.
+
+=head3 L<C«any» junctive any|https://docs.raku.org/type/Any#routine_any>
 =item L<sub|#sub> L<method|#method> L<junction|#junction>
 
-=head3 C«one» junctive one
+Create an C<any> C<Junction> from the arguments.
+
+=head3 L<C«one» junctive one|https://docs.raku.org/type/Any#routine_one>
 =item L<sub|#sub> L<method|#method> L<junction|#junction>
 
-=head3 C«none» junctive none
+Create a C<one> C<Junction> from the arguments.
+
+=head3 L<C«none» junctive none|https://docs.raku.org/type/Any#routine_none>
 =item L<sub|#sub> L<method|#method> L<junction|#junction>
+
+Create a C<none> C<Junction> from the arguments.
 
 =head2 Lexicoid
 
-The Lexicoid group contains all variables that are always available for usage in a
-lexical scope.
+The Lexicoid group contains all lexical variables that are always available for usage
+in a scope.
 
 =head3 L<C«$» anonymous state variable|https://docs.raku.org/language/variables#The_$_variable>
 =item L<variable|#variable>
@@ -1229,24 +1275,26 @@ C<Routine> has its own copy of it.
 
 The Mathematicals group contains the mathematical terms that are provided by the core.
 
-=head3 C«pi» The number π (3.1415...)
+=head3 L<C«pi» the number π (3.1415...)|https://docs.raku.org/language/terms#term_pi>
 =item alternates: C«π»
 =item L<term|#term> L<numeric|#numeric>
 
-=head3 C«tau» The number τ (6.2831...)
+=head3 L<C«tau» the number τ (6.2831...)|https://docs.raku.org/language/terms#term_tau>
 =item alternates: C«τ»
 =item L<term|#term> L<numeric|#numeric>
 
-=head3 C«e» Euler's number (2.7182...)
+=head3 L<C«e» Euler's number (2.7182...)|https://docs.raku.org/language/terms#term_e>
 =item alternates: C«𝑒»
 =item L<term|#term> L<numeric|#numeric>
 
-=head3 C«i» The imaginary unit (√-1)
+=head3 L<C«i» The imaginary unit (√-1)|https://docs.raku.org/language/terms#term_i>
 =item L<term|#term> L<numeric|#numeric>
 
-=head3 C«Inf» Infinity
+=head3 L<C«Inf» Infinity|https://docs.raku.org/type/Num#Inf>
 =item alternates: C«∞»
 =item L<term|#term> L<numeric|#numeric>
+
+A C<Num> value that represents infinity.
 
 =head2 Metaoid
 
@@ -1300,11 +1348,18 @@ prefix operator within `:<>`, or one of the postcircumfixes `( )` `[ ]`
 The Mixoid group contains the functions that allow mixing in functionality into an existing
 class or instantiation.
 
-=head3 C«does» mutating role mixin
-=item L<infix|#infix>
+=head3 L<C«does» mutating role mixin|https://docs.raku.org/language/operators#infix_does>
+=item L<infix|#infix> L<variable|#variable> L<role|#role>
 
-=head3 C«but» cloning role mixin
-=item L<infix|#infix>
+Creates a copy of the object on the left side, and mixes in the role
+from the right side into the copy, stores that in the variable and
+returns that.
+
+=head3 L<C«but» cloning role mixin|https://docs.raku.org/language/operators#infix_but>
+=item L<infix|#infix> L<role|#role>
+
+Creates a copy of the object on the left side, and mixes in the role
+from the right side into the copy and returns that.
 
 =head2 Modifoid
 
@@ -1344,39 +1399,39 @@ Execute thunk if given expression smartmatches with the topic
 The Multiplicoid group contains all infix operators that are related to multiplication in some
 way.
 
-=head3 C«div» integer divide
+=head3 L<C«div» integer divide|https://docs.raku.org/type/Int#infix_div>
 =item L<infix|#infix> L<integer|#integer>
 
-=head3 C«mod» integer modulus
+=head3 L<C«mod» integer modulus|https://docs.raku.org/language/operators#infix_mod>
 =item L<infix|#infix> L<integer|#integer>
 
-=head3 C«gcd» greatest common divisor
+=head3 L<C«gcd» greatest common divisor|https://docs.raku.org/language/operators#infix_gcd>
 =item L<infix|#infix> L<integer|#integer>
 
-=head3 C«lcm» lowest common multiple
+=head3 L<C«lcm» lowest common multiple|https://docs.raku.org/language/operators#infix_lcm>
 =item L<infix|#infix> L<integer|#integer>
 
-=head3 C«*» multiply
+=head3 L<C«*» multiply|https://docs.raku.org/language/operators#infix_*>
 =item alternates: C«×»
 =item L<infix|#infix> L<numeric|#numeric>
 
-=head3 C«/» divide
+=head3 L<C«/» divide|https://docs.raku.org/language/operators#infix_/>
 =item alternates: C«÷»
 =item L<infix|#infix> L<numeric|#numeric>
 
-=head3 C«**» exponentiation
+=head3 L<C«**» exponentiation|https://docs.raku.org/language/operators#infix_**>
 =item L<infix|#infix> L<numeric|#numeric>
 
-=head3 C«%» modulus
+=head3 L<C«%» modulus|https://docs.raku.org/language/operators#infix_%>
 =item L<infix|#infix> L<numeric|#numeric>
 
-=head3 C«%%» is divisible
+=head3 L<C«%%» is divisible|https://docs.raku.org/language/operators#infix_%%>
 =item L<infix|#infix> L<boolean|#boolean>
 
-=head3 C«+<» integer shift left
+=head3 L<C«+<» integer shift left|https://docs.raku.org/language/operators#infix_+%3C>
 =item L<infix|#infix> L<integer|#integer>
 
-=head3 C«+>» integer shift right
+=head3 L<C«+>» integer shift right|https://docs.raku.org/language/operators#infix_+%3E>
 =item L<infix|#infix> L<integer|#integer>
 
 =head2 Normaloid
@@ -1384,36 +1439,36 @@ way.
 The Normaloid group contains the operators that somehow normalize the given arguments into
 something else, either in time or in value.
 
-=head3 C«+» numerify
+=head3 L<C«+» numerify|https://docs.raku.org/language/operators#prefix_+>
 =item L<prefix|#prefix> L<numeric|#numeric>
 
-=head3 C«+^» numeric complement
+=head3 L<C«+^» numeric complement|https://docs.raku.org/language/operators#prefix_+^>
 =item L<prefix|#prefix> L<numeric|#numeric>
 
-=head3 C«-» numeric negation
+=head3 L<C«-» numeric negation|https://docs.raku.org/language/operators#prefix_->
 =item alternates: C«−»
 =item L<prefix|#prefix> L<numeric|#numeric>
 
-=head3 C«^» numeric from zero upto
+=head3 L<C«^» numeric from zero upto|https://docs.raku.org/language/operators#prefix_^>
 =item L<prefix|#prefix> L<numeric|#numeric>
 
-=head3 C«~» stringify
+=head3 L<C«~» stringify|https://docs.raku.org/language/operators#prefix_~>
 =item L<prefix|#prefix> L<string|#string>
 
-=head3 C«?» boolify
+=head3 L<C«?» boolify|https://docs.raku.org/language/operators#prefix_?>
 =item L<prefix|#prefix> L<boolean|#boolean>
 
-=head3 C«so» low precedence boolify
+=head3 L<C«so» low precedence boolify|https://docs.raku.org/language/operators#prefix_so>
 =item L<prefix|#prefix> L<boolean|#boolean>
 
-=head3 C«!» boolean negation
+=head3 L<C«!» boolean negation|https://docs.raku.org/language/operators#prefix_!>
 =item alternates: C«?^»
 =item L<prefix|#prefix> L<boolean|#boolean>
 
-=head3 C«not» low precedence boolean negation
+=head3 L<C«not» low precedence boolean negation|https://docs.raku.org/language/operators#prefix_not>
 =item L<prefix|#prefix> L<boolean|#boolean>
 
-=head3 C«//» is defined
+=head3 L<C«//» is defined|https://docs.raku.org/language/operators#prefix_//>
 =item L<prefix|#prefix> L<boolean|#boolean>
 
 =head3 L<C«|» flatten args, slip iterable|https://docs.raku.org/syntax/%7C>
@@ -1433,13 +1488,13 @@ multi-threaded situations.
 
 The Orderoid group contains the infix operators that return an C<Order> value.
 
-=head3 C«cmp» equivalence order comparison
+=head3 L<C«cmp» equivalence order comparison|https://docs.raku.org/language/operators#infix_cmp>
 =item L<infix|#infix> L<order|#order>
 
-=head3 C«<=>» numerical order comparison
+=head3 L<C«<=>» numerical order comparison|https://docs.raku.org/language/operators#infix_%3C=%3E>
 =item L<infix|#infix> L<order|#order>
 
-=head3 C«leg» string order comparison
+=head3 L<C«leg» string order comparison|https://docs.raku.org/language/operators#infix_leg>
 =item L<infix|#infix> L<order|#order>
 
 =head2 Quantoid
@@ -1447,26 +1502,27 @@ The Orderoid group contains the infix operators that return an C<Order> value.
 The Quantoid group contains the functions that return a C<QuantHash> (a C<Set>, C<SetHash>,
 C<Bag>, C<BagHash>, C<Mix> or C<MixHash> given any set or arguments.
 
-=head3 C«∅» empty Set
+=head3 L<C«∅» empty Set|https://docs.raku.org/language/terms#term_∅>
+=item alternates: C«set»
 =item L<term|#term> L<quanthash|#quanthash>
 
-=head3 C«(|)» quanthash union
+=head3 L<C«(|)» quanthash union|https://docs.raku.org/language/operators#infix_(|),_infix_∪>
 =item alternates: C«∪»
 =item L<infix|#infix> L<quanthash|#quanthash>
 
-=head3 C«(+)» quanthash addition
+=head3 L<C«(+)» quanthash addition|https://docs.raku.org/language/operators#infix_(+),_infix_⊎>
 =item alternates: C«⊎»
 =item L<infix|#infix> L<quanthash|#quanthash>
 
-=head3 C«(.)» quanthash multiplication
+=head3 L<C«(.)» quanthash multiplication|https://docs.raku.org/language/operators#infix_(.),_infix_⊍>
 =item alternates: C«⊍»
 =item L<infix|#infix> L<quanthash|#quanthash>
 
-=head3 C«(-)» quanthash difference
+=head3 L<C«(-)» quanthash difference|https://docs.raku.org/language/operators#infix_(-),_infix_%E2%88%96>
 =item alternates: C«∖»
 =item L<infix|#infix> L<quanthash|#quanthash>
 
-=head3 C«(^)» quanthash symmetric difference
+=head3 L<C«(^)» quanthash symmetric difference|https://docs.raku.org/language/operators#infix_(^),_infix_⊖>
 =item alternates: C«⊖»
 =item L<infix|#infix> L<quanthash|#quanthash>
 
@@ -1474,19 +1530,19 @@ C<Bag>, C<BagHash>, C<Mix> or C<MixHash> given any set or arguments.
 
 The Rangoid group contains the infix operators that produce a C<Range>.
 
-=head3 C«..» range inclusive
+=head3 L<C«..» range inclusive|https://docs.raku.org/language/operators#infix_..>
 =item L<infix|#infix> L<range|#range>
 
-=head3 C«^..» range excluding start
+=head3 L<C«^..» range excluding start|https://docs.raku.org/language/operators#infix_^..>
 =item L<infix|#infix> L<range|#range>
 
-=head3 C«..^» range excluding end
+=head3 L<C«..^» range excluding end|https://docs.raku.org/language/operators#infix_..^>
 =item L<infix|#infix> L<range|#range>
 
-=head3 C«^..^» range exclusive
+=head3 L<C«^..^» range exclusive|https://docs.raku.org/language/operators#infix_^..^>
 =item L<infix|#infix> L<range|#range>
 
-=head3 C«minmax» range including min and max value
+=head3 L<C«minmax» range including min and max value|https://docs.raku.org/language/operators#infix_minmax>
 =item L<infix|#infix> L<range|#range>
 
 =head2 Reductoid
@@ -1494,10 +1550,10 @@ The Rangoid group contains the infix operators that produce a C<Range>.
 The Reductoid group contains the functions that reduce a given set of arguments into
 a single value (or produces the steps to produce that value).
 
-=head3 C«min» reduce values to smallest value
+=head3 L<C«min» reduce values to smallest value|https://docs.raku.org/language/operators#infix_min>
 =item L<infix|#infix> L<sub|#sub> L<method|#method>
 
-=head3 C«max» reduce values to largest value
+=head3 L<C«max» reduce values to largest value|https://docs.raku.org/language/operators#infix_max>
 =item L<infix|#infix> L<sub|#sub> L<method|#method>
 
 =head3 C«[op]» reduce using given infix operator

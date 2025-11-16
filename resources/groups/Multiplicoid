@@ -1,46 +1,57 @@
 div
 infix integer
 integer divide
+https://docs.raku.org/type/Int#infix_div
 
 mod
 infix integer
 integer modulus
+https://docs.raku.org/language/operators#infix_mod
 
 gcd
 infix integer
 greatest common divisor
+https://docs.raku.org/language/operators#infix_gcd
 
 lcm
 infix integer
 lowest common multiple
+https://docs.raku.org/language/operators#infix_lcm
 
 * | ×
 infix numeric
 multiply
+https://docs.raku.org/language/operators#infix_*
 
 / | ÷
 infix numeric
 divide
+https://docs.raku.org/language/operators#infix_/
 
 **
 infix numeric
 exponentiation
+https://docs.raku.org/language/operators#infix_**
 
 %
 infix numeric
 modulus
+https://docs.raku.org/language/operators#infix_%
 
 %%
 infix boolean
 is divisible
+https://docs.raku.org/language/operators#infix_%%
 
 +<
 infix integer
 integer shift left
+https://docs.raku.org/language/operators#infix_+%3C
 
 +>
 infix integer
 integer shift right
+https://docs.raku.org/language/operators#infix_+%3E
 
 
 contains all infix operators that are related to multiplication in some

@@ -1,10 +1,12 @@
 min
 infix sub method
 reduce values to smallest value
+https://docs.raku.org/language/operators#infix_min
 
 max
 infix sub method
 reduce values to largest value
+https://docs.raku.org/language/operators#infix_max
 
 [op]
 prefix syntax

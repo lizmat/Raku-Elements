@@ -34,5 +34,5 @@ Typically contains the last caught exception seen.  Each
 C<Routine> has its own copy of it.
 
 
-contains all variables that are always available for usage in a
-lexical scope.
+contains all lexical variables that are always available for usage
+in a scope.

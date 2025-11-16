@@ -1,10 +1,17 @@
 does
-infix
+infix variable role
 mutating role mixin
+https://docs.raku.org/language/operators#infix_does
+Creates a copy of the object on the left side, and mixes in the role
+from the right side into the copy, stores that in the variable and
+returns that.
 
 but
-infix
+infix role
 cloning role mixin
+https://docs.raku.org/language/operators#infix_but
+Creates a copy of the object on the left side, and mixes in the role
+from the right side into the copy and returns that.
 
 
 contains the functions that allow mixing in functionality into an existing

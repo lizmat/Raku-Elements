@@ -1,38 +1,61 @@
 ++
-prefix
-pre-increment by 1
+prefix variable
+pre-increment
+https://docs.raku.org/language/operators#prefix_++
+Calls the C<.succ> method on the variable, stores it in the
+variable and returns the result.
 
-⚛++
-prefix numeric
+++⚛
+prefix integer variable
 atomic pre-increment by 1
+https://docs.raku.org/type/atomicint#prefix_++⚛
+Atomically increment the atomic integer variable and return its
+value.
 
 --
-prefix
+prefix variable
 pre-decrement by 1
+https://docs.raku.org/language/operators#prefix_--
+Calls the C<.pred> method on the variable, stores it in the
+variable and returns the result.
 
-⚛--
-prefix numeric
+--⚛
+prefix integer variable
 atomic pre-decrement by 1
+https://docs.raku.org/type/atomicint#prefix_--⚛
+Atomically decrement the atomic integer variable and return its
+value.
 
 ++
-postfix
-post-increment by 1
+postfix variable
+post-increment
+https://docs.raku.org/language/operators#postfix_++
+Keeps the value of the variable, calls the C<.succ> method on the
+variable, stores it in the variable and returns the previously
+saved result.
 
 ⚛++
-postfix numeric
+postfix integer variable
 atomic post-increment by 1
+https://docs.raku.org/type/atomicint#postfix_⚛++
+Keeps the value of the variable, then atomically increment the
+atomic integer variable and return the previously saved value.
 
 --
-postfix
-post-decrement by 1
+postfix variable
+post-decrement
+https://docs.raku.org/language/operators#postfix_--
+Keeps the value of the variable, calls the C<.pred> method on the
+variable, stores it in the variable and returns the previously
+saved result.
 
 ⚛--
-postfix numeric
+postfix integer variable
 atomic post-decrement by 1
+https://docs.raku.org/type/atomicint#postfix_⚛--
+Keeps the value of the variable, then atomically decrement the
+atomic integer variable and return the previously saved value.
 
 
 contains the infix operators for incrementing / decrementing (usually)
 numeric values.
-
-The atomic versions of C<--> and C<++> were implemented for 6.d.  They
-can only be applied to atomic integers.

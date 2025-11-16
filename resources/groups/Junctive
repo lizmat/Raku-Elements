@@ -1,30 +1,44 @@
 &
 infix junction
 junctive all
+https://docs.raku.org/language/operators#infix_&
+Create an C<all> C<Junction> from the arguments.
 
 |
 infix junction
 junctive any
+https://docs.raku.org/language/operators#infix_|
+Create an C<any> C<Junction> from the arguments.
 
 ^
 infix junction
 junctive one
+https://docs.raku.org/language/operators#infix_^
+Create a C<one> C<Junction> from the arguments.
 
 all
 sub method junction
 junctive all
+https://docs.raku.org/type/Any#routine_all
+Create an C<all> C<Junction> from the arguments.
 
 any
 sub method junction
 junctive any
+https://docs.raku.org/type/Any#routine_any
+Create an C<any> C<Junction> from the arguments.
 
 one
 sub method junction
 junctive one
+https://docs.raku.org/type/Any#routine_one
+Create a C<one> C<Junction> from the arguments.
 
 none
 sub method junction
 junctive none
+https://docs.raku.org/type/Any#routine_none
+Create a C<none> C<Junction> from the arguments.
 
 
 contains the infix operators and the functions that produce C<Junction>

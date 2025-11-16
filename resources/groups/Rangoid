@@ -1,22 +1,27 @@
 ..
 infix range
 range inclusive
+https://docs.raku.org/language/operators#infix_..
 
 ^..
 infix range
 range excluding start
+https://docs.raku.org/language/operators#infix_^..
 
 ..^
 infix range
 range excluding end
+https://docs.raku.org/language/operators#infix_..^
 
 ^..^
 infix range
 range exclusive
+https://docs.raku.org/language/operators#infix_^..^
 
 minmax
 infix range
 range including min and max value
+https://docs.raku.org/language/operators#infix_minmax
 
 
 contains the infix operators that produce a C<Range>.

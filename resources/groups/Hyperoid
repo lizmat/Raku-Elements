@@ -33,11 +33,13 @@ C<Iterable>s for each element on the side with the most elements.
 Zop
 infix syntax
 produce operator result, shortest side leading
+https://docs.raku.org/language/operators#Zip_metaoperator
 Default for `op` is `,`
 
 Xop
 infix syntax
 produce operator result for combinations
+https://docs.raku.org/language/operators#Cross_metaoperators
 Default for `op` is `,`
 
 

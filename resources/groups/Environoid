@@ -76,4 +76,4 @@ of the operating system.
 
 
 contains all dynamic variables related to the actual hardware
-/ software the current process is running under.
+/ software / user the current process is running under.

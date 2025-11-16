@@ -1,26 +1,32 @@
-∅
+∅ | set
 term quanthash
 empty Set
+https://docs.raku.org/language/terms#term_∅
 
 (|) | ∪
 infix quanthash
 quanthash union
+https://docs.raku.org/language/operators#infix_(|),_infix_∪
 
 (+) | ⊎
 infix quanthash
 quanthash addition
+https://docs.raku.org/language/operators#infix_(+),_infix_⊎
 
 (.) | ⊍
 infix quanthash
 quanthash multiplication
+https://docs.raku.org/language/operators#infix_(.),_infix_⊍
 
 (-) | ∖
 infix quanthash
 quanthash difference
+https://docs.raku.org/language/operators#infix_(-),_infix_%E2%88%96
 
 (^) | ⊖
 infix quanthash
 quanthash symmetric difference
+https://docs.raku.org/language/operators#infix_(^),_infix_⊖
 
 
 contains the functions that return a C<QuantHash> (a C<Set>, C<SetHash>,

@@ -1,42 +1,52 @@
 +
 prefix numeric
 numerify
+https://docs.raku.org/language/operators#prefix_+
 
 +^
 prefix numeric
 numeric complement
+https://docs.raku.org/language/operators#prefix_+^
 
 - | −
 prefix numeric
 numeric negation
+https://docs.raku.org/language/operators#prefix_-
 
 ^
 prefix numeric
 numeric from zero upto
+https://docs.raku.org/language/operators#prefix_^
 
 ~
 prefix string
 stringify
+https://docs.raku.org/language/operators#prefix_~
 
 ?
 prefix boolean
 boolify
+https://docs.raku.org/language/operators#prefix_?
 
 so
 prefix boolean
 low precedence boolify
+https://docs.raku.org/language/operators#prefix_so
 
 ! | ?^
 prefix boolean
 boolean negation
+https://docs.raku.org/language/operators#prefix_!
 
 not
 prefix boolean
 low precedence boolean negation
+https://docs.raku.org/language/operators#prefix_not
 
 //
 prefix boolean
 is defined
+https://docs.raku.org/language/operators#prefix_//
 
 |
 prefix

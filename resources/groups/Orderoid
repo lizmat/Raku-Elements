@@ -1,14 +1,17 @@
 cmp
 infix order
 equivalence order comparison
+https://docs.raku.org/language/operators#infix_cmp
 
 <=>
 infix order
 numerical order comparison
+https://docs.raku.org/language/operators#infix_%3C=%3E
 
 leg
 infix order
 string order comparison
+https://docs.raku.org/language/operators#infix_leg
 
 
 contains the infix operators that return an C<Order> value.
