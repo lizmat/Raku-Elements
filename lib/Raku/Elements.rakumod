@@ -82,7 +82,7 @@ class Raku::Elements:ver<0.0.5>:auth<zef:lizmat> {
                     @parts.push: $line;
                 }
 
-                my str $url = @parts.shift if @parts;
+                my str $url = @parts ?? @parts.shift !! "";
                 my $element := Raku::Element.new(
                   :$name, :@alternates, :@tags, :$tagline, :$url,
                   :description(@parts.join("\n"))

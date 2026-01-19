@@ -1,6 +1,7 @@
 Revision history for Raku::Elements
 
 {{$NEXT}}
+    - Update copyright year
 
 0.0.5  2025-11-14T20:21:07+01:00
     - Add a bunch more tags and groups

@@ -247,7 +247,7 @@ Refers to a variable defined by the Raku Programming Language.
 Raku Element Groups
 -------------------
 
-[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Condoid`](#Condoid) [`Constoid`](#Constoid) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Environoid`](#Environoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Introspectoid`](#Introspectoid) [`Junctive`](#Junctive) [`Lexicoid`](#Lexicoid) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Mixoid`](#Mixoid) [`Modifoid`](#Modifoid) [`Multiplicoid`](#Multiplicoid) [`Normaloid`](#Normaloid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termoid`](#Termoid) [`Throwoid`](#Throwoid) [`Topicoid`](#Topicoid) [`Tweakoid`](#Tweakoid)
+[`Addenoid`](#Addenoid) [`Bindoid`](#Bindoid) [`Buildoid`](#Buildoid) [`Condoid`](#Condoid) [`Constoid`](#Constoid) [`Declaroid`](#Declaroid) [`Differentoid`](#Differentoid) [`Environoid`](#Environoid) [`Equalish`](#Equalish) [`Expansive`](#Expansive) [`Feedoid`](#Feedoid) [`Flippant`](#Flippant) [`Hyperoid`](#Hyperoid) [`IOoid`](#IOoid) [`Incremental`](#Incremental) [`Introspectoid`](#Introspectoid) [`Iteroid`](#Iteroid) [`Junctive`](#Junctive) [`Lexicoid`](#Lexicoid) [`Mathematicals`](#Mathematicals) [`Metaoid`](#Metaoid) [`Methodic`](#Methodic) [`Mixoid`](#Mixoid) [`Modifoid`](#Modifoid) [`Multiplicoid`](#Multiplicoid) [`Normaloid`](#Normaloid) [`Orderoid`](#Orderoid) [`Quantoid`](#Quantoid) [`Rangoid`](#Rangoid) [`Reductoid`](#Reductoid) [`Replicant`](#Replicant) [`Sequoid`](#Sequoid) [`Shortoid`](#Shortoid) [`Stuboid`](#Stuboid) [`Talkoid`](#Talkoid) [`Termoid`](#Termoid) [`Throwoid`](#Throwoid) [`Topicoid`](#Topicoid) [`Tweakoid`](#Tweakoid)
 
 Addenoid
 --------
@@ -429,7 +429,7 @@ say @menu[0]<salad>;  # 4.5
 
   * [syntax](#syntax) [list](#list) [string](#string)
 
-### `$( )` turn argument(s) into an item
+### [`$( )` turn argument(s) into an item](https://docs.raku.org/routine/item)
 
   * [syntax](#syntax)
 
@@ -1173,6 +1173,15 @@ The `Scheduler` object that handles all scheduling of async jobs.
 
 The sampler logic for making snapshots of the system state. Only available if the `Telemetry` module has been loaded.
 
+Iteroid
+-------
+
+The Iteroid group contains the elements that will iterate over a given set of values.
+
+### [`for` iterate over values](https://docs.raku.org/language/control#for)
+
+  * [syntax](#syntax)
+
 Junctive
 --------
 
@@ -1360,7 +1369,7 @@ Creates a copy of the object on the left side, and mixes in the role from the ri
 Modifoid
 --------
 
-The Modifoid group contains the statement modifiers to indicate conditional execution of the preceding thunk.
+The Modifoid group 
 
 ### [`if` execute thunk if condition is true](https://docs.raku.org/language/control#if)
 
@@ -1368,11 +1377,19 @@ The Modifoid group contains the statement modifiers to indicate conditional exec
 
 Executes the thunk if the condition is true.
 
+```raku
+say "foo" if 42;  # foo
+```
+
 ### [`unless` execute thunk if condition is false](https://docs.raku.org/language/control#unless)
 
   * [syntax](#syntax) [modifier](#modifier) [thunky](#thunky)
 
 Executes the thunk if the condition is false.
+
+```raku
+say "bar" unless 666;
+```
 
 ### [`with` execute thunk set if value is defined, and set topic](https://docs.raku.org/language/control#with_orwith_without)
 
@@ -1380,17 +1397,36 @@ Executes the thunk if the condition is false.
 
 Execute thunk if given expression produces a defined value, sets topic inside thunk.
 
+```raku
+.say with 42;  # 42
+```
+
 ### [`without` execute thunk if value is not defined, and set topic](https://docs.raku.org/language/control#with_orwith_without)
 
   * [syntax](#syntax) [modifier](#modifier) [thunky](#thunky)
 
 Execute thunk if given expression does **not** produce a defined value, sets topic inside thunk.
 
+```raku
+.say without Int;  # (Int)
+```
+
 ### [`when` execute thunk if value smartmatches with the topic](https://docs.raku.org/language/control#when)
 
   * [syntax](#syntax) [modifier](#modifier) [thunky](#thunky) [topic](#topic)
 
 Execute thunk if given expression smartmatches with the topic (`$_`).
+
+```raku
+$_ = 42;
+.say when Int;  # 42
+```
+
+### [`for` execute thunk repeatedly for given value while setting topic](https://docs.raku.org/language/control#for)
+
+  * [syntax](#syntax) [modifier](#modifier) [thunky](#thunky)
+
+Execute thunk with topic set for each of the values given.
 
 Multiplicoid
 ------------

@@ -129,7 +129,7 @@ example of what can be done with the information provided by this
 distribution.
 
 =comment PLEASE DON'T CHANGE ANYTHING BELOW THIS LINE
-=comment Generated on 2025-11-17T00:56:02+01:00 by ./make-rakudoc.raku
+=comment Generated on 2026-01-19T11:34:34+01:00 by ./make-rakudoc.raku
 
 =head2 Raku Element Tags
 
@@ -320,6 +320,7 @@ L<C<Hyperoid>|#Hyperoid>
 L<C<IOoid>|#IOoid>
 L<C<Incremental>|#Incremental>
 L<C<Introspectoid>|#Introspectoid>
+L<C<Iteroid>|#Iteroid>
 L<C<Junctive>|#Junctive>
 L<C<Lexicoid>|#Lexicoid>
 L<C<Mathematicals>|#Mathematicals>
@@ -508,7 +509,7 @@ say @menu[0]<salad>;  # 4.5
 =item alternates: C<« »>
 =item L<syntax|#syntax> L<list|#list> L<string|#string>
 
-=head3 C«$( )» turn argument(s) into an item
+=head3 L<C«$( )» turn argument(s) into an item|https://docs.raku.org/routine/item>
 =item L<syntax|#syntax>
 
 =head3 L<C«item» turn argument(s) into an item|https://docs.raku.org/type/Mu#routine_item>
@@ -1195,6 +1196,13 @@ The C<Scheduler> object that handles all scheduling of async jobs.
 The sampler logic for making snapshots of the system state.  Only
 available if the C<Telemetry> module has been loaded.
 
+=head2 Iteroid
+
+The Iteroid group contains the elements that will iterate over a given set of values.
+
+=head3 L<C«for» iterate over values|https://docs.raku.org/language/control#for>
+=item L<syntax|#syntax>
+
 =head2 Junctive
 
 The Junctive group contains the infix operators and the functions that produce C<Junction>
@@ -1363,36 +1371,56 @@ from the right side into the copy and returns that.
 
 =head2 Modifoid
 
-The Modifoid group contains the statement modifiers to indicate conditional execution
-of the preceding thunk.
+The Modifoid group 
 
 =head3 L<C«if» execute thunk if condition is true|https://docs.raku.org/language/control#if>
 =item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky>
 
 Executes the thunk if the condition is true.
+=begin code :lang<raku>
+say "foo" if 42;  # foo
+=end code
 
 =head3 L<C«unless» execute thunk if condition is false|https://docs.raku.org/language/control#unless>
 =item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky>
 
 Executes the thunk if the condition is false.
+=begin code :lang<raku>
+say "bar" unless 666;
+=end code
 
 =head3 L<C«with» execute thunk set if value is defined, and set topic|https://docs.raku.org/language/control#with_orwith_without>
 =item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky>
 
 Execute thunk if given expression produces a defined value,
 sets topic inside thunk.
+=begin code :lang<raku>
+.say with 42;  # 42
+=end code
 
 =head3 L<C«without» execute thunk if value is not defined, and set topic|https://docs.raku.org/language/control#with_orwith_without>
 =item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky>
 
 Execute thunk if given expression does B<not> produce a defined
 value, sets topic inside thunk.
+=begin code :lang<raku>
+.say without Int;  # (Int)
+=end code
 
 =head3 L<C«when» execute thunk if value smartmatches with the topic|https://docs.raku.org/language/control#when>
 =item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky> L<topic|#topic>
 
 Execute thunk if given expression smartmatches with the topic
 (C<$_>).
+=begin code :lang<raku>
+$_ = 42;
+.say when Int;  # 42
+=end code
+
+=head3 L<C«for» execute thunk repeatedly for given value while setting topic|https://docs.raku.org/language/control#for>
+=item L<syntax|#syntax> L<modifier|#modifier> L<thunky|#thunky>
+
+Execute thunk with topic set for each of the values given.
 
 =head2 Multiplicoid
 
@@ -1842,7 +1870,7 @@ deal to me!
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2025 Elizabeth Mattijsen
+Copyright 2025 - 2026 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

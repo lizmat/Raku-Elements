@@ -71,6 +71,7 @@ https://docs.raku.org/language/quoting#Word_quoting_with_interpolation_and_quote
 $( )
 syntax
 turn argument(s) into an item
+https://docs.raku.org/routine/item
 
 item
 sub method

@@ -3,12 +3,18 @@ syntax modifier thunky
 execute thunk if condition is true
 https://docs.raku.org/language/control#if
 Executes the thunk if the condition is true.
+=begin code :lang<raku>
+say "foo" if 42;  # foo
+=end code
 
 unless
 syntax modifier thunky
 execute thunk if condition is false
 https://docs.raku.org/language/control#unless
 Executes the thunk if the condition is false.
+=begin code :lang<raku>
+say "bar" unless 666;
+=end code
 
 with
 syntax modifier thunky
@@ -16,6 +22,9 @@ execute thunk set if value is defined, and set topic
 https://docs.raku.org/language/control#with_orwith_without
 Execute thunk if given expression produces a defined value,
 sets topic inside thunk.
+=begin code :lang<raku>
+.say with 42;  # 42
+=end code
 
 without
 syntax modifier thunky
@@ -23,6 +32,9 @@ execute thunk if value is not defined, and set topic
 https://docs.raku.org/language/control#with_orwith_without
 Execute thunk if given expression does B<not> produce a defined
 value, sets topic inside thunk.
+=begin code :lang<raku>
+.say without Int;  # (Int)
+=end code
 
 when
 syntax modifier thunky topic
@@ -30,7 +42,13 @@ execute thunk if value smartmatches with the topic
 https://docs.raku.org/language/control#when
 Execute thunk if given expression smartmatches with the topic
 (C<$_>).
+=begin code :lang<raku>
+$_ = 42;
+.say when Int;  # 42
+=end code
 
-
-contains the statement modifiers to indicate conditional execution
-of the preceding thunk.
+for
+syntax modifier thunky
+execute thunk repeatedly for given value while setting topic
+https://docs.raku.org/language/control#for
+Execute thunk with topic set for each of the values given.

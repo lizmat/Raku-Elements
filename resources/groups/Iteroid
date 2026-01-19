@@ -1,0 +1,7 @@
+for
+syntax
+iterate over values
+https://docs.raku.org/language/control#for
+
+
+contains the elements that will iterate over a given set of values.
