@@ -48,8 +48,8 @@
 
 #### Positional
 
-##### AT-POS
 ##### ASSIGN-POS
+##### AT-POS
 ##### BIND-POS
 ##### DELETE-POS
 ##### EXISTS-POS
@@ -57,8 +57,8 @@
 
 #### Associatve
 
-##### AT-KEY
 ##### ASSIGN-KEY
+##### AT-KEY
 ##### BIND-KEY
 ##### DELETE-KEY
 ##### EXISTS-KEY
@@ -90,24 +90,16 @@
 ##### FETCH
 ##### STORE
 
-### Documentation
+#### Documentation
 
-#### WHY
-#### WHEREFOR
+##### WHY
 
-### Introspection
+## Introspection
 
-#### DEFINITE
-#### HOW
-#### REPR
-#### VAR
-#### WHAT
-#### WHERE
-#### WHO
-
-### Implementation Detail
-
-#### BUILD-ALL
-#### FLATTENABLE_HASH
-#### FLATTENABLE_LIST
-#### POPULATE
+### DEFINITE
+### HOW
+### REPR
+### VAR
+### WHAT
+### WHERE
+### WHO
