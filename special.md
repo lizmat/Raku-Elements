@@ -96,10 +96,10 @@
 
 ## Introspection
 
-### DEFINITE
-### HOW
-### REPR
-### VAR
-### WHAT
-### WHERE
-### WHO
+#### DEFINITE
+#### HOW
+#### REPR
+#### VAR
+#### WHAT
+#### WHERE
+#### WHO
