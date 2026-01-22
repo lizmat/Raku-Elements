@@ -11,7 +11,9 @@
 
 ### Command-line argument
 
-#### DOC
+#### DOC BEGIN
+#### DOC CHECK
+#### DOC INIT
 
 ### Blocks
 
@@ -67,7 +69,9 @@
 #### Class
 
 ##### CALL-ME
+##### DESTROY
 ##### FALLBACK
+##### UPGRADE-RAT
 
 #### Instantion
 
@@ -78,7 +82,6 @@
 
 ##### ACCEPTS
 ##### COERCE
-##### UPGRADE-RAT
 ##### WHICH
 
 #### Grammar
@@ -103,3 +106,38 @@
 #### WHAT
 #### WHERE
 #### WHO
+
+## Pragma
+
+#### MONKEY
+#### MONKEY-TYPING
+#### MONKEY-SEE-NO-EVAL
+#### MONKEY-GUTS
+
+## Core Dynamic Variables
+#### @\*ARGS
+#### $\*ARGFILES
+#### $\*COLLATION
+#### $\*DEFAULT-READ-ELEMS
+#### $\*DISTRO
+#### $\*ERR
+#### $\*EXECUTABLE
+#### $\*EXECUTABLE-NAME
+#### &\*EXIT
+#### $\*GROUP
+#### $\*HOME
+#### $\*INIT-INSTANT
+#### $\*IN
+#### $\*KERNEL
+#### $\*OUT
+#### $\*PROGRAM
+#### $\*PROGRAM-NAME
+#### $\*RAKU
+#### $\*RAKUDO_MODULE_DEBUG
+#### $\*REPO
+#### $\*THREAD
+#### $\*TMPDIR
+#### $\*TOLERANCE
+#### $\*TZ
+#### $\*USER
+#### $\*VM
